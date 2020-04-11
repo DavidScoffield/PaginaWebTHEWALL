@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "aside1 box-login aside2"
+        "footer footer footer";
+}

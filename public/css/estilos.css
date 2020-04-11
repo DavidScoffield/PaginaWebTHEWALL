@@ -1,1 +1,52 @@
-@import 'normalize.css';
+body {
+		background-color: black;
+		display: grid;
+		grid-template-areas: "header header header" "aside1 box-login aside2" "footer footer footer";
+}
+
+.aside1 {
+		-ms-grid-row: 2;
+		-ms-grid-column: 1;
+		grid-area: aside1;
+		background-color: red;
+		width: 25vw;
+		height: 75vh;
+}
+
+.aside2 {
+		-ms-grid-row: 2;
+		-ms-grid-column: 3;
+		grid-area: aside2;
+		background-color: #bb198a;
+		width: 25vw;
+		height: 75vh;
+}
+
+.box-login {
+		-ms-grid-row: 2;
+		-ms-grid-column: 2;
+		grid-area: box-login;
+		background-color: #26e20d;
+		width: 50vw;
+		height: 75vh;
+}
+
+.footer {
+		-ms-grid-row: 3;
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-area: footer;
+		background-color: #a8c71c;
+		width: 100vw;
+		height: 10vh;
+}
+
+.header {
+		-ms-grid-row: 1;
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-area: header;
+		background-color: #0066ff;
+		width: 100vw;
+		height: 15vh;
+}
