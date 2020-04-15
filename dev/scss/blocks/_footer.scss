@@ -1,0 +1,74 @@
+@import "../imports/_colors.scss";
+
+.footer {
+    background: rgb(17, 19, 33);
+    background: linear-gradient(
+        187deg,
+        rgba(17, 19, 33, 1) 0%,
+        rgba(0, 0, 14, 1) 87%
+    );
+    border-top: 2px solid $color-bordes;
+    grid-area: footer;
+    width: 100vw;
+    height: 10vh;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .titulo {
+        width: 200px;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-texto;
+
+        p {
+            line-height: 100%;
+            font-family: "Girassol", cursive;
+            text-align: center;
+            padding-bottom: 2px;
+            text-decoration: underline 1px solid $color-texto;
+            font-size: 20px;
+        }
+    }
+
+    .creador {
+        // background-color: palevioletred;
+        border-left: 3px solid $color-bordes;
+        padding: 0;
+        margin: 0;
+        width: 400px;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .nombre {
+            // background-color: red;
+            margin: 0.3rem 0 0.4rem;
+            color: $color-texto;
+            padding: 0.2rem;
+            font-family: "Roboto-Light 300", sans-serif;
+        }
+
+        .iconos {
+            margin: 0;
+            display: flex;
+            align-items: flex-end;
+
+            .facebook,
+            .instagram {
+                margin: 0 1rem;
+
+                i {
+                    font-size: 120%;
+                    color: $color-texto;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

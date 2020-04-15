@@ -1,0 +1,32 @@
+.aside1,
+.aside2 {
+    // background-color: rgb(255, 0, 0);
+    color: white;
+    width: 30vw;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Caveat", cursive;
+    font-size: 3rem;
+
+    .frase {
+        text-align: center;
+    }
+}
+
+.aside1 {
+    grid-area: aside1;
+
+    .frase {
+        margin-left: 2rem;
+    }
+}
+
+.aside2 {
+    grid-area: aside2;
+
+    .frase {
+        margin-right: 2rem;
+    }
+}

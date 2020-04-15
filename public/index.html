@@ -4,55 +4,87 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>THE WALL</title>
+        <!-- LOGO DE LA PAGINA EN EL TITLE -->
         <link rel="icon" href="assets/media/img/icono.ico" />
+
+        <!-- FUENTES DE TEXTO -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+            rel="stylesheet"
+        />
+        <!-- ESTILOS CSS/SCSS -->
+        <link rel="stylesheet" href="css/estilos.css" />
+        <link rel="stylesheet" href="css/normalize.css" />
+
+        <!-- ICONOS -->
         <script
             src="https://kit.fontawesome.com/3f9cdd4385.js"
             crossorigin="anonymous"
         ></script>
-        <link rel="stylesheet" href="css/estilos.css" />
-        <link rel="stylesheet" href="css/normalize.css" />
     </head>
     <body>
         <header class="header">
             <h1 class="titulo">
-                THE WALL <span class="titulo pie">La nueva red social</span>
+                THE WALL <span class="titulo_pie">La nueva red social</span>
             </h1>
         </header>
+
         <div class="aside1">
             <p class="frase">Entérate de lo que tus conocidos publican</p>
         </div>
-        <div class="box-login">
-            <div class="bienvenida">Bienvenido</div>
-            <button id="login">Iniciar Sesion</button>
-            <button id="register">Registrarse</button>
+
+        <div class="center">
+            <div class="box-login">
+                <div class="bienvenida">Bienvenido a THE WALL</div>
+                <button id="login">Iniciar Sesion</button>
+                <button id="register">Registrarse</button>
+            </div>
         </div>
+
         <div class="aside2">
             <p class="frase">Busca y sigue a quien quieras</p>
         </div>
 
         <footer class="footer">
             <div class="titulo">
-                <p>Diseñadores</p>
+                <p>Diseñadores:</p>
             </div>
             <div class="creador">
                 <p class="nombre">Scoffield David</p>
-                <div class="mail">
-                    <i class="fas fa-at"></i>
-                </div>
-                <div class="instagram">
-                    <i class="fab fa-instagram-square"></i>
-                </div>
-
-                <div class="creador">
-                    <p class="nombre">Troncoso Luis Valentin</p>
-                    <div class="mail">
-                        <i class="fas fa-at"></i>
+                <div class="iconos">
+                    <div class="facebook">
+                        <i
+                            id="facebook__david"
+                            class="fab fa-facebook-square"
+                        ></i>
                     </div>
                     <div class="instagram">
-                        <i class="fab fa-instagram-square"></i>
+                        <i
+                            id="instagram__david"
+                            class="fab fa-instagram-square"
+                        ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="creador">
+                <p class="nombre">Troncoso Luis Valentin</p>
+                <div class="iconos">
+                    <div class="facebook">
+                        <i
+                            id="facebook_luis"
+                            class="fab fa-facebook-square"
+                        ></i>
+                    </div>
+                    <div class="instagram">
+                        <i
+                            id="instagram__luis"
+                            class="fab fa-instagram-square"
+                        ></i>
                     </div>
                 </div>
             </div>
         </footer>
+
+        <script src="js/index.js"></script>
     </body>
 </html>

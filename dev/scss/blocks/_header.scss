@@ -1,0 +1,24 @@
+.header {
+    grid-area: header;
+    width: 100vw;
+    height: 15vh;
+
+    .titulo {
+        text-align: center;
+        color: white;
+        font-family: "Amatic SC", cursive;
+        font-size: 11vh;
+        padding: 0;
+        letter-spacing: 5px;
+        margin: 0.5rem 1rem;
+        transition: transform 1s;
+
+        span {
+            font-size: 7vh;
+        }
+    }
+
+    &:hover .titulo {
+        transform: scale(1.5, 1.3);
+    }
+}

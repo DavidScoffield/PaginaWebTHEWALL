@@ -1,44 +1,156 @@
 body {
-		background-color: black;
+		background: #404040;
+		background: radial-gradient(circle, #404040 0%, #020024 100%);
 		display: grid;
-		grid-template-areas: "header header header" "aside1 box-login aside2" "footer footer footer";
+		grid-template-areas: "header header header" "aside1 center aside2" "footer footer footer";
+}
+
+.aside1,
+.aside2 {
+		color: white;
+		width: 30vw;
+		height: 75vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: "Caveat", cursive;
+		font-size: 3rem;
+}
+.aside1 .frase,
+.aside2 .frase {
+		text-align: center;
 }
 
 .aside1 {
 		-ms-grid-row: 2;
 		-ms-grid-column: 1;
 		grid-area: aside1;
-		background-color: red;
-		width: 25vw;
-		height: 75vh;
+}
+.aside1 .frase {
+		margin-left: 2rem;
 }
 
 .aside2 {
 		-ms-grid-row: 2;
 		-ms-grid-column: 3;
 		grid-area: aside2;
-		background-color: #bb198a;
-		width: 25vw;
-		height: 75vh;
+}
+.aside2 .frase {
+		margin-right: 2rem;
 }
 
-.box-login {
+.center {
 		-ms-grid-row: 2;
 		-ms-grid-column: 2;
-		grid-area: box-login;
-		background-color: #26e20d;
-		width: 50vw;
+		grid-area: center;
+		width: 40vw;
 		height: 75vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+.center .box-login {
+		background-color: rgba(255, 255, 255, 0.822);
+		width: 80%;
+		height: 85%;
+		border-radius: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		border: 6px solid #000022;
+		font-family: "Merriweather", serif;
+}
+.center .box-login .bienvenida {
+		padding: 1.5rem;
+		font-size: 1.6rem;
+}
+.center .box-login .bienvenida::first-letter {
+		font-size: 1.5em;
+}
+.center .box-login button {
+		background-color: white;
+		color: #000022;
+		border: 3px solid #000022;
+		border-radius: 30px;
+		width: 60%;
+		height: auto;
+		padding: 1.2rem;
+		margin-top: -2rem;
+		text-decoration: none;
+		cursor: pointer;
+		font-size: 1.2em;
+		transition: background-color 0.5s, transform 0.5s;
+}
+.center .box-login button:hover {
+		background-color: rgba(6, 6, 112, 0.664);
+		color: white;
+		transform: scale(1.1, 1.1);
 }
 
 .footer {
 		-ms-grid-row: 3;
 		-ms-grid-column: 1;
 		-ms-grid-column-span: 3;
+		background: #111321;
+		background: linear-gradient(187deg, #111321 0%, #00000e 87%);
+		border-top: 2px solid #000022;
 		grid-area: footer;
-		background-color: #a8c71c;
 		width: 100vw;
 		height: 10vh;
+		min-height: 100%;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+}
+.footer .titulo {
+		width: 200px;
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #838383;
+}
+.footer .titulo p {
+		line-height: 100%;
+		font-family: "Girassol", cursive;
+		text-align: center;
+		padding-bottom: 2px;
+		-webkit-text-decoration: underline 1px solid #838383;
+		        text-decoration: underline 1px solid #838383;
+		font-size: 20px;
+}
+.footer .creador {
+		border-left: 3px solid #000022;
+		padding: 0;
+		margin: 0;
+		width: 400px;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+}
+.footer .creador .nombre {
+		margin: 0.3rem 0 0.4rem;
+		color: #838383;
+		padding: 0.2rem;
+		font-family: "Roboto-Light 300", sans-serif;
+}
+.footer .creador .iconos {
+		margin: 0;
+		display: flex;
+		align-items: flex-end;
+}
+.footer .creador .iconos .facebook,
+.footer .creador .iconos .instagram {
+		margin: 0 1rem;
+}
+.footer .creador .iconos .facebook i,
+.footer .creador .iconos .instagram i {
+		font-size: 120%;
+		color: #838383;
+		cursor: pointer;
 }
 
 .header {
@@ -46,7 +158,22 @@ body {
 		-ms-grid-column: 1;
 		-ms-grid-column-span: 3;
 		grid-area: header;
-		background-color: #0066ff;
 		width: 100vw;
 		height: 15vh;
+}
+.header .titulo {
+		text-align: center;
+		color: white;
+		font-family: "Amatic SC", cursive;
+		font-size: 11vh;
+		padding: 0;
+		letter-spacing: 5px;
+		margin: 0.5rem 1rem;
+		transition: transform 1s;
+}
+.header .titulo span {
+		font-size: 7vh;
+}
+.header:hover .titulo {
+		transform: scale(1.5, 1.3);
 }
