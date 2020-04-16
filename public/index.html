@@ -9,7 +9,7 @@
 
         <!-- FUENTES DE TEXTO -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@1,700&family=Poppins:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
             rel="stylesheet"
         />
         <!-- ESTILOS CSS/SCSS -->
@@ -59,18 +59,26 @@
 
                 <form class="form">
                     <div class="containers">
-                        <i class="fas fa-envelope"></i>
-                        <label for="email">Correo electrónico</label>
-                        <input
-                            type="email"
-                            class="input"
-                            name="email"
-                            id="register_email"
-                        />
+                        <div class="i">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <label for="email">Correo electrónico</label>
+                            <input
+                                type="email"
+                                class="input"
+                                name="email"
+                                id="register_email"
+                            />
+                        </div>
                     </div>
-                    <div class="container_dual">
-                        <div class="containers">
+
+                    <div class="containers">
+                        <div class="i">
                             <i class="fas fa-signature"></i>
+                        </div>
+                        <div>
                             <label for="first-name">Nombre</label>
                             <input
                                 class="input"
@@ -79,8 +87,12 @@
                                 id="register_firstName"
                             />
                         </div>
-                        <div class="containers">
+                    </div>
+                    <div class="containers">
+                        <div class="i">
                             <i class="fas fa-signature"></i>
+                        </div>
+                        <div>
                             <label for="last-name">Apellido</label>
                             <input
                                 class="input"
@@ -90,19 +102,27 @@
                             />
                         </div>
                     </div>
+
                     <div class="containers">
-                        <i class="fas fa-user"></i>
-                        <label for="user">Nombre usuario</label>
-                        <input
-                            type="text"
-                            class="input"
-                            name="user"
-                            id="register_user"
-                        />
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <label for="user">Nombre usuario</label>
+                            <input
+                                type="text"
+                                class="input"
+                                name="user"
+                                id="register_user"
+                            />
+                        </div>
                     </div>
-                    <div class="container_dual">
-                        <div class="containers">
+
+                    <div class="containers">
+                        <div class="i">
                             <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
                             <label for="password">Contraseña</label>
                             <input
                                 class="input"
@@ -111,8 +131,12 @@
                                 id="register_password"
                             />
                         </div>
-                        <div class="containers">
+                    </div>
+                    <div class="containers">
+                        <div class="i">
                             <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
                             <label for="repeatPassword"
                                 >Repita la contraseña</label
                             >
@@ -124,22 +148,28 @@
                             />
                         </div>
                     </div>
-                    <div class="containers">
-                        <label for="img_profile">Foto de perfil</label>
-                        <input
-                            class="input"
-                            type="file"
-                            name="img_profile"
-                            id="register_imgProfile"
-                        />
+
+                    <div class="">
+                        <div>
+                            <label for="img_profile">Foto de perfil</label>
+                            <input
+                                class=""
+                                type="file"
+                                name="img_profile"
+                                id="register_imgProfile"
+                                accept="image/png, .jpeg, .jpg, image/gif"
+                            />
+                        </div>
                     </div>
-                    <div class="container_bottons">
+                    <div class="container_botton">
                         <input
                             type="submit"
-                            name="btn_submit"
+                            name="btn-submit"
                             id="btn_submit"
+                            value="Enviar"
+                            class="btn"
                         />
-                        <input type="reset" />
+                        <input type="reset" value="Reset" class="btn" />
                     </div>
                 </form>
 

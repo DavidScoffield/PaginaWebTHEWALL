@@ -2,6 +2,7 @@ const btnAbrir= document.getElementById('register');
 const btnCerrar= document.getElementById('close');
 const modal= document.getElementById('bg-modal');
 const cambiarRegister= document.getElementById('cambiar_opcion_register');
+const inputs= document.querySelectorAll('.input');
 // const cambiarLogIn= document.getElementById('');
 
 
@@ -22,4 +23,23 @@ window.addEventListener('click', (e)=>{
     } 
 });
 
+
+// agrega animaciones a los items de los formularios
+
+const focusFunct= (e) => {
+    let parent = e.target.parentNode.parentNode;
+    parent.classList.add('focus');
+};
+
+const blurFunct= (e) => {
+    let parent = e.target.parentNode.parentNode;
+    if(e.target.value == ''){
+        parent.classList.remove('focus');
+    }
+};
+
+inputs.forEach(input => {
+    input.addEventListener('focus', (e)=>focusFunct(e));
+    input.addEventListener('blur', (e)=>blurFunct(e));
+});
 
