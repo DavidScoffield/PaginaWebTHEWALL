@@ -45,6 +45,110 @@
             <p class="frase">Busca y sigue a quien quieras</p>
         </div>
 
+        <div class="bg-modal" id="bg-modal">
+            <div class="window_modal" id="window-modal">
+                <div class="close" id="close">+</div>
+
+                <div class="encabezado">
+                    <img
+                        src="assets/media/img/logo.png"
+                        alt="Logo de la pagina, THE WALL la nueva red social"
+                    />
+                    <div class="titulo">Registrarse</div>
+                </div>
+
+                <form class="form">
+                    <div class="containers">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email">Correo electrónico</label>
+                        <input
+                            type="email"
+                            class="input"
+                            name="email"
+                            id="register_email"
+                        />
+                    </div>
+                    <div class="container_dual">
+                        <div class="containers">
+                            <i class="fas fa-signature"></i>
+                            <label for="first-name">Nombre</label>
+                            <input
+                                class="input"
+                                type="text"
+                                name="first-name"
+                                id="register_firstName"
+                            />
+                        </div>
+                        <div class="containers">
+                            <i class="fas fa-signature"></i>
+                            <label for="last-name">Apellido</label>
+                            <input
+                                class="input"
+                                type="text"
+                                name="last-name"
+                                id="register_lastName"
+                            />
+                        </div>
+                    </div>
+                    <div class="containers">
+                        <i class="fas fa-user"></i>
+                        <label for="user">Nombre usuario</label>
+                        <input
+                            type="text"
+                            class="input"
+                            name="user"
+                            id="register_user"
+                        />
+                    </div>
+                    <div class="container_dual">
+                        <div class="containers">
+                            <i class="fas fa-lock"></i>
+                            <label for="password">Contraseña</label>
+                            <input
+                                class="input"
+                                type="password"
+                                name="password"
+                                id="register_password"
+                            />
+                        </div>
+                        <div class="containers">
+                            <i class="fas fa-lock"></i>
+                            <label for="repeatPassword"
+                                >Repita la contraseña</label
+                            >
+                            <input
+                                class="input"
+                                type="password"
+                                name="repeatPassword"
+                                id="register_RepeatPassword"
+                            />
+                        </div>
+                    </div>
+                    <div class="containers">
+                        <label for="img_profile">Foto de perfil</label>
+                        <input
+                            class="input"
+                            type="file"
+                            name="img_profile"
+                            id="register_imgProfile"
+                        />
+                    </div>
+                    <div class="container_bottons">
+                        <input
+                            type="submit"
+                            name="btn_submit"
+                            id="btn_submit"
+                        />
+                        <input type="reset" />
+                    </div>
+                </form>
+
+                <div class="cambiar_opcion" id="cambiar_opcion_register">
+                    ¿Ya estás registrado? Iniciar Sesión
+                </div>
+            </div>
+        </div>
+
         <footer class="footer">
             <div class="titulo">
                 <p>Diseñadores:</p>
@@ -86,5 +190,6 @@
         </footer>
 
         <script src="js/index.js"></script>
+        <script src="js/_ventana-modal.js"></script>
     </body>
 </html>

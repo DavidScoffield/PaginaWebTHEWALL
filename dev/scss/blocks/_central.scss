@@ -2,7 +2,6 @@
 
 .center {
     grid-area: center;
-    // background-color: rgb(38, 226, 13);
     width: 40vw;
     height: 75vh;
     display: flex;
@@ -20,23 +19,28 @@
         align-items: center;
         border: 6px solid $color-bordes;
         font-family: "Merriweather", serif;
+        box-shadow: 15px 15px 50px $color-bordes;
 
         .bienvenida {
             padding: 1.5rem;
-            font-size: 1.6rem;
+            font-size: 2vw;
+            transition: 1s transform;
 
             &::first-letter {
                 font-size: 1.5em;
             }
         }
 
+        &:hover .bienvenida {
+            transform: scale(1.1);
+        }
+
         button {
             background-color: white;
-            //  rgba(6, 6, 112, 0.664);
             color: $color-bordes;
             border: 3px solid $color-bordes;
             border-radius: 30px;
-            width: 60%;
+            width: 25vw;
             height: auto;
             padding: 1.2rem;
             margin-top: -2rem;

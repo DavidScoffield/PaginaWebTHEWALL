@@ -3,8 +3,8 @@ const facebookLuis= document.getElementById('facebook_luis')
 const igDavid= document.getElementById('instagram__david');
 const facebookDavid= document.getElementById('facebook__david');
 
-const irRedSocial = (ulr) =>{ 
-    window.open(ulr);
+const irRedSocial = (url) =>{ 
+    window.open(url);
     // console.log(ulr)
 };
 
@@ -24,4 +24,4 @@ facebookDavid.addEventListener('click', ()=>{
 facebookLuis.addEventListener('click', ()=>{
     irRedSocial('https://es-es.facebook.com/luis.troncoso.92')   
 });
-
+ 
