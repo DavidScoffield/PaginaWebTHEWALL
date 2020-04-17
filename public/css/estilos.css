@@ -322,12 +322,12 @@ body {
 .bg-modal .window_modal .form .containers.focus::after, .bg-modal .window_modal .form .containers.focus::before {
 		width: 50%;
 }
-.bg-modal .window_modal .form .container_botton {
+.bg-modal .window_modal .form .container-dual {
 		display: grid;
 		grid-template-columns: 50% 50%;
 		justify-content: center;
 }
-.bg-modal .window_modal .form .container_botton .btn {
+.bg-modal .window_modal .form .container-dual .btn {
 		display: flex;
 		text-align: center;
 		font-size: 1.6vw;
@@ -348,8 +348,38 @@ body {
 		background-size: 200%;
 		box-shadow: 0 0 10px 0 #000030;
 }
-.bg-modal .window_modal .form .container_botton .btn:hover {
+.bg-modal .window_modal .form .container-dual .btn:hover {
 		background-position: right;
+}
+.bg-modal .window_modal .form .container-imagen-prev {
+		display: flex;
+		width: 100%;
+		margin: 4vh 0;
+		padding: 0.6rem 0;
+		position: relative;
+		justify-content: center;
+		align-items: center;
+}
+.bg-modal .window_modal .form .container-imagen-prev i {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 7vh;
+		width: 70%;
+		font-size: 170%;
+		background-image: radial-gradient(circle, white, #dfdfdf);
+		border-radius: 10px;
+		border: 5px dashed #000030;
+		color: #000030;
+		z-index: 100;
+		cursor: pointer;
+}
+.bg-modal .window_modal .form .container-imagen-prev i:hover {
+		background-image: radial-gradient(circle, #eeeeee, #c2c2c2);
+}
+.bg-modal .window_modal .form .container-imagen-prev .inputImg {
+		opacity: 0;
 }
 .bg-modal .window_modal .cambiar_opcion {
 		color: #0751b1;
@@ -363,6 +393,13 @@ body {
 .bg-modal .window_modal .cambiar_opcion:hover {
 		color: rgba(0, 124, 206, 0.904);
 }
+.bg-modal .window_modal.LogIn {
+		height: 60%;
+}
+.bg-modal .window_modal.LogIn .container-dual {
+		margin-top: 10%;
+}
+
 @keyframes modal {
 		from {
 				top: -100vh;

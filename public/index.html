@@ -45,9 +45,72 @@
             <p class="frase">Busca y sigue a quien quieras</p>
         </div>
 
-        <div class="bg-modal" id="bg-modal">
-            <div class="window_modal" id="window-modal">
-                <div class="close" id="close">+</div>
+        <div class="bg-modal" id="bg-modal-LogIn">
+            <div class="window_modal LogIn" id="window-modal">
+                <div class="close" id="closeLogIn">+</div>
+
+                <div class="encabezado">
+                    <img
+                        src="assets/media/img/logo.png"
+                        alt="Logo de la pagina, THE WALL la nueva red social"
+                    />
+                    <div class="titulo">Iniciar sesion</div>
+                </div>
+
+                <form class="form">
+                    <div class="containers">
+                        <div class="i">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <label for="user">Nombre usuario</label>
+                            <input
+                                type="text"
+                                class="input"
+                                name="user"
+                                id="register_user"
+                            />
+                        </div>
+                    </div>
+                    <div class="containers">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <label for="password">Contraseña</label>
+                            <input
+                                class="input"
+                                type="password"
+                                name="password"
+                                id="register_password"
+                            />
+                        </div>
+                    </div>
+                    <div class="container-dual">
+                        <input
+                            type="submit"
+                            name="btn-submit"
+                            id="btn_submitLogIn"
+                            value="Enviar"
+                            class="btn"
+                        />
+                        <input
+                            type="reset"
+                            value="Vaciar"
+                            class="btn"
+                            id="resetLogIn"
+                        />
+                    </div>
+                </form>
+                <div class="cambiar_opcion" id="cambiar_opcion_LogIn">
+                    ¿No tenes cuenta? Registrarse
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-modal" id="bg-modal-register">
+            <div class="window_modal" id="window-modal-register">
+                <div class="close" id="closeRegister">+</div>
 
                 <div class="encabezado">
                     <img
@@ -149,27 +212,31 @@
                         </div>
                     </div>
 
-                    <div class="">
-                        <div>
-                            <label for="img_profile">Foto de perfil</label>
-                            <input
-                                class=""
-                                type="file"
-                                name="img_profile"
-                                id="register_imgProfile"
-                                accept="image/png, .jpeg, .jpg, image/gif"
-                            />
-                        </div>
+                    <div class="container-imagen-prev">
+                        <i class="fas fa-camera" id="iconoSubirImagen"></i>
+
+                        <input
+                            class="inputImg"
+                            type="file"
+                            name="img_profile"
+                            accept="image/png, .jpeg, .jpg, image/gif"
+                            id="inputImg"
+                        />
                     </div>
-                    <div class="container_botton">
+                    <div class="container-dual">
                         <input
                             type="submit"
                             name="btn-submit"
-                            id="btn_submit"
+                            id="btn_submitRegister"
                             value="Enviar"
                             class="btn"
                         />
-                        <input type="reset" value="Reset" class="btn" />
+                        <input
+                            type="reset"
+                            value="Vaciar"
+                            class="btn"
+                            id="resetRegister"
+                        />
                     </div>
                 </form>
 
@@ -220,6 +287,7 @@
         </footer>
 
         <script src="js/index.js"></script>
-        <script src="js/_ventana-modal.js"></script>
+        <script src="js/validaciones.js"></script>
+        <script src="js/ventana-modal.js"></script>
     </body>
 </html>
