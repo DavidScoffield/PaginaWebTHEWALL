@@ -1,5 +1,9 @@
 @import "../imports/_colors.scss";
 
+#register_email:invalid {
+    box-shadow: none;
+}
+
 .bg-modal {
     background-color: rgb(0, 0, 0, 0.7);
     width: 100vw;
@@ -156,6 +160,32 @@
                 &.focus::before {
                     width: 50%;
                 }
+                /* ---estilos para cuando es invalido el contenido del campo */
+                &.error {
+                    box-shadow: 0 0 10px 1px red;
+
+                    .i i {
+                        color: rgba(216, 0, 0, 0.842);
+                    }
+                }
+                &.focus.error div label {
+                    color: rgba(216, 0, 0, 0.842);
+                }
+                /* ---/ */
+
+                /* ---estilos para cuando es valido el contenido del campo */
+
+                &.valid {
+                    box-shadow: 0 0 10px 1px rgb(0, 179, 15);
+
+                    .i i {
+                        color: rgb(0, 199, 17);
+                    }
+                }
+                &.focus.valid div label {
+                    color: rgb(0, 199, 17);
+                }
+                /* ---/ */
             }
 
             .container-dual {
@@ -204,7 +234,7 @@
                 justify-content: center;
                 align-items: center;
 
-                & i {
+                i {
                     position: absolute;
                     display: flex;
                     justify-content: center;
@@ -229,6 +259,22 @@
                             rgb(238, 238, 238),
                             rgb(194, 194, 194)
                         );
+                    }
+                }
+
+                &.error {
+                    i {
+                        box-shadow: 0 0 10px 1px red;
+                        color: rgba(216, 0, 0, 0.842);
+                        border: 5px dashed rgba(216, 0, 0, 0.842);
+                    }
+                }
+
+                &.valid {
+                    i {
+                        box-shadow: 0 0 10px 1px rgb(0, 199, 17);
+                        color: rgb(0, 199, 17);
+                        border: 5px dashed rgb(0, 199, 17);
                     }
                 }
 

@@ -23,16 +23,19 @@
         ></script>
     </head>
     <body>
+        <!-- titulo  -->
         <header class="header">
             <h1 class="titulo">
                 THE WALL <span class="titulo_pie">La nueva red social</span>
             </h1>
         </header>
 
+        <!-- frase lateral izquierda-->
         <div class="aside1">
             <p class="frase">Entérate de lo que tus conocidos publican</p>
         </div>
 
+        <!-- parte central de la pagina donde se elige si iniciar sesion o registrarse -->
         <div class="center">
             <div class="box-login">
                 <div class="bienvenida">Bienvenido a THE WALL</div>
@@ -41,10 +44,12 @@
             </div>
         </div>
 
+        <!-- frase lateral derecha -->
         <div class="aside2">
             <p class="frase">Busca y sigue a quien quieras</p>
         </div>
 
+        <!-- ventana modal de inicio de sesion  -->
         <div class="bg-modal" id="bg-modal-LogIn">
             <div class="window_modal LogIn" id="window-modal">
                 <div class="close" id="closeLogIn">+</div>
@@ -57,7 +62,7 @@
                     <div class="titulo">Iniciar sesion</div>
                 </div>
 
-                <form class="form">
+                <form class="form" id="formulario_logIn">
                     <div class="containers">
                         <div class="i">
                             <i class="fas fa-user"></i>
@@ -68,7 +73,7 @@
                                 type="text"
                                 class="input"
                                 name="user"
-                                id="register_user"
+                                id="login_user"
                             />
                         </div>
                     </div>
@@ -82,7 +87,7 @@
                                 class="input"
                                 type="password"
                                 name="password"
-                                id="register_password"
+                                id="login_password"
                             />
                         </div>
                     </div>
@@ -108,6 +113,7 @@
             </div>
         </div>
 
+        <!-- modal de registro -->
         <div class="bg-modal" id="bg-modal-register">
             <div class="window_modal" id="window-modal-register">
                 <div class="close" id="closeRegister">+</div>
@@ -120,7 +126,7 @@
                     <div class="titulo">Registrarse</div>
                 </div>
 
-                <form class="form">
+                <form class="form" id="formulario_registro">
                     <div class="containers">
                         <div class="i">
                             <i class="fas fa-envelope"></i>
@@ -133,6 +139,7 @@
                                 class="input"
                                 name="email"
                                 id="register_email"
+                                novalidate
                             />
                         </div>
                     </div>
@@ -219,7 +226,6 @@
                             class="inputImg"
                             type="file"
                             name="img_profile"
-                            accept="image/png, .jpeg, .jpg, image/gif"
                             id="inputImg"
                         />
                     </div>
@@ -246,6 +252,7 @@
             </div>
         </div>
 
+        <!-- footer -->
         <footer class="footer">
             <div class="titulo">
                 <p>Diseñadores:</p>
@@ -286,6 +293,7 @@
             </div>
         </footer>
 
+        <!-- archivos javascrip -->
         <script src="js/index.js"></script>
         <script src="js/validaciones.js"></script>
         <script src="js/ventana-modal.js"></script>

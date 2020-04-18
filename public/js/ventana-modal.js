@@ -61,10 +61,20 @@ inputs.forEach(input => {
 const resetarFocus= (modal)=>{
     let containers= modal.querySelectorAll('.containers');
     containers.forEach(element=>{
+        
         if(element.classList.contains('focus')){
             element.classList.remove('focus');
         }
+        if(element.classList.contains('error')){
+            element.classList.remove('error');
+        }
+        if(element.classList.contains('valid')){
+            element.classList.remove('valid');
+        }       
     }); 
+    let img= document.getElementById('inputImg').parentNode
+    if(img.classList.contains('valid')) img.classList.remove('valid');
+    if(img.classList.contains('error')) img.classList.remove('error');
 }
 
 //eventos para la modal LogIn

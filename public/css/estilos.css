@@ -183,6 +183,10 @@ body {
 		transform: scale(1.5, 1.3);
 }
 
+#register_email:invalid {
+		box-shadow: none;
+}
+
 .bg-modal {
 		background-color: rgba(0, 0, 0, 0.7);
 		width: 100vw;
@@ -257,6 +261,10 @@ body {
 		border-bottom: 2px solid #969696;
 		margin: 0.4rem 1rem;
 		padding: 0.6rem 0;
+		/* ---estilos para cuando es invalido el contenido del campo */
+		/* ---/ */
+		/* ---estilos para cuando es valido el contenido del campo */
+		/* ---/ */
 }
 .bg-modal .window_modal .form .containers .i {
 		display: flex;
@@ -322,6 +330,24 @@ body {
 .bg-modal .window_modal .form .containers.focus::after, .bg-modal .window_modal .form .containers.focus::before {
 		width: 50%;
 }
+.bg-modal .window_modal .form .containers.error {
+		box-shadow: 0 0 10px 1px red;
+}
+.bg-modal .window_modal .form .containers.error .i i {
+		color: rgba(216, 0, 0, 0.842);
+}
+.bg-modal .window_modal .form .containers.focus.error div label {
+		color: rgba(216, 0, 0, 0.842);
+}
+.bg-modal .window_modal .form .containers.valid {
+		box-shadow: 0 0 10px 1px #00b30f;
+}
+.bg-modal .window_modal .form .containers.valid .i i {
+		color: #00c711;
+}
+.bg-modal .window_modal .form .containers.focus.valid div label {
+		color: #00c711;
+}
 .bg-modal .window_modal .form .container-dual {
 		display: grid;
 		grid-template-columns: 50% 50%;
@@ -377,6 +403,16 @@ body {
 }
 .bg-modal .window_modal .form .container-imagen-prev i:hover {
 		background-image: radial-gradient(circle, #eeeeee, #c2c2c2);
+}
+.bg-modal .window_modal .form .container-imagen-prev.error i {
+		box-shadow: 0 0 10px 1px red;
+		color: rgba(216, 0, 0, 0.842);
+		border: 5px dashed rgba(216, 0, 0, 0.842);
+}
+.bg-modal .window_modal .form .container-imagen-prev.valid i {
+		box-shadow: 0 0 10px 1px #00c711;
+		color: #00c711;
+		border: 5px dashed #00c711;
 }
 .bg-modal .window_modal .form .container-imagen-prev .inputImg {
 		opacity: 0;
