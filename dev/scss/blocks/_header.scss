@@ -1,7 +1,7 @@
 .header {
     grid-area: header;
-    width: 100vw;
-    height: 15vh;
+    width: 99vw;
+    height: 14vh;
 
     .titulo {
         text-align: center;
@@ -11,7 +11,7 @@
         padding: 0;
         letter-spacing: 5px;
         margin: 0.5rem 1rem;
-        transition: transform 1s;
+        transition: 1s all;
 
         span {
             font-size: 7vh;
@@ -19,6 +19,7 @@
     }
 
     &:hover .titulo {
-        transform: scale(1.5, 1.3);
+        transform: scale(1, 1.3);
+        letter-spacing: 1.1rem;
     }
 }
