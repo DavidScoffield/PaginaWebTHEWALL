@@ -57,7 +57,7 @@ inputs.forEach(input => {
     input.addEventListener('blur', (e)=>blurFunct(e));
 });
 
-// si se apreta sobre reset el focus de campos se debe eliminar
+// si se apreta sobre reset la clase focus, error y valid de los campos se deben eliminar
 const resetarFocus= (modal)=>{
     let containers= modal.querySelectorAll('.containers');
     containers.forEach(element=>{
@@ -92,9 +92,9 @@ cambiarRegister.addEventListener('click', ()=> intercambiarModal(modalRegister, 
 resetRegister.addEventListener('click', ()=> resetarFocus(modalRegister));
 document.getElementById('iconoSubirImagen').addEventListener('click', ()=>{
     document.getElementById('inputImg').click();
-    // console.log(document.getElementById('inputImg'));
-    
-})
+ })
+
+
 
 
 

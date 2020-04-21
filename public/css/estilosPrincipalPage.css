@@ -1,0 +1,92 @@
+.footer {
+  background: #111321;
+  background: linear-gradient(187deg, #111321 0%, #00000e 87%);
+  border-top: 2px solid #000030;
+  grid-area: footer;
+  width: 100vw;
+  height: 10vh;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer .titulo {
+  width: 200px;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #838383;
+}
+
+.footer .titulo p {
+  line-height: 100%;
+  font-family: "Girassol", cursive;
+  text-align: center;
+  padding-bottom: 2px;
+  -webkit-text-decoration: underline 1px solid #838383;
+          text-decoration: underline 1px solid #838383;
+  font-size: 20px;
+}
+
+.footer .creador {
+  border-left: 3px solid #000030;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .creador .nombre {
+  margin: 0.3rem 0 0.4rem;
+  color: #838383;
+  padding: 0.2rem;
+  font-family: "Roboto-Light 300", sans-serif;
+}
+
+.footer .creador .iconos {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.footer .creador .iconos .facebook,
+.footer .creador .iconos .instagram {
+  margin: 0 1rem;
+}
+
+.footer .creador .iconos .facebook i,
+.footer .creador .iconos .instagram i {
+  font-size: 120%;
+  color: #838383;
+  cursor: pointer;
+}
+/*# sourceMappingURL=estilosPrincipalPage.css.map */
