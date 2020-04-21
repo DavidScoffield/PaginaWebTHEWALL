@@ -1,5 +1,4 @@
 body {
-  background: #404040;
   background: radial-gradient(circle, #404040 0%, #020024 100%);
   display: -ms-grid;
   display: grid;
@@ -134,16 +133,14 @@ body {
 }
 
 .footer {
-  background: #111321;
   background: linear-gradient(187deg, #111321 0%, #00000e 87%);
   border-top: 2px solid #000030;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
-  width: 100vw;
-  height: 10vh;
-  min-height: 100%;
+  max-width: 100vw;
+  min-height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -7,7 +7,6 @@ body {
 
     display: grid;
     grid-template-areas:
-        "header header header"
-        "aside1 center aside2"
+        "buscador central menu"
         "footer footer footer";
 }

@@ -1,11 +1,55 @@
+body {
+  background: radial-gradient(circle, #404040 0%, #020024 100%);
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "buscador central menu" "footer footer footer";
+}
+
+.buscador {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: buscador;
+  background-color: red;
+  width: 30vw;
+  position: fixed;
+  height: 100%;
+  left: 0;
+}
+
+.central {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: central;
+  background-color: blue;
+  width: 39vw;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.central .contenido {
+  margin: 1rem;
+}
+
+.menu {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: menu;
+  background-color: green;
+  width: 30vw;
+  height: 100%;
+  position: fixed;
+  right: 0;
+}
+
 .footer {
-  background: #111321;
   background: linear-gradient(187deg, #111321 0%, #00000e 87%);
   border-top: 2px solid #000030;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: footer;
-  width: 100vw;
-  height: 10vh;
-  min-height: 100%;
+  max-width: 100vw;
+  min-height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,5 +132,9 @@
   font-size: 120%;
   color: #838383;
   cursor: pointer;
+}
+
+.footer {
+  z-index: 1000;
 }
 /*# sourceMappingURL=estilosPrincipalPage.css.map */

@@ -1,0 +1,11 @@
+.central {
+    grid-area: central;
+    background-color: blue;
+    width: 39vw;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    .contenido {
+        margin: 1rem;
+    }
+}
