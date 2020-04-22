@@ -28,8 +28,8 @@
         position: relative;
         text-align: center;
         display: flex;
-        animation: modal 1s ease forwards;
         flex-direction: column;
+        animation: modal 1s ease forwards;
 
         .close {
             position: absolute;
@@ -202,7 +202,7 @@
                     font-weight: 700;
                     line-height: 0;
                     width: 90%;
-                    height: 3.5vw;
+                    height: 50px;
                     margin: 0.5rem;
                     padding: 0.8rem;
                     border: 1px solid $color-bordes;
@@ -228,7 +228,7 @@
             .container-imagen-prev {
                 display: flex;
                 width: 100%;
-                margin: 4vh 0;
+                margin: 16px 0;
                 padding: 0.6rem 0;
                 position: relative;
                 justify-content: center;
@@ -239,7 +239,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    height: 7vh;
+                    height: 40px;
                     width: 70%;
                     font-size: 170%;
                     background-image: radial-gradient(
@@ -290,7 +290,7 @@
             bottom: 1em;
             right: 1.5em;
             font-family: "Roboto", sans-serif;
-            font-size: 0.9vw;
+            font-size: 14px;
             cursor: pointer;
 
             &:hover {
@@ -314,5 +314,22 @@
     }
     to {
         top: 0;
+    }
+}
+
+@include tablet {
+    .bg-modal .window_modal {
+        width: 70%;
+        height: 60%;
+
+        .form .container-dual .btn {
+            height: 40px;
+        }
+        &.LogIn {
+            height: 30%;
+        }
+        .cambiar_opcion {
+            font-size: 12px;
+        }
     }
 }

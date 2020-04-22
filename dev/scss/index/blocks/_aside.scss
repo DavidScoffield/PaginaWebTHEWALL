@@ -1,6 +1,5 @@
 .aside1,
 .aside2 {
-    // background-color: rgb(255, 0, 0);
     color: white;
     width: 30vw;
     height: 75vh;
@@ -28,5 +27,20 @@
 
     .frase {
         margin-right: 2rem;
+    }
+}
+
+@include tablet {
+    .aside1,
+    .aside2 {
+        width: 100vw;
+        height: 150px;
+    }
+}
+
+@include mobile {
+    .aside1,
+    .aside2 {
+        display: none;
     }
 }

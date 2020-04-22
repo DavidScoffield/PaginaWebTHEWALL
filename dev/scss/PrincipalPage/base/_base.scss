@@ -10,3 +10,12 @@ body {
         "buscador central menu"
         "footer footer footer";
 }
+
+@include tablet {
+    body {
+        grid-template-areas:
+            "menu"
+            "central"
+            "footer";
+    }
+}

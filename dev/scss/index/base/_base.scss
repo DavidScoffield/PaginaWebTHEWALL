@@ -11,3 +11,22 @@ body {
         "aside1 center aside2"
         "footer footer footer";
 }
+
+@include tablet {
+    body {
+        grid-template-areas:
+            " header"
+            " aside1"
+            " center"
+            " aside2"
+            " footer";
+    }
+}
+@include mobile {
+    body {
+        grid-template-areas:
+            " header"
+            " center"
+            " footer";
+    }
+}

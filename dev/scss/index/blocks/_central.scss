@@ -57,3 +57,21 @@
         }
     }
 }
+
+@include tablet {
+    .center {
+        width: 100vw;
+        height: 40vh;
+
+        .box-login {
+            .bienvenida {
+                font-size: 25px;
+            }
+
+            button {
+                width: 50%;
+                min-width: 250px;
+            }
+        }
+    }
+}

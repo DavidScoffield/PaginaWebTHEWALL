@@ -9,7 +9,7 @@
 
         <!-- FUENTES DE TEXTO -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@1,700&family=Poppins:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@0,900;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
             rel="stylesheet"
         />
         <!-- ICONOS -->
@@ -33,27 +33,46 @@
         </div>
 
         <!-- Barra lateral con menu -->
-        <div class="menu">
+        <nav class="menu">
+            <div class="lineas" id="openMenu">
+                <i class="fas fa-align-justify"></i>
+            </div>
             <div class="logo">
                 <img
                     src="assets/media/img/logo.png"
                     alt="Logotipo de la red social"
                 />
             </div>
-            <div class="menu-lista">
+            <div class="menu-lista" id="menu">
                 <ul>
-                    <li class="opciones">Inicio</li>
-                    <li class="opciones">Perfil</li>
                     <li class="opciones">
-                        Opciones
-                        <ul class="menu-lista submenu">
-                            <li class="opciones">Editar Perfil</li>
-                            <li class="opciones">Cerrar Sesión</li>
+                        <a href="PrincipalPage.html"
+                            ><i class="icono fas fa-home"></i>Inicio</a
+                        >
+                    </li>
+                    <li class="opciones">
+                        <a href="#"
+                            ><i class="icono fas fa-portrait"></i>Perfil</a
+                        >
+                    </li>
+                    <li class="opciones" id="btn__config">
+                        <a href="#">
+                            <i class="icono fas fa-tools"></i>Opciones<i
+                                class="icono-derecha fas fa-chevron-down"
+                            ></i
+                        ></a>
+                        <ul class="submenu slideUp">
+                            <li class="opciones">
+                                <a href="#"> Editar Perfil</a>
+                            </li>
+                            <li class="opciones">
+                                <a href="#"> Cerrar Sesión </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
 
         <!-- PARTE CENTRLA DE LA PAGINA -->
         <div class="central">
@@ -258,5 +277,7 @@
                 </div>
             </div>
         </footer>
+        <script src="js/index/redesSocialesFooter.js"></script>
+        <script src="js/PaginaPrincipal/menu.js"></script>
     </body>
 </html>

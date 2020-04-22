@@ -1,11 +1,19 @@
+@import "../../imports/_colors";
+
 .central {
     grid-area: central;
-    background-color: blue;
+    // background-color: blue;
     width: 39vw;
     min-height: 100vh;
     margin: 0 auto;
+    border-right: 2px solid $color-bordes;
+    border-left: 2px solid $color-bordes;
+    display: flex;
+    flex-direction: row;
+    color: white;
 
     .contenido {
-        margin: 1rem;
+        margin: 0 0.5rem;
+        display: none;
     }
 }
