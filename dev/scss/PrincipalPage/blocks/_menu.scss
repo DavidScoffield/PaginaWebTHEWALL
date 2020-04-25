@@ -7,7 +7,8 @@
     position: fixed;
     right: 0;
 
-    .lineas {
+    .lineas,
+    .search {
         display: none;
     }
 
@@ -25,6 +26,7 @@
     }
 
     .menu-lista {
+        display: flex;
         margin: 1rem 0;
         padding: 0;
         width: 60%;
@@ -38,7 +40,6 @@
             flex-direction: column;
 
             .opciones {
-                // border: 3px solid red;
                 padding: 0.5rem;
                 margin-left: 1rem;
                 margin-top: 0.7rem;
@@ -122,18 +123,38 @@
             rgba(0, 0, 14, 1) 87%
         );
         position: fixed;
+        z-index: 3000;
 
-        .lineas {
+        .lineas,
+        .search {
             display: block;
             color: white;
             position: absolute;
-            right: 10px;
-            top: 10px;
             cursor: pointer;
+            padding: 8px;
+            margin-top: 4px;
+            top: 0;
+            background-image: radial-gradient(
+                circle,
+                rgb(0, 8, 124),
+                rgb(5, 7, 14)
+            );
+            // margin-left: 40px;
 
             i {
-                font-size: 30px;
+                font-size: 25px;
             }
+
+            &:active i {
+                transform: scale(0.8);
+            }
+        }
+
+        .lineas {
+            right: 2px;
+        }
+        .search {
+            right: 50px;
         }
 
         .logo {
@@ -165,6 +186,8 @@
             animation: openMenu 1s ease forwards;
 
             ul {
+                width: 100%;
+
                 .opciones {
                     margin: 0.5rem 0;
 

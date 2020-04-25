@@ -14,6 +14,17 @@
 
     .contenido {
         margin: 0 0.5rem;
-        display: none;
+        // display: none;
+    }
+}
+
+@include tablet {
+    .central {
+        // border: none;
+        width: 70vw;
+
+        .contenido {
+            padding-top: 65px;
+        }
     }
 }

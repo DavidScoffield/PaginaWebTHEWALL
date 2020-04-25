@@ -70,15 +70,11 @@
 }
 @media screen and (max-width: 1004px) {
     .footer {
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
         flex-wrap: wrap;
         width: 100%;
         height: fit-content;
-        // position: absolute;
+        position: relative;
         bottom: 0;
-        // margin-top: 30%;
 
         .titulo {
             width: 100%;
@@ -91,6 +87,4 @@
             height: 4rem;
         }
     }
-}
-@include tablet {
 }

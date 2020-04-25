@@ -37,3 +37,15 @@ btnConfig.addEventListener('click', (e)=>{
 })
 
 btnOpenMenuPhone.addEventListener('click', ()=>abrirCerrarMenu(menu));
+
+
+// prevenir que el menu si ce cierra en tamaño tablet o inferior, que este vuelva a aoarecer visible si se cambia a un tamaño superior
+window.addEventListener('resize', ()=>{
+    if(window.screen.width > 769){
+        menu.style.display = "flex"
+
+    }
+    else{
+        menu.style.display ="none"
+    }
+})

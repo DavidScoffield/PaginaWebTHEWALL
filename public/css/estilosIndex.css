@@ -162,7 +162,7 @@ body {
 @media screen and (max-width: 769px) {
   .center {
     width: 100vw;
-    height: 40vh;
+    height: 50vh;
   }
   .center .box-login .bienvenida {
     font-size: 25px;
@@ -170,6 +170,24 @@ body {
   .center .box-login button {
     width: 50%;
     min-width: 250px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .center {
+    height: 75vh;
+  }
+  .center .box-login {
+    height: 70%;
+  }
+  .center .box-login .bienvenida {
+    font-size: 20px;
+  }
+  .center .box-login button {
+    padding: 0.7rem;
+    width: 13rem;
+    min-width: 50%;
+    margin-top: 0;
   }
 }
 
@@ -274,6 +292,7 @@ body {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    position: relative;
     bottom: 0;
   }
   .footer .titulo {
@@ -333,6 +352,35 @@ body {
   }
   .header .titulo {
     font-size: 100px;
+    letter-spacing: 2px;
+    -webkit-transition: none;
+    transition: none;
+  }
+  .header .titulo span {
+    font-size: 0.5em;
+  }
+  .header:hover .titulo {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    height: 130px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header .titulo {
+    font-size: 55px;
     letter-spacing: 2px;
     -webkit-transition: none;
     transition: none;

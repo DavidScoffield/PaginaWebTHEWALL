@@ -12,15 +12,286 @@ body {
 }
 
 .buscador {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: buscador;
-  background-color: red;
   width: 30vw;
-  position: fixed;
   height: 100%;
   left: 0;
+  position: fixed;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.buscador .contenedor-busqueda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1.5rem;
+  margin-right: 6%;
+  padding: 1.3rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.301);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 50%;
+  min-width: 230px;
+  max-width: 400px;
+}
+
+.buscador .contenedor-busqueda .boton-busqueda {
+  background-color: rgba(0, 0, 0, 0.301);
+  padding: 0.5rem;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 3px solid white;
+}
+
+.buscador .contenedor-busqueda .boton-busqueda i {
+  font-size: 25px;
+  margin-left: 5px;
+  color: rgba(255, 255, 255, 0.897);
+}
+
+.buscador .contenedor-busqueda .boton-busqueda input {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  height: 2rem;
+  width: 80%;
+  margin-left: 8px;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.897);
+  outline: none;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda {
+  overflow: scroll;
+  width: 99%;
+  border: 2px solid rgba(255, 255, 255, 0.897);
+  margin-top: 1.5rem;
+  border-radius: 4px;
+  border-end-end-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.301);
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario {
+  padding: 0.5rem;
+  height: 100px;
+  margin: 0.4rem;
+  border: 1px solid white;
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.897);
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "nombre button" "username username";
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: nombre;
+  overflow: hidden;
+  width: 100%;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  font-size: 22px;
+  padding: 15% 0 0 5%;
+  width: 100%;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: button;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow {
+  min-width: 80px;
+  width: 90%;
+  max-width: 120px;
+  height: 80%;
+  padding: 0 0.7rem;
+  margin-top: 6%;
+  margin-right: 0;
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+  font-size: 90%;
+  color: rgba(255, 255, 255, 0.897);
+  background-color: rgba(0, 0, 0, 0.301);
+  border: 4px solid white;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow:hover {
+  background-color: rgba(255, 255, 255, 0.897);
+  color: rgba(0, 0, 73, 0.993);
+  border-color: #000030;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .username {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: username;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: start;
+  font-size: 13px;
+  padding: 0% 0% 5% 3%;
+}
+
+@media screen and (max-width: 769px) {
+  .buscador {
+    display: none;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .buscador .contenedor-busqueda {
+    margin-right: 0;
+    margin-top: 4rem;
+    background-color: rgba(0, 0, 20, 0.897);
+    -webkit-animation: modal 1.5s ease forwards;
+            animation: modal 1.5s ease forwards;
+    width: 70%;
+    max-width: none;
+    border-radius: 30px;
+    overflow: scroll;
+    position: relative;
+  }
+  .buscador .contenedor-busqueda .boton-busqueda {
+    padding: 0.4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: start;
+        align-self: start;
+    margin-top: 1rem;
+  }
+  .buscador .contenedor-busqueda .boton-busqueda input {
+    font-size: 13px;
+  }
+  .buscador .contenedor-busqueda .close {
+    position: absolute;
+    font-size: 40px;
+    top: 0.25em;
+    right: 0.5em;
+    -webkit-transform: rotate(50grad);
+            transform: rotate(50grad);
+    cursor: pointer;
+    -webkit-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+    color: rgba(255, 255, 255, 0.897);
+  }
+  .buscador .contenedor-busqueda .close:hover {
+    -webkit-transform: rotate(50grad) scale(1.2);
+            transform: rotate(50grad) scale(1.2);
+    color: rgba(255, 255, 255, 0.897);
+  }
+  .buscador .contenedor-busqueda .resultado-busqueda .usuario {
+    border-radius: 5px;
+  }
+  .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
+    padding: 10px 0 0 10px;
+    font-size: 27px;
+  }
+  .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow {
+    margin-top: 10px;
+    margin-right: 10px;
+    max-width: none;
+    min-width: none;
+    width: 90px;
+    height: 60%;
+  }
+  .buscador .contenedor-busqueda .resultado-busqueda .usuario .username {
+    padding: 0 0 10px 10px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .buscador {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 3004;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  .buscador .contenedor-busqueda {
+    width: 100%;
+    height: 95%;
+    max-height: none;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+@-webkit-keyframes modal {
+  from {
+    left: -100vh;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes modal {
+  from {
+    left: -100vh;
+  }
+  to {
+    left: 0;
+  }
 }
 
 .central {
@@ -44,7 +315,15 @@ body {
 
 .central .contenido {
   margin: 0 0.5rem;
-  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .central {
+    width: 70vw;
+  }
+  .central .contenido {
+    padding-top: 65px;
+  }
 }
 
 .menu {
@@ -57,7 +336,8 @@ body {
   right: 0;
 }
 
-.menu .lineas {
+.menu .lineas,
+.menu .search {
   display: none;
 }
 
@@ -79,6 +359,9 @@ body {
 }
 
 .menu .menu-lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 1rem 0;
   padding: 0;
   width: 60%;
@@ -176,17 +459,33 @@ body {
     left: 0;
     background: linear-gradient(187deg, #111321 0%, #00000e 87%);
     position: fixed;
+    z-index: 3000;
   }
-  .menu .lineas {
+  .menu .lineas,
+  .menu .search {
     display: block;
     color: white;
     position: absolute;
-    right: 10px;
-    top: 10px;
     cursor: pointer;
+    padding: 8px;
+    margin-top: 4px;
+    top: 0;
+    background-image: radial-gradient(circle, #00087c, #05070e);
   }
-  .menu .lineas i {
-    font-size: 30px;
+  .menu .lineas i,
+  .menu .search i {
+    font-size: 25px;
+  }
+  .menu .lineas:active i,
+  .menu .search:active i {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  .menu .lineas {
+    right: 2px;
+  }
+  .menu .search {
+    right: 50px;
   }
   .menu .logo {
     position: absolute;
@@ -210,6 +509,9 @@ body {
     width: 100%;
     -webkit-animation: openMenu 1s ease forwards;
             animation: openMenu 1s ease forwards;
+  }
+  .menu .menu-lista ul {
+    width: 100%;
   }
   .menu .menu-lista ul .opciones {
     margin: 0.5rem 0;
@@ -347,6 +649,7 @@ body {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    position: relative;
     bottom: 0;
   }
   .footer .titulo {

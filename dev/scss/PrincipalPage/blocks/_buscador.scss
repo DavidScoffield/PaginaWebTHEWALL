@@ -1,9 +1,252 @@
+@import "../../imports/_colors";
 .buscador {
-    display: none;
+    display: flex;
     grid-area: buscador;
-    background-color: red;
+    // background-color: red;
     width: 30vw;
-    position: fixed;
     height: 100%;
     left: 0;
+    position: fixed;
+    justify-content: end;
+
+    .contenedor-busqueda {
+        display: flex;
+        margin-top: 1.5rem;
+        margin-right: 6%;
+        padding: 1.3rem;
+        height: fit-content;
+        max-height: 80%;
+
+        flex-direction: column;
+        align-items: center;
+        background-color: $fondo-search;
+        // border-radius: 30px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        width: 50%;
+        min-width: 230px;
+        max-width: 400px;
+
+        .boton-busqueda {
+            background-color: $fondo-search;
+            padding: 0.5rem;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid white;
+
+            i {
+                font-size: 25px;
+                margin-left: 5px;
+                color: rgba(255, 255, 255, 0.897);
+            }
+
+            input {
+                background-color: $transparente;
+                border: none;
+                height: 2rem;
+                // width: 180px;
+                width: 80%;
+                margin-left: 8px;
+                font-size: 17px;
+                color: rgba(255, 255, 255, 0.897);
+                outline: none;
+            }
+        }
+
+        .resultado-busqueda {
+            // display: none;
+            // width: 52%;
+            // min-width: 245px;
+            // max-width: 400px;
+            overflow: scroll;
+            width: 99%;
+            border: 2px solid rgba(255, 255, 255, 0.897);
+            margin-top: 1.5rem;
+            // width: 235px;
+            border-radius: 4px;
+            border-end-end-radius: 10px;
+            border-bottom-left-radius: 10px;
+            // margin-right: 11%;
+            background-color: $fondo-search;
+
+            .usuario {
+                padding: 0.5rem;
+                height: 100px;
+                margin: 0.4rem;
+                border: 1px solid white;
+                border-radius: 2px;
+                color: rgba(255, 255, 255, 0.897);
+                display: grid;
+                grid-template-areas:
+                    "nombre button"
+                    "username username";
+
+                .contenedor-nombre {
+                    grid-area: nombre;
+                    overflow: hidden;
+                    width: 100%;
+
+                    .nombre {
+                        align-self: start;
+                        font-size: 22px;
+                        padding: 15% 0 0 5%;
+                        width: 100%;
+                    }
+                }
+                .contenedor-boton {
+                    grid-area: button;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    .follow {
+                        min-width: 80px;
+                        width: 90%;
+                        max-width: 120px;
+                        height: 80%;
+                        padding: 0 0.7rem;
+                        margin-top: 6%;
+                        margin-right: 0;
+                        font-family: "Merriweather", serif;
+                        text-transform: uppercase;
+                        font-size: 90%;
+                        color: rgba(255, 255, 255, 0.897);
+                        background-color: $fondo-search;
+                        border: 4px solid rgb(255, 255, 255);
+                        text-align: center;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.897);
+                            color: rgba(0, 0, 73, 0.993);
+                            // border-color: rgba(0, 0, 73, 0.993);
+                            border-color: $color-bordes;
+                        }
+
+                        &:active {
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+                .username {
+                    grid-area: username;
+                    align-self: flex-end;
+                    text-align: start;
+                    font-size: 13px;
+                    padding: 0% 0% 5% 3%;
+                }
+            }
+        }
+    }
+}
+
+@include tablet {
+    .buscador {
+        display: none;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        justify-content: center;
+
+        .contenedor-busqueda {
+            margin-right: 0;
+            margin-top: 4rem;
+            background-color: rgba(0, 0, 20, 0.897);
+
+            animation: modal 1.5s ease forwards;
+
+            width: 70%;
+            max-width: none;
+            border-radius: 30px;
+            overflow: scroll;
+            position: relative;
+
+            .boton-busqueda {
+                padding: 0.4rem;
+                display: flex;
+                align-self: start;
+
+                margin-top: 1rem;
+
+                input {
+                    font-size: 13px;
+                }
+            }
+
+            .close {
+                position: absolute;
+                font-size: 40px;
+                top: 0.25em;
+                right: 0.5em;
+                transform: rotate(50grad);
+                cursor: pointer;
+                transition: 0.5s ease all;
+                color: rgba(255, 255, 255, 0.897);
+
+                &:hover {
+                    transform: rotate(50grad) scale(1.2);
+                    color: rgba(255, 255, 255, 0.897);
+                }
+            }
+
+            .resultado-busqueda {
+                .usuario {
+                    border-radius: 5px;
+
+                    .contenedor-nombre .nombre {
+                        padding: 10px 0 0 10px;
+                        font-size: 27px;
+                    }
+
+                    .contenedor-boton .follow {
+                        margin-top: 10px;
+                        margin-right: 10px;
+                        max-width: none;
+                        min-width: none;
+                        width: 90px;
+                        height: 60%;
+                    }
+
+                    .username {
+                        padding: 0 0 10px 10px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    .buscador {
+        display: flex;
+        z-index: 3004;
+        height: 100vh;
+        top: 0;
+        left: 0;
+
+        .contenedor-busqueda {
+            width: 100%;
+            height: 95%;
+            max-height: none;
+            margin-top: 0;
+            border-radius: 0;
+        }
+    }
+}
+
+@keyframes modal {
+    from {
+        left: -100vh;
+    }
+    to {
+        left: 0;
+    }
 }
