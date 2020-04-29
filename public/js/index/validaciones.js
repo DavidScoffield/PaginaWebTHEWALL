@@ -31,35 +31,21 @@ const formIsValid ={
 const validateEmail = (email) => {
     const emailRegex = /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return emailRegex.test(email);
-    /* if(emailRegex.test(email)) console.log('email válido')
-    else console.log('email incorrecto') */
+
 }
 
 const validatePasswordComplex = (password) => {
-    //Should have 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and be at least 6 characters long
-    const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{6,}/
+    //Should have 1 lowercase letter, 1 uppercase letter, 1 number or 1 special character and be at least 6 characters long
+    const passwordRegex = /((?=(.*[0-9]))|(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:"'<>,./?]))(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{6,}/
     return passwordRegex.test(password); 
-
-    /* if(passwordRegex.test(password)) console.log('password válido')
-    else console.log('password incorrecto') */
 }
-
-
-/* 
-const validatePasswordModerate = (password) => {
-    //Should have 1 lowercase letter, 1 uppercase letter, 1 number, and be at least 8 characters long
-    const passwordRegex = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/
-    if(passwordRegex.test(password)) console.log('password válido')
-    else console.log('password incorrecto')
-} */
 
 
 const validateUsername = (username) => {
     //Alfanumericos con al menos 6 caracteres
     const usernameRegex = /^[a-zA-Z0-9]{6,}$/
     return usernameRegex.test(username);
-   /*  if(usernameRegex.test(username)) console.log('username válido')
-    else console.log('username incorrecto') */
+
 }
 
 
@@ -67,8 +53,7 @@ const validateName = (name) => {
     //Alfabeticos y que no sean vacios
     const nameRegex = /^[a-z]+$/gi;
     return nameRegex.test(name);
-    /* if(nameRegex.test(name)) console.log('name válido')
-    else console.log('name incorrecto') */
+
 }
 
 const validateForm =(ObjectForm, formulario)=>{
@@ -94,12 +79,6 @@ const validateImg = (file) =>{
 
     const imgRegex=  /^(.*)(\.png|\.jpg|\.jpeg|\.gif)$/i;
     return imgRegex.test(file); 
-    /* if(imgRegex.test(file)){
-       console.log('Se subio archivo valido')
-    }
-    else{
-        console.log('No se subio archivo valido')
-    } */
 }
 
 const isInvalid= (e) => {

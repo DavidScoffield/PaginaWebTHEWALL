@@ -59,6 +59,10 @@
                         width: 20px;
                     }
 
+                    .invertir {
+                        transform: scaleX(-1);
+                    }
+
                     .icono-derecha {
                         margin-left: 1rem;
                         font-size: 12px;

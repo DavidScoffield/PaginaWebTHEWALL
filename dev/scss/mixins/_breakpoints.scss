@@ -19,7 +19,7 @@ $desktop: 1400px;
     }
 }
 @mixin desktop {
-    @media screen and (max-width: $desktop) {
+    @media screen and (min-width: $desktop) {
         @content;
     }
 }

@@ -1,0 +1,143 @@
+@import "../../imports/_colors";
+
+.publicacion {
+    background-color: $fondo-publicacion;
+    border: 3px solid $color-bordes;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 98%;
+
+    .contenedor {
+        margin: 5px 10px;
+        display: flex;
+        flex-direction: column;
+
+        .contenedor-datos {
+            display: flex;
+            align-items: center;
+            height: 50px;
+
+            .contenedor-img {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: auto;
+                    height: 100%;
+                    cursor: pointer;
+                }
+            }
+
+            .contenedor-nombreUsuario {
+                margin-left: 10px;
+
+                .nombre-usuario {
+                    font-weight: 500;
+                    font-size: 17px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .contenedor-texto {
+            width: 95%;
+            align-self: center;
+
+            .texto {
+                font-size: 13px;
+                margin: 13px 0;
+                padding: 0;
+            }
+        }
+
+        .contenedor-file {
+            align-self: center;
+            max-width: 70%;
+            height: auto;
+
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 5px 0 10px;
+            box-shadow: 0px 0px 5px rgb(0, 0, 77);
+            display: block;
+
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        .contenedor-inferior {
+            display: flex;
+            justify-content: space-between;
+            height: 25px;
+            margin-bottom: 5px;
+
+            .contenedor-MG,
+            .contenedor-FH {
+                padding: 0;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+            }
+
+            .contenedor-MG {
+                margin: 0 10px;
+                i {
+                    transition: 0.3s all;
+                    cursor: pointer;
+                    font-size: 20px;
+                    text-shadow: 1px 1px 2px rgb(145, 0, 0),
+                        0 0 1em rgb(129, 0, 0), 0 0 0.2em rgb(121, 0, 0);
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .cantMG {
+                    transition: 0.3s all;
+                    height: 100%;
+                    width: 50px;
+                    font-size: 13px;
+                    margin: 0;
+                    margin-left: 5%;
+                    text-align: center;
+                    line-height: 25px;
+                    text-shadow: 1px 1px 2px rgb(46, 0, 0),
+                        0 0 1em rgb(129, 0, 0), 0 0 0.2em rgb(121, 0, 0);
+                }
+
+                &.active {
+                    color: rgb(255, 27, 27);
+                }
+            }
+
+            .contenedor-FH {
+                align-items: flex-end;
+
+                .fecha,
+                .hora {
+                    font-size: 12px;
+                    margin: 0;
+                    text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 0, 82),
+                        0 0 0.2em rgb(0, 0, 61);
+                    color: $color-texto;
+                }
+
+                .fecha {
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+}

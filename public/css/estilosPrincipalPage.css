@@ -115,17 +115,35 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: nombre;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: hidden;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .apellido {
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
-  font-size: 22px;
-  padding: 15% 0 0 5%;
   width: 100%;
+  padding-left: 5%;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
+  font-size: 16px;
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .apellido {
+  font-size: 19px;
 }
 
 .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton {
@@ -139,16 +157,18 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow {
   min-width: 80px;
   width: 90%;
   max-width: 120px;
-  height: 80%;
+  height: 60%;
   padding: 0 0.7rem;
-  margin-top: 6%;
-  margin-right: 0;
+  margin: 0;
   font-family: "Merriweather", serif;
   text-transform: uppercase;
   font-size: 90%;
@@ -240,8 +260,12 @@ body {
     border-radius: 5px;
   }
   .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
-    padding: 10px 0 0 10px;
-    font-size: 27px;
+    padding: 5px 0 0 10px;
+    font-size: 21px;
+  }
+  .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .apellido {
+    padding-left: 10px;
+    font-size: 23px;
   }
   .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-boton .follow {
     margin-top: 10px;
@@ -259,9 +283,7 @@ body {
 
 @media screen and (max-width: 450px) {
   .buscador {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     z-index: 3004;
     height: 100vh;
     top: 0;
@@ -295,14 +317,15 @@ body {
 }
 
 .central {
+  font-family: "Roboto", sans-serif;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: central;
   width: 39vw;
   min-height: 100vh;
   margin: 0 auto;
-  border-right: 2px solid #000030;
-  border-left: 2px solid #000030;
+  border-right: 4px solid #000030;
+  border-left: 4px solid #000030;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -314,7 +337,200 @@ body {
 }
 
 .central .contenido {
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.central .contenido .titulo {
+  height: 45px;
+  line-height: 45px;
+  font-size: 20px;
+  padding-left: 3%;
+  border-bottom: 4px solid #000030;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px #000418, 0 0 1em #001381, 0 0 0.2em #001679;
+}
+
+.central .contenido .crear-msj {
+  height: 170px;
+  border-bottom: 4px solid #000030;
+}
+
+.central .contenido .publicacion {
+  background-color: rgba(13, 7, 63, 0.295);
+  border: 3px solid #000030;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 98%;
+}
+
+.central .contenido .publicacion .contenedor {
+  margin: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-datos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-datos .contenedor-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-datos .contenedor-img img {
+  width: auto;
+  height: 100%;
+  cursor: pointer;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-datos .contenedor-nombreUsuario {
+  margin-left: 10px;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-datos .contenedor-nombreUsuario .nombre-usuario {
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-texto {
+  width: 95%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-texto .texto {
+  font-size: 13px;
+  margin: 13px 0;
+  padding: 0;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-file {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 70%;
+  height: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 5px 0 10px;
+  -webkit-box-shadow: 0px 0px 5px #00004d;
+          box-shadow: 0px 0px 5px #00004d;
+  display: block;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-file img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG,
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-FH {
+  padding: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG {
+  margin: 0 10px;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG i {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  cursor: pointer;
+  font-size: 20px;
+  text-shadow: 1px 1px 2px #910000, 0 0 1em #810000, 0 0 0.2em #790000;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG i:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG i:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG .cantMG {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  height: 100%;
+  width: 50px;
+  font-size: 13px;
+  margin: 0;
+  margin-left: 5%;
+  text-align: center;
+  line-height: 25px;
+  text-shadow: 1px 1px 2px #2e0000, 0 0 1em #810000, 0 0 0.2em #790000;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-MG.active {
+  color: #ff1b1b;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-FH {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-FH .fecha,
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-FH .hora {
+  font-size: 12px;
+  margin: 0;
+  text-shadow: 1px 1px 2px black, 0 0 1em #000052, 0 0 0.2em #00003d;
+  color: #838383;
+}
+
+.central .contenido .publicacion .contenedor .contenedor-inferior .contenedor-FH .fecha {
+  margin-right: 7px;
 }
 
 @media screen and (max-width: 769px) {
@@ -322,7 +538,13 @@ body {
     width: 70vw;
   }
   .central .contenido {
-    padding-top: 65px;
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .central {
+    width: 97vw;
   }
 }
 
@@ -401,6 +623,11 @@ body {
   font-size: 20px;
   line-height: 20px;
   width: 20px;
+}
+
+.menu .menu-lista ul .opciones a .invertir {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
 }
 
 .menu .menu-lista ul .opciones a .icono-derecha {

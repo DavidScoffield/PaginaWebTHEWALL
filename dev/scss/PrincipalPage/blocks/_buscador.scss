@@ -2,7 +2,6 @@
 .buscador {
     display: flex;
     grid-area: buscador;
-    // background-color: red;
     width: 30vw;
     height: 100%;
     left: 0;
@@ -20,7 +19,6 @@
         flex-direction: column;
         align-items: center;
         background-color: $fondo-search;
-        // border-radius: 30px;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
         border-bottom-left-radius: 20px;
@@ -88,14 +86,23 @@
 
                 .contenedor-nombre {
                     grid-area: nombre;
+                    display: flex;
+                    flex-direction: column;
                     overflow: hidden;
                     width: 100%;
+                    justify-content: center;
 
-                    .nombre {
+                    .nombre,
+                    .apellido {
                         align-self: start;
-                        font-size: 22px;
-                        padding: 15% 0 0 5%;
                         width: 100%;
+                        padding-left: 5%;
+                    }
+                    .nombre {
+                        font-size: 16px;
+                    }
+                    .apellido {
+                        font-size: 19px;
                     }
                 }
                 .contenedor-boton {
@@ -103,15 +110,17 @@
                     width: 100%;
                     display: flex;
                     justify-content: flex-end;
+                    align-items: center;
 
                     .follow {
                         min-width: 80px;
                         width: 90%;
                         max-width: 120px;
-                        height: 80%;
+                        height: 60%;
                         padding: 0 0.7rem;
-                        margin-top: 6%;
-                        margin-right: 0;
+                        // margin-top: 6%;
+                        // margin-right: 0;
+                        margin: 0;
                         font-family: "Merriweather", serif;
                         text-transform: uppercase;
                         font-size: 90%;
@@ -200,11 +209,16 @@
                 .usuario {
                     border-radius: 5px;
 
-                    .contenedor-nombre .nombre {
-                        padding: 10px 0 0 10px;
-                        font-size: 27px;
+                    .contenedor-nombre {
+                        .nombre {
+                            padding: 5px 0 0 10px;
+                            font-size: 21px;
+                        }
+                        .apellido {
+                            padding-left: 10px;
+                            font-size: 23px;
+                        }
                     }
-
                     .contenedor-boton .follow {
                         margin-top: 10px;
                         margin-right: 10px;
@@ -226,7 +240,7 @@
 
 @include mobile {
     .buscador {
-        display: flex;
+        display: none;
         z-index: 3004;
         height: 100vh;
         top: 0;

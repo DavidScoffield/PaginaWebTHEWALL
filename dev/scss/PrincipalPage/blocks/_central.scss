@@ -1,20 +1,43 @@
 @import "../../imports/_colors";
 
 .central {
+    font-family: "Roboto", sans-serif;
     grid-area: central;
     // background-color: blue;
     width: 39vw;
     min-height: 100vh;
     margin: 0 auto;
-    border-right: 2px solid $color-bordes;
-    border-left: 2px solid $color-bordes;
+    border-right: 4px solid $color-bordes;
+    border-left: 4px solid $color-bordes;
     display: flex;
     flex-direction: row;
     color: white;
 
     .contenido {
-        margin: 0 0.5rem;
-        // display: none;
+        margin: 0 0.5rem 15px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        // background-color: red;
+
+        .titulo {
+            height: 45px;
+            line-height: 45px;
+            font-size: 20px;
+            padding-left: 3%;
+            border-bottom: 4px solid $color-bordes;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgb(0, 4, 24), 0 0 1em rgb(0, 19, 129),
+                0 0 0.2em rgb(0, 22, 121);
+        }
+
+        .crear-msj {
+            height: 170px;
+            border-bottom: 4px solid $color-bordes;
+        }
+
+        @import "_publicacion";
     }
 }
 
@@ -24,7 +47,13 @@
         width: 70vw;
 
         .contenido {
-            padding-top: 65px;
+            padding-top: 50px;
         }
+    }
+}
+
+@include mobile {
+    .central {
+        width: 97vw;
     }
 }

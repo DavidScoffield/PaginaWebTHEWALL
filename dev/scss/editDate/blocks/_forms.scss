@@ -1,0 +1,296 @@
+@import "../../imports/_colors.scss";
+
+#register_email:invalid {
+    box-shadow: none;
+}
+.datos-generales,
+.password {
+    border: 3px solid $color-bordes;
+    margin: 10px 0;
+    background-color: $fondo-publicacion;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+    .container-dualDate,
+    .container-individual {
+        margin: 15px 0;
+        display: flex;
+        width: inherit;
+        justify-content: space-between;
+
+        .containers {
+            display: grid;
+            grid-template-columns: 10% 90%;
+            border-bottom: 2px solid $gris;
+            margin: 0.4rem 1rem;
+            padding: 0.6rem 0;
+            width: 100%;
+
+            .i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 20px;
+                width: 23px;
+
+                i {
+                    color: $gris;
+                    font-size: 70%;
+                    transition: 0.3s all;
+                }
+            }
+
+            & > div {
+                position: relative;
+                height: 20px;
+                width: 100%;
+
+                label {
+                    position: absolute;
+                    left: 5%;
+                    top: 10%;
+                    font-size: 1.2vw;
+                    color: $gris;
+                    transition: 0.3s;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 100 bold;
+                    transition: 0.3s all;
+                }
+
+                .input {
+                    color: white;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 5%;
+                    border: none;
+                    outline: none;
+                    background: none;
+                    padding: 0.1rem 0;
+                    font-size: 1.2vw;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 500;
+                }
+            }
+
+            &.focus .i i {
+                color: white;
+            }
+            &.focus div label {
+                color: white;
+                font-size: 0.8vw;
+                top: -50%;
+            }
+
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                width: 0;
+                height: 2px;
+                background-color: $color-item-formulario;
+                transition: 0.4s;
+            }
+
+            &::after {
+                right: 50%;
+            }
+            &::before {
+                left: 50%;
+            }
+
+            &.focus::after,
+            &.focus::before {
+                width: 50%;
+            }
+            /* ---estilos para cuando es invalido el contenido del campo */
+            &.error {
+                box-shadow: 0 0 10px 1px red;
+
+                .i i {
+                    color: rgba(216, 0, 0, 0.842);
+                }
+            }
+            &.focus.error div label {
+                color: rgba(216, 0, 0, 0.842);
+            }
+            /* ---/ */
+
+            /* ---estilos para cuando es valido el contenido del campo */
+
+            &.valid {
+                box-shadow: 0 0 10px 1px rgb(0, 179, 15);
+
+                .i i {
+                    color: rgb(0, 199, 17);
+                }
+            }
+            &.focus.valid div label {
+                color: rgb(0, 199, 17);
+            }
+            /* ---/ */
+        }
+    }
+    .container-dual {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        .container-button {
+            display: flex;
+            justify-content: center;
+            .btn {
+                display: flex;
+                text-align: center;
+                font-size: 80%;
+                text-transform: uppercase;
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                line-height: 0;
+                width: 60%;
+                height: 40px;
+                margin: 0.5rem;
+                padding: 0.8rem;
+                border: 1px solid $color-bordes;
+                border-radius: 25px;
+                background-image: linear-gradient(
+                    to right,
+                    $color-bordes,
+                    rgb(0, 121, 177),
+                    $color-bordes
+                );
+                color: white;
+                cursor: pointer;
+                transition: 0.5s;
+                background-size: 200%;
+                box-shadow: 0 0 10px 0 $color-bordes;
+
+                &:hover {
+                    background-position: right;
+                }
+            }
+        }
+    }
+}
+
+.password .container-individual .containers {
+    & > div {
+        label,
+        .input {
+            left: -3%;
+        }
+        .input {
+            padding: 0;
+        }
+    }
+}
+.datos-generales .container-dualDate {
+    .container-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100%;
+        margin: 0.4rem 1rem;
+        // padding: 0.6rem 0;
+
+        .container-imagen-prev {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 70%;
+                width: 90%;
+                font-size: 120%;
+                background-image: radial-gradient(
+                    circle,
+                    rgb(255, 255, 255),
+                    rgb(223, 223, 223)
+                );
+                border-radius: 10px;
+                border: 5px dashed $color-bordes;
+                color: $color-bordes;
+                z-index: 100;
+                cursor: pointer;
+
+                &:hover {
+                    background-image: radial-gradient(
+                        circle,
+                        rgb(238, 238, 238),
+                        rgb(194, 194, 194)
+                    );
+                }
+            }
+
+            &.error {
+                i {
+                    box-shadow: 0 0 10px 1px red;
+                    color: rgba(216, 0, 0, 0.842);
+                    border: 5px dashed rgba(216, 0, 0, 0.842);
+                }
+            }
+
+            &.valid {
+                i {
+                    box-shadow: 0 0 10px 1px rgb(0, 199, 17);
+                    color: rgb(0, 199, 17);
+                    border: 5px dashed rgb(0, 199, 17);
+                }
+            }
+
+            .inputImg {
+                opacity: 0;
+                width: 5%;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .datos-generales .container-dualDate .containers,
+    .password .container-dualDate .containers,
+    .password .container-individual .containers {
+        & > div {
+            label {
+                font-size: 13px;
+            }
+
+            .input {
+                font-size: 13px;
+            }
+        }
+
+        &.focus div label {
+            font-size: 8px;
+        }
+    }
+}
+
+@include desktop {
+    .datos-generales .container-dualDate .containers,
+    .password .container-dualDate .containers,
+    .password .container-individual .containers {
+        & > div {
+            label {
+                font-size: 15px;
+            }
+
+            .input {
+                font-size: 15px;
+            }
+        }
+
+        &.focus div label {
+            font-size: 10px;
+        }
+    }
+}
