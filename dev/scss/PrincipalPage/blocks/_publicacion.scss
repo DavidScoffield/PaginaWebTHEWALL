@@ -1,6 +1,7 @@
-@import "../../imports/_colors";
+@import "../../complements/imports/_colors";
 
-.publicacion {
+.publicacion,
+.usuarioPerfil {
     background-color: $fondo-publicacion;
     border: 3px solid $color-bordes;
     margin: 0 auto;
@@ -11,6 +12,7 @@
         margin: 5px 10px;
         display: flex;
         flex-direction: column;
+        position: relative;
 
         .contenedor-datos {
             display: flex;
@@ -40,104 +42,133 @@
                 }
             }
         }
+    }
+}
+.publicacion .contenedor {
+    .contenedor-texto {
+        width: 95%;
+        align-self: center;
 
-        .contenedor-texto {
-            width: 95%;
-            align-self: center;
-
-            .texto {
-                font-size: 13px;
-                margin: 13px 0;
-                padding: 0;
-            }
+        .texto {
+            font-size: 13px;
+            margin: 13px 0;
+            padding: 0;
         }
+    }
 
-        .contenedor-file {
-            align-self: center;
-            max-width: 70%;
-            height: auto;
+    .contenedor-file {
+        align-self: center;
+        max-width: 70%;
+        height: auto;
 
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 5px 0 10px;
-            box-shadow: 0px 0px 5px rgb(0, 0, 77);
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 5px 0 10px;
+        box-shadow: 0px 0px 5px rgb(0, 0, 77);
+        display: block;
+
+        img {
             display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
 
-            img {
-                display: block;
-                max-width: 100%;
-                height: auto;
+    .contenedor-inferior {
+        display: flex;
+        justify-content: space-between;
+        height: 25px;
+        margin-bottom: 5px;
+
+        .contenedor-MG,
+        .contenedor-FH {
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .contenedor-MG {
+            margin: 0 10px;
+            i {
+                transition: 0.3s all;
+                cursor: pointer;
+                font-size: 20px;
+                text-shadow: 1px 1px 2px rgb(145, 0, 0), 0 0 1em rgb(129, 0, 0),
+                    0 0 0.2em rgb(121, 0, 0);
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
+
+            .cantMG {
+                transition: 0.3s all;
+                height: 100%;
+                width: 50px;
+                font-size: 13px;
+                margin: 0;
+                margin-left: 5%;
+                text-align: center;
+                line-height: 25px;
+                text-shadow: 1px 1px 2px rgb(46, 0, 0), 0 0 1em rgb(129, 0, 0),
+                    0 0 0.2em rgb(121, 0, 0);
+            }
+
+            &.active {
+                color: rgb(255, 27, 27);
             }
         }
 
-        .contenedor-inferior {
-            display: flex;
-            justify-content: space-between;
-            height: 25px;
-            margin-bottom: 5px;
+        .contenedor-FH {
+            align-items: flex-end;
 
-            .contenedor-MG,
-            .contenedor-FH {
-                padding: 0;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: 500;
+            .fecha,
+            .hora {
+                font-size: 12px;
+                margin: 0;
+                text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 0, 82),
+                    0 0 0.2em rgb(0, 0, 61);
+                color: $color-texto;
             }
 
-            .contenedor-MG {
-                margin: 0 10px;
-                i {
-                    transition: 0.3s all;
-                    cursor: pointer;
-                    font-size: 20px;
-                    text-shadow: 1px 1px 2px rgb(145, 0, 0),
-                        0 0 1em rgb(129, 0, 0), 0 0 0.2em rgb(121, 0, 0);
-
-                    &:hover {
-                        transform: scale(1.2);
-                    }
-
-                    &:active {
-                        transform: scale(0.9);
-                    }
-                }
-
-                .cantMG {
-                    transition: 0.3s all;
-                    height: 100%;
-                    width: 50px;
-                    font-size: 13px;
-                    margin: 0;
-                    margin-left: 5%;
-                    text-align: center;
-                    line-height: 25px;
-                    text-shadow: 1px 1px 2px rgb(46, 0, 0),
-                        0 0 1em rgb(129, 0, 0), 0 0 0.2em rgb(121, 0, 0);
-                }
-
-                &.active {
-                    color: rgb(255, 27, 27);
-                }
+            .fecha {
+                margin-right: 7px;
             }
+        }
+    }
 
-            .contenedor-FH {
-                align-items: flex-end;
+    // delete para la publicaciones de mi perfil
+    .contenedor-delete {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        padding: 0.5rem;
+        margin: 0;
+        text-shadow: 1px 1px 2px black, 0 0 1rem rgb(219, 45, 45),
+            0 0 1rem rgb(255, 53, 53);
+        transition: 0.3s all;
+        cursor: pointer;
 
-                .fecha,
-                .hora {
-                    font-size: 12px;
-                    margin: 0;
-                    text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 0, 82),
-                        0 0 0.2em rgb(0, 0, 61);
-                    color: $color-texto;
-                }
+        i {
+            font-size: 15px;
+            color: rgb(180, 180, 180);
+            transition: 0.3s all;
+        }
 
-                .fecha {
-                    margin-right: 7px;
-                }
-            }
+        &:hover i {
+            color: red;
+            transform: scale(1.2);
+        }
+
+        &:active i {
+            transform: scale(0.8);
         }
     }
 }

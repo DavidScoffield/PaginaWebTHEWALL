@@ -1,0 +1,49 @@
+.opciones-menu-perfil {
+    border-bottom: 4px solid $color-bordes;
+    // border-top: 2px solid $color-bordes;
+    display: flex;
+    justify-content: start;
+    height: 40px;
+    align-items: center;
+    background-color: $fondo-submenu-perfil;
+    border-radius: 7px;
+
+    .contenedor-opciones {
+        height: 100%;
+        width: 100%;
+        margin-left: 4px;
+
+        .lista {
+            font-family: "Merriweather", serif;
+            font-weight: 900;
+            display: flex;
+            margin: 0;
+            padding: 0;
+
+            align-items: center;
+            height: 100%;
+
+            .opciones {
+                list-style: none;
+                padding: 7px 4px 3px;
+                margin-right: 8px;
+                cursor: pointer;
+                font-size: 15px;
+                background-color: $fondo-opciones;
+                border-radius: 5px;
+                border-bottom: 2px solid $gris;
+                color: $gris;
+                transition: 0.5s all;
+
+                &:hover {
+                    border-bottom: 2px solid white;
+                    color: white;
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}

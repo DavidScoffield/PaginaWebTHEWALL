@@ -41,7 +41,7 @@
                             <div class="apellido">Pepeto</div>
                         </div>
                         <div class="username">@pepeto154</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@erwin455</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@destiner474a</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@miltonsey87M</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@cassyMA24</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@cassyMA24</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@cassyMA24</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                             <div class="apellido">Apellido</div>
                         </div>
                         <div class="username">@cassyMA24</div>
-                        <div class="contenedor-boton">
+                        <div class="contenedor-botonFollow">
                             <button class="follow">Seguir</button>
                         </div>
                     </div>
@@ -136,12 +136,12 @@
             <div class="menu-lista" id="menu">
                 <ul>
                     <li class="opciones">
-                        <a href="PrincipalPage.html"
+                        <a href="InicialPage.html"
                             ><i class="icono fas fa-home"></i>Inicio</a
                         >
                     </li>
                     <li class="opciones">
-                        <a href="#"
+                        <a href="MyPerfil.html"
                             ><i class="icono fas fa-portrait"></i>Perfil</a
                         >
                     </li>
@@ -162,7 +162,7 @@
                                 <a href="#"> Editar Perfil</a>
                             </li>
                             <li class="opciones">
-                                <a href="#"> Cerrar Sesión </a>
+                                <a href="index.html"> Cerrar Sesión </a>
                             </li>
                         </ul>
                     </li>
@@ -190,7 +190,7 @@
                                         class="input"
                                         type="text"
                                         name="first-name"
-                                        id="register_firstName"
+                                        id="basic_datos_firstName"
                                     />
                                 </div>
                             </div>
@@ -204,7 +204,7 @@
                                         class="input"
                                         type="text"
                                         name="last-name"
-                                        id="register_lastName"
+                                        id="basic_datos_lastName"
                                     />
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                                         type="email"
                                         class="input"
                                         name="email"
-                                        id="register_email"
+                                        id="basic_datos_email"
                                         novalidate
                                     />
                                 </div>
@@ -265,7 +265,7 @@
                             </div>
                         </div>
                     </form>
-                    <form class="password">
+                    <form class="password" id="form_password">
                         <div class="container-individual">
                             <div class="containers">
                                 <div class="i">
@@ -279,7 +279,7 @@
                                         class="input"
                                         type="password"
                                         name="password"
-                                        id="register_password"
+                                        id="actual_password"
                                     />
                                 </div>
                             </div>
@@ -297,7 +297,7 @@
                                         class="input"
                                         type="password"
                                         name="password"
-                                        id="register_password"
+                                        id="new_password"
                                     />
                                 </div>
                             </div>
@@ -313,7 +313,7 @@
                                         class="input"
                                         type="password"
                                         name="repeatPassword"
-                                        id="register_RepeatPassword"
+                                        id="new_passwordRepeat"
                                     />
                                 </div>
                             </div>
@@ -385,7 +385,9 @@
         <script src="js/index/redesSocialesFooter.js"></script>
         <script src="js/PaginaPrincipal/menu.js"></script>
         <script src="js/PaginaPrincipal/buscador.js"></script>
+        <script src="js/PaginaPrincipal/followUnfollow.js"></script>
         <script src="js/editDate/editForm.js"></script>
+        <script src="js/editDate/validacionesCampos.js"></script>
         <!-- <script src="js/PaginaPrincipal/publicacion.js"></script> -->
     </body>
 </html>

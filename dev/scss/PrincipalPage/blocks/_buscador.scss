@@ -1,12 +1,12 @@
-@import "../../imports/_colors";
+@import "../../complements/imports/_colors";
 .buscador {
-    display: flex;
-    grid-area: buscador;
+    // grid-area: buscador;
     width: 30vw;
     height: 100%;
-    left: 0;
+    // left: 0;
     position: fixed;
-    justify-content: end;
+    display: flex;
+    justify-content: flex-end;
 
     .contenedor-busqueda {
         display: flex;
@@ -105,7 +105,7 @@
                         font-size: 19px;
                     }
                 }
-                .contenedor-boton {
+                .contenedor-botonFollow {
                     grid-area: button;
                     width: 100%;
                     display: flex;
@@ -130,17 +130,52 @@
                         text-align: center;
                         border-radius: 50px;
                         cursor: pointer;
-                        transition: all 0.2s;
+                        transition: all 0.3s;
+                        text-shadow: 1px 1px 2px rgb(38, 82, 226);
+                        box-shadow: 0px 0px 10px 2px rgb(89, 76, 202);
 
                         &:hover {
+                            // background-color: rgba(255, 255, 255, 0.897);
+                            // color: rgba(0, 0, 73, 0.993);
+                            // // border-color: rgba(0, 0, 73, 0.993);
+                            // border-color: $color-bordes;
+                            border: 2px solid $color-bordes;
                             background-color: rgba(255, 255, 255, 0.897);
                             color: rgba(0, 0, 73, 0.993);
-                            // border-color: rgba(0, 0, 73, 0.993);
                             border-color: $color-bordes;
+                            text-shadow: 1px 1px 2px rgb(255, 255, 255),
+                                0 0 1rem #2525e6, 0 0 1em #fdfdfd;
+                            box-shadow: 0px 0px 10px 2px rgb(167, 151, 228);
                         }
 
                         &:active {
                             transform: scale(0.9);
+                        }
+                    }
+
+                    &.unFollow {
+                        .follow {
+                            box-shadow: 0px 0px 10px red;
+                            background: rgb(69, 11, 11);
+                            background: radial-gradient(
+                                circle,
+                                rgba(69, 11, 11, 1) 0%,
+                                rgba(193, 0, 0, 1) 100%
+                            );
+                            color: rgb(255, 255, 255);
+                            border-color: rgb(255, 255, 255);
+                            text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d,
+                                0 0 1rem #ff3535;
+                            font-size: 70%;
+
+                            &:hover {
+                                background: none;
+                                background-color: rgb(255, 255, 255);
+                                color: rgba(255, 0, 0, 0.993);
+                                border-color: rgba(255, 0, 0, 0.993);
+                                text-shadow: 1px 1px 15px red;
+                                box-shadow: 0px 0px 5px 2px rgb(233, 92, 92);
+                            }
                         }
                     }
                 }

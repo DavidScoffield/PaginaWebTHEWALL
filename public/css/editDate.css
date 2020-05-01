@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-#register_email:invalid {
+#basic_datos_email:invalid {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -50,6 +50,7 @@
   margin: 0.4rem 1rem;
   padding: 0.6rem 0;
   width: 100%;
+  position: relative;
   /* ---estilos para cuando es invalido el contenido del campo */
   /* ---/ */
   /* ---estilos para cuando es valido el contenido del campo */
@@ -126,6 +127,7 @@
   font-size: 1.2vw;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  overflow: hidden;
 }
 
 .datos-generales .container-dualDate .containers.focus .i i,
@@ -156,7 +158,7 @@
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: #030383;
+  background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -207,6 +209,17 @@
   color: rgba(216, 0, 0, 0.842);
 }
 
+.datos-generales .container-dualDate .containers.focus.error::after, .datos-generales .container-dualDate .containers.focus.error::before,
+.datos-generales .container-individual .containers.focus.error::after,
+.datos-generales .container-individual .containers.focus.error::before,
+.password .container-dualDate .containers.focus.error::after,
+.password .container-dualDate .containers.focus.error::before,
+.password .container-individual .containers.focus.error::after,
+.password .container-individual .containers.focus.error::before {
+  width: 50%;
+  background-color: rgba(216, 0, 0, 0.842);
+}
+
 .datos-generales .container-dualDate .containers.valid,
 .datos-generales .container-individual .containers.valid,
 .password .container-dualDate .containers.valid,
@@ -227,6 +240,17 @@
 .password .container-dualDate .containers.focus.valid div label,
 .password .container-individual .containers.focus.valid div label {
   color: #00c711;
+}
+
+.datos-generales .container-dualDate .containers.focus.valid::after, .datos-generales .container-dualDate .containers.focus.valid::before,
+.datos-generales .container-individual .containers.focus.valid::after,
+.datos-generales .container-individual .containers.focus.valid::before,
+.password .container-dualDate .containers.focus.valid::after,
+.password .container-dualDate .containers.focus.valid::before,
+.password .container-individual .containers.focus.valid::after,
+.password .container-individual .containers.focus.valid::before {
+  width: 50%;
+  background-color: #00c711;
 }
 
 .datos-generales .container-dual,
@@ -252,7 +276,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 80%;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;

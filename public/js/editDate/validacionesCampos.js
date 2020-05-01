@@ -1,24 +1,30 @@
 // variables para escuchar los eventos
-const btnSubmitBasicData= document.getElementById('submitDatosGenerales') ;
 const formBasicData= document.getElementById('form-datos-generales')
-const basicDataEmail=document.getElementById('register_email');
-const basicDataFirstName=document.getElementById('register_firstName');
-const basicDataLastName=document.getElementById('register_lastName');
-const actualPassword=document.getElementById('register_password');
-const newPassword=document.getElementById('register_RepeatPassword');
-const newPasswordRepeat=document.getElementById('register_RepeatPassword');
-const registerImg=document.getElementById('inputImg');
+const btnSubmitBasicData= document.getElementById('submitDatosGenerales') ;
+const basicDataEmail=document.getElementById('basic_datos_email');
+const basicDataFirstName=document.getElementById('basic_datos_firstName');
+const basicDataLastName=document.getElementById('basic_datos_lastName');
+const fileImg=document.getElementById('inputImg');
+
+
+const formPassword= document.getElementById('form_password')
+const actualPassword=document.getElementById('actual_password');
+const newPassword=document.getElementById('new_password');
+const newPasswordRepeat=document.getElementById('new_passwordRepeat');
 
 //objeto de formulario registro
-const formIsValid ={
+const formBasicDataIsValid ={
     mail:false,
     firstname:false,
     lastname:false,
-    username:false,
-    password:false,
-    passwordR:false,
+    image:false,
+}
+ 
+//objeto de formulario registro
+const formPasswordIsValid ={
+    newPassword:false,
+    newPasswordR:false,
     samePassword:false,
-    image:false
 }
 
 
@@ -64,7 +70,6 @@ const samePassword=(password1, password2)=>{
 
 const validateImg = (file) =>{
     // comprueba si el archivo pasado es una archivo de tipo imagen valido
-
     const imgRegex=  /^(.*)(\.png|\.jpg|\.jpeg|\.gif)$/i;
     return imgRegex.test(file); 
 }
@@ -104,15 +109,21 @@ const evalueValidActive= (e) => {
 
 // eventos de escucha para validar los campos del formulario de registro
 
-formRegister.addEventListener('submit', (e)=>{
+formBasicData.addEventListener('submit', (e)=>{
     e.preventDefault();
-    validateForm(formIsValid, formRegister);
+    validateForm(formBasicDataIsValid, formBasicData);
+})
+formPassword.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    validateForm(formPasswordIsValid, formPassword);
 })
 
-registerEmail.addEventListener('change', (e)=>{
-    if(validateEmail(registerEmail.value)){
+
+
+basicDataEmail.addEventListener('change', (e)=>{
+    if(validateEmail(basicDataEmail.value)){
         evalueInvalidActive(e);
-        formIsValid.mail=true;
+        formBasicDataIsValid.mail=true;
         isValid(e);
     }
     else{
@@ -122,10 +133,10 @@ registerEmail.addEventListener('change', (e)=>{
 
 })
 
-registerFirstName.addEventListener('change', (e)=>{
-    if(validateName(registerFirstName.value)){
+basicDataFirstName.addEventListener('change', (e)=>{
+    if(validateName(basicDataFirstName.value)){
         evalueInvalidActive(e);
-        formIsValid.firstname=true;
+        formBasicDataIsValid.firstname=true;
         isValid(e);
     }
     else{
@@ -134,10 +145,10 @@ registerFirstName.addEventListener('change', (e)=>{
     }
 })
 
-registerLastName.addEventListener('change', (e)=>{
-    if(validateName(registerLastName.value)){
+basicDataLastName.addEventListener('change', (e)=>{
+    if(validateName(basicDataLastName.value)){
         evalueInvalidActive(e);
-        formIsValid.lastname=true;
+        formBasicDataIsValid.lastname=true;
         isValid(e);
     }
     else{
@@ -146,52 +157,13 @@ registerLastName.addEventListener('change', (e)=>{
     }
 })
 
-registerUsername.addEventListener('change', (e)=>{
-    if(validateUsername(registerUsername.value)){
-        evalueInvalidActive(e);
-        formIsValid.username=true;
-        isValid(e);
-    }
-    else{
-        evalueValidActive(e);
-        isInvalid(e);
-    }
-})
-
-registerPassword.addEventListener('change', (e)=>{
-    if(validatePasswordComplex(registerPassword.value)){
-        evalueInvalidActive(e);
-        formIsValid.password=true;
-        isValid(e);
-    }
-    else{
-        evalueValidActive(e);
-        isInvalid(e);
-    }
-})
-
-registerPasswordRepeat.addEventListener('change', (e)=>{
-    const passwordValid=validatePasswordComplex(registerPasswordRepeat.value);
-    const same_password=samePassword(registerPassword.value, registerPasswordRepeat.value)
-    if(passwordValid && same_password){
-        evalueInvalidActive(e);
-        formIsValid.passwordR=true;
-        formIsValid.samePassword=true;
-        isValid(e);
-    }
-    else{
-        evalueValidActive(e);
-        isInvalid(e);
-    }
-})
-
-registerImg.addEventListener('change', (e)=>{
-    if(validateImg(registerImg.value)){
+fileImg.addEventListener('change', (e)=>{
+    if(validateImg(fileImg.value)){
         let parent = e.target.parentNode;
         if(parent.classList.contains('error')){
             parent.classList.remove('error');
         }
-        formIsValid.image=true;
+        formBasicDataIsValid.image=true;
         parent.classList.add('valid');
     }
     else{
@@ -203,6 +175,34 @@ registerImg.addEventListener('change', (e)=>{
        
     }   
 })
+
+newPassword.addEventListener('change', (e)=>{
+    if(validatePasswordComplex(newPassword.value)){
+        evalueInvalidActive(e);
+        formPasswordIsValid.password=true;
+        isValid(e);
+    }
+    else{
+        evalueValidActive(e);
+        isInvalid(e);
+    }
+})
+
+newPasswordRepeat.addEventListener('change', (e)=>{
+    const passwordValid=validatePasswordComplex(newPasswordRepeat.value);
+    const same_password=samePassword(newPassword.value, newPasswordRepeat.value)
+    if(passwordValid && same_password){
+        evalueInvalidActive(e);
+        formPasswordIsValid.newPasswordR=true;
+        formPasswordIsValid.samePassword=true;
+        isValid(e);
+    }
+    else{
+        evalueValidActive(e);
+        isInvalid(e);
+    }
+})
+
 
 
 

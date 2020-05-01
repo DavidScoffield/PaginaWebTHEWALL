@@ -40,7 +40,7 @@ btnAbrirBusqueda.addEventListener('click', () => {
 });
 
 contenidoBusqueda.addEventListener('click', (e)=>{
-    if(document.getElementById("closeSearch")){
+    if(e.target == document.getElementById('closeSearch')){
         const btnCerrarBusqueda= document.getElementById("closeSearch");
         cerrarModal(modalBuscador);
         eliminarItem(btnCerrarBusqueda); 

@@ -1,0 +1,327 @@
+.perfil {
+  border-bottom: 4px solid #000030;
+  width: 100%;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  border-end-end-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: black;
+  background: linear-gradient(145deg, black 9%, #09009d 26%, #00022b 42%, #003298 60%, #001d32 82%, #008cff 100%);
+}
+
+.perfil .contenedor {
+  width: 95%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.perfil .contenedor .contenedor-img {
+  -webkit-box-shadow: 0 0 30px 6px #02083f;
+          box-shadow: 0 0 30px 6px #02083f;
+  height: 190px;
+  width: 190px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.perfil .contenedor .contenedor-img img {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+
+.perfil .contenedor .contenedor-datos {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 0.6rem;
+  margin-top: 1rem;
+  margin-left: 0.5em;
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-nombre,
+.perfil .contenedor .contenedor-datos .contenedor-apellido,
+.perfil .contenedor .contenedor-datos .contenedor-username {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 0;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-nombre p,
+.perfil .contenedor .contenedor-datos .contenedor-apellido p,
+.perfil .contenedor .contenedor-datos .contenedor-username p {
+  color: white;
+  margin: 0;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-nombre,
+.perfil .contenedor .contenedor-datos .contenedor-apellido {
+  padding: 0;
+  padding-top: 0.5rem;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-nombre p,
+.perfil .contenedor .contenedor-datos .contenedor-apellido p {
+  font-size: 30px;
+  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-username {
+  margin-top: 1rem;
+}
+
+.perfil .contenedor .contenedor-datos .contenedor-username p {
+  font-size: 18px;
+  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
+}
+
+.perfil .contenedor .contenedor-boton {
+  width: 140px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.692);
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid white;
+  -webkit-transition: 0.7s all;
+  transition: 0.7s all;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.perfil .contenedor .contenedor-boton .link {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+}
+
+.perfil .contenedor .contenedor-boton:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background-color: white;
+  border: 4px solid black;
+}
+
+.perfil .contenedor .contenedor-boton:hover .link {
+  color: black;
+}
+
+.perfil .contenedor .contenedor-boton:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+@media screen and (max-width: 769px) {
+  .perfil .contenedor .contenedor-boton {
+    width: 110px;
+  }
+  .perfil .contenedor .contenedor-boton .link {
+    font-size: 10px;
+  }
+}
+
+.opciones-menu-perfil {
+  border-bottom: 4px solid #000030;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(13, 7, 63, 0.527);
+  border-radius: 7px;
+}
+
+.opciones-menu-perfil .contenedor-opciones {
+  height: 100%;
+  width: 100%;
+  margin-left: 4px;
+}
+
+.opciones-menu-perfil .contenedor-opciones .lista {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.opciones-menu-perfil .contenedor-opciones .lista .opciones {
+  list-style: none;
+  padding: 7px 4px 3px;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: rgba(6, 6, 46, 0.411);
+  border-radius: 5px;
+  border-bottom: 2px solid #969696;
+  color: #969696;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.opciones-menu-perfil .contenedor-opciones .lista .opciones:hover {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.opciones-menu-perfil .contenedor-opciones .lista .opciones:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.usuarioPerfil {
+  border-radius: 20px;
+}
+
+.usuarioPerfil .contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow {
+  width: 90px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow .follow {
+  width: 100%;
+  height: 100%;
+  padding: 0 0.7rem;
+  margin: 0;
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+  font-size: 70%;
+  color: rgba(255, 255, 255, 0.897);
+  background-color: rgba(0, 0, 0, 0.301);
+  border: 2px solid white;
+  text-align: center;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  text-shadow: 1px 1px 2px #2652e2;
+  -webkit-box-shadow: 0px 0px 10px 2px #594cca;
+          box-shadow: 0px 0px 10px 2px #594cca;
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow .follow:hover {
+  background-color: rgba(255, 255, 255, 0.897);
+  color: rgba(0, 0, 73, 0.993);
+  border-color: #000030;
+  text-shadow: 1px 1px 2px white, 0 0 1rem #2525e6, 0 0 1em #fdfdfd;
+  -webkit-box-shadow: 0px 0px 10px 2px #a797e4;
+          box-shadow: 0px 0px 10px 2px #a797e4;
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow .follow:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow.unFollow .follow {
+  -webkit-box-shadow: 0px 0px 10px red;
+          box-shadow: 0px 0px 10px red;
+  background: #450b0b;
+  background: radial-gradient(circle, #450b0b 0%, #c10000 100%);
+  color: white;
+  border-color: white;
+  text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d, 0 0 1rem #ff3535;
+  font-size: 60%;
+}
+
+.usuarioPerfil .contenedor .contenedor-botonFollow.unFollow .follow:hover {
+  background: none;
+  background-color: white;
+  color: rgba(255, 0, 0, 0.993);
+  border-color: rgba(255, 0, 0, 0.993);
+  text-shadow: 1px 1px 15px red;
+  -webkit-box-shadow: 0px 0px 5px 2px #e95c5c;
+          box-shadow: 0px 0px 5px 2px #e95c5c;
+}
+/*# sourceMappingURL=myProfile.css.map */

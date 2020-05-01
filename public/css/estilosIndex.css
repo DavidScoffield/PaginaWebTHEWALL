@@ -509,6 +509,7 @@ body {
   border-bottom: 2px solid #969696;
   margin: 0.4rem 1rem;
   padding: 0.6rem 0;
+  position: relative;
   /* ---estilos para cuando es invalido el contenido del campo */
   /* ---/ */
   /* ---estilos para cuando es valido el contenido del campo */
@@ -611,6 +612,11 @@ body {
   color: rgba(216, 0, 0, 0.842);
 }
 
+.bg-modal .window_modal .form .containers.focus.error::after, .bg-modal .window_modal .form .containers.focus.error::before {
+  width: 50%;
+  background-color: rgba(216, 0, 0, 0.842);
+}
+
 .bg-modal .window_modal .form .containers.valid {
   -webkit-box-shadow: 0 0 10px 1px #00b30f;
           box-shadow: 0 0 10px 1px #00b30f;
@@ -622,6 +628,11 @@ body {
 
 .bg-modal .window_modal .form .containers.focus.valid div label {
   color: #00c711;
+}
+
+.bg-modal .window_modal .form .containers.focus.valid::after, .bg-modal .window_modal .form .containers.focus.valid::before {
+  width: 50%;
+  background-color: #00c711;
 }
 
 .bg-modal .window_modal .form .container-dual {
@@ -638,7 +649,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 1.6vw;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
