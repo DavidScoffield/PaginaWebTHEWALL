@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../dev/scss/InicialPage/inicialPage.scss",
+        "../../dev/scss/complements/mixins/_breakpoints.scss",
+        "../../dev/scss/complements/imports/_colors.scss"
+    ],
+    "names": [],
+    "file": "inicialPage.css"
+}

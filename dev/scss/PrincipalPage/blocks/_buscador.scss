@@ -118,8 +118,6 @@
                         max-width: 120px;
                         height: 60%;
                         padding: 0 0.7rem;
-                        // margin-top: 6%;
-                        // margin-right: 0;
                         margin: 0;
                         font-family: "Merriweather", serif;
                         text-transform: uppercase;
@@ -135,10 +133,6 @@
                         box-shadow: 0px 0px 10px 2px rgb(89, 76, 202);
 
                         &:hover {
-                            // background-color: rgba(255, 255, 255, 0.897);
-                            // color: rgba(0, 0, 73, 0.993);
-                            // // border-color: rgba(0, 0, 73, 0.993);
-                            // border-color: $color-bordes;
                             border: 2px solid $color-bordes;
                             background-color: rgba(255, 255, 255, 0.897);
                             color: rgba(0, 0, 73, 0.993);

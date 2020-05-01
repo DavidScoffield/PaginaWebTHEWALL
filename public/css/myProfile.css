@@ -174,66 +174,6 @@
   }
 }
 
-.opciones-menu-perfil {
-  border-bottom: 4px solid #000030;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  height: 40px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: rgba(13, 7, 63, 0.527);
-  border-radius: 7px;
-}
-
-.opciones-menu-perfil .contenedor-opciones {
-  height: 100%;
-  width: 100%;
-  margin-left: 4px;
-}
-
-.opciones-menu-perfil .contenedor-opciones .lista {
-  font-family: "Merriweather", serif;
-  font-weight: 900;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-}
-
-.opciones-menu-perfil .contenedor-opciones .lista .opciones {
-  list-style: none;
-  padding: 7px 4px 3px;
-  margin-right: 8px;
-  cursor: pointer;
-  font-size: 15px;
-  background-color: rgba(6, 6, 46, 0.411);
-  border-radius: 5px;
-  border-bottom: 2px solid #969696;
-  color: #969696;
-  -webkit-transition: 0.5s all;
-  transition: 0.5s all;
-}
-
-.opciones-menu-perfil .contenedor-opciones .lista .opciones:hover {
-  border-bottom: 2px solid white;
-  color: white;
-}
-
-.opciones-menu-perfil .contenedor-opciones .lista .opciones:active {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
 .usuarioPerfil {
   border-radius: 20px;
 }
