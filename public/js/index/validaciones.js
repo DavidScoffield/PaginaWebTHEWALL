@@ -12,9 +12,12 @@ const registerImg=document.getElementById('inputImg');
 
 const btnSubmitLogin= document.getElementById('btn_submitLogIn') ;
 const formLogin= document.getElementById('formulario_logIn')
+const loginUsername=document.getElementById('login_user');
+const loginPassword=document.getElementById('login_password');
+
 
 //objeto de formulario registro
-const formIsValid ={
+const registerFormIsValid ={
     mail:false,
     firstname:false,
     lastname:false,
@@ -23,6 +26,11 @@ const formIsValid ={
     passwordR:false,
     samePassword:false,
     image:false
+}
+
+const LogInFormIsValid={
+    username:false,
+    password:false
 }
 
 
@@ -56,6 +64,16 @@ const validateName = (name) => {
 
 }
 
+const isEmpty= (element)=>{
+    //comprueba que el campo no este vacio . Devuelve verdaderi si esta vacio, y falso en caso de contener algun caracter
+    if(element.length == 0){
+        return true;
+    }
+    return false;
+}
+
+
+
 const validateForm =(ObjectForm, formulario)=>{
     // valida si el formulario pasado como primer parametro posee todos sus campos correctos
     const formValid= Object.values(ObjectForm);
@@ -64,9 +82,10 @@ const validateForm =(ObjectForm, formulario)=>{
         formulario.submit();
     }
     else{
-        alert('campos invalidos');
+        alert('campos invalidos o incompletos');
     }
 }
+
 
 const samePassword=(password1, password2)=>{
     // Evalua si las contraseñas ingresadas son iguales
@@ -116,20 +135,49 @@ const evalueValidActive= (e) => {
 
 // eventos de escucha para validar los campos del formulario de registro
 
+formLogin.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    validateForm(LogInFormIsValid, formLogin)
+})
+
+loginUsername.addEventListener('change', (e)=>{
+    if(!isEmpty(loginUsername.value)){
+        LogInFormIsValid.username=true;
+    }
+    else{
+        LogInFormIsValid.username=false;
+
+    }
+})
+
+loginPassword.addEventListener('change', (e)=>{
+    if(!isEmpty(loginPassword.value)){
+        LogInFormIsValid.password=true;
+    }
+    else{
+        LogInFormIsValid.password=false;
+
+    }
+})
+
+
+
+
 formRegister.addEventListener('submit', (e)=>{
     e.preventDefault();
-    validateForm(formIsValid, formRegister);
+    validateForm(registerFormIsValid, formRegister);
 })
 
 registerEmail.addEventListener('change', (e)=>{
     if(validateEmail(registerEmail.value)){
         evalueInvalidActive(e);
-        formIsValid.mail=true;
+        registerFormIsValid.mail=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.mail=false;
     }
 
 })
@@ -137,48 +185,52 @@ registerEmail.addEventListener('change', (e)=>{
 registerFirstName.addEventListener('change', (e)=>{
     if(validateName(registerFirstName.value)){
         evalueInvalidActive(e);
-        formIsValid.firstname=true;
+        registerFormIsValid.firstname=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.firstname=false;
     }
 })
 
 registerLastName.addEventListener('change', (e)=>{
     if(validateName(registerLastName.value)){
         evalueInvalidActive(e);
-        formIsValid.lastname=true;
+        registerFormIsValid.lastname=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.lastname=false;
     }
 })
 
 registerUsername.addEventListener('change', (e)=>{
     if(validateUsername(registerUsername.value)){
         evalueInvalidActive(e);
-        formIsValid.username=true;
+        registerFormIsValid.username=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.username=false;
     }
 })
 
 registerPassword.addEventListener('change', (e)=>{
     if(validatePasswordComplex(registerPassword.value)){
         evalueInvalidActive(e);
-        formIsValid.password=true;
+        registerFormIsValid.password=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.password=false;
     }
 })
 
@@ -187,13 +239,15 @@ registerPasswordRepeat.addEventListener('change', (e)=>{
     const same_password=samePassword(registerPassword.value, registerPasswordRepeat.value)
     if(passwordValid && same_password){
         evalueInvalidActive(e);
-        formIsValid.passwordR=true;
-        formIsValid.samePassword=true;
+        registerFormIsValid.passwordR=true;
+        registerFormIsValid.samePassword=true;
         isValid(e);
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
+        registerFormIsValid.passwordR=false;
+        registerFormIsValid.samePassword=false;
     }
 })
 
@@ -203,7 +257,7 @@ registerImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('error')){
             parent.classList.remove('error');
         }
-        formIsValid.image=true;
+        registerFormIsValid.image=true;
         parent.classList.add('valid');
     }
     else{
@@ -211,6 +265,7 @@ registerImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('valid')){
             parent.classList.remove('valid');
         }
+        registerFormIsValid.image=false;
         parent.classList.add('error');
        
     }   

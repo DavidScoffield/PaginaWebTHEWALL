@@ -129,6 +129,7 @@ basicDataEmail.addEventListener('change', (e)=>{
     else{
         evalueValidActive(e);
         isInvalid(e);
+        formBasicDataIsValid.mail=false;
     }
 
 })
@@ -142,6 +143,7 @@ basicDataFirstName.addEventListener('change', (e)=>{
     else{
         evalueValidActive(e);
         isInvalid(e);
+        formBasicDataIsValid.firstname=false;
     }
 })
 
@@ -154,6 +156,7 @@ basicDataLastName.addEventListener('change', (e)=>{
     else{
         evalueValidActive(e);
         isInvalid(e);
+        formBasicDataIsValid.lastname=false;
     }
 })
 
@@ -171,6 +174,7 @@ fileImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('valid')){
             parent.classList.remove('valid');
         }
+        formBasicDataIsValid.image=false;
         parent.classList.add('error');
        
     }   
@@ -185,6 +189,7 @@ newPassword.addEventListener('change', (e)=>{
     else{
         evalueValidActive(e);
         isInvalid(e);
+        formPasswordIsValid.password=false;
     }
 })
 
@@ -200,6 +205,8 @@ newPasswordRepeat.addEventListener('change', (e)=>{
     else{
         evalueValidActive(e);
         isInvalid(e);
+        formPasswordIsValid.newPasswordR=false;
+        formPasswordIsValid.samePassword=false;
     }
 })
 
