@@ -28,14 +28,40 @@
             padding-left: 3%;
             border-bottom: 4px solid $color-bordes;
             font-weight: 500;
+            border-radius: 5px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
             text-shadow: 1px 1px 2px rgb(0, 4, 24), 0 0 1em rgb(0, 19, 129),
                 0 0 0.2em rgb(0, 22, 121);
+
+            background: rgb(0, 0, 0);
+            background: linear-gradient(
+                145deg,
+                rgba(0, 0, 0, 1) 9%,
+                rgba(9, 0, 157, 1) 26%,
+                rgba(0, 2, 43, 1) 42%,
+                rgba(0, 50, 152, 1) 60%,
+                rgba(0, 29, 50, 1) 82%,
+                rgb(0, 60, 255) 100%
+            );
         }
 
         .crear-msj {
-            height: 170px;
-            border-bottom: 4px solid $color-bordes;
+            background: rgb(0, 11, 255);
+            background: linear-gradient(
+                333deg,
+                rgba(0, 11, 255, 1) 0%,
+                rgba(171, 148, 67, 1) 75%,
+                rgba(255, 182, 0, 1) 100%
+            );
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 153px;
+            width: 100%;
         }
+
         .publicaciones,
         .lista-usuarios {
             display: none;

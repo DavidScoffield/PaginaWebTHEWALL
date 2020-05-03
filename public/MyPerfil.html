@@ -203,7 +203,35 @@
                     </div>
                 </div>
                 <div class="crear-msj">
-                    <!-- <input type="text" name="msj" id="" /> -->
+                    <form class="enviar-msj">
+                        <div class="contenedor-uno">
+                            <div class="contenedor-textarea">
+                                <textarea
+                                    name="msj"
+                                    id="msj"
+                                    maxlength="140"
+                                    placeholder="¿En qué estás pensando?"
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div class="contenedor-dos">
+                            <div class="container-imagen-prev">
+                                <i
+                                    class="fas fa-camera"
+                                    id="iconoSubirImagen"
+                                ></i>
+
+                                <input
+                                    class="inputImg"
+                                    type="file"
+                                    name="img_profile"
+                                    id="inputImg"
+                                    accept="image/*"
+                                />
+                            </div>
+                            <input type="submit" value="Publicar" />
+                        </div>
+                    </form>
                 </div>
                 <div class="opciones-menu-perfil">
                     <div class="contenedor-opciones">
@@ -853,5 +881,6 @@
         <script src="js/PaginaPrincipal/publicacion.js"></script>
         <script src="js/MyProfile/deletePublicacion.js"></script>
         <script src="js/MyProfile/alternarSubmenu.js"></script>
+        <script src="js/PaginaPrincipal/publicar.js"></script>
     </body>
 </html>
