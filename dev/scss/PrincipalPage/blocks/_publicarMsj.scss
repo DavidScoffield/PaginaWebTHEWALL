@@ -36,7 +36,8 @@
         justify-content: space-between;
         align-items: center;
 
-        input[type="submit"] {
+        // input[type="submit"] {
+        .btnPublicar {
             // background-color: rgb(0, 255, 204);
             width: 100px;
             height: 40px;
@@ -69,6 +70,22 @@
 
             &:active {
                 transform: scale(0.8);
+            }
+        }
+
+        .disabled {
+            background-image: linear-gradient(
+                to right,
+                rgb(31, 31, 31),
+                rgb(143, 126, 126),
+                rgb(31, 31, 31)
+            );
+            color: rgb(143, 143, 143);
+            /*     background-image: none;
+            background-color: grey; */
+
+            &:hover {
+                background-position: left;
             }
         }
 
@@ -125,6 +142,7 @@
 
             .inputImg {
                 opacity: 0;
+                width: 5%;
             }
         }
     }

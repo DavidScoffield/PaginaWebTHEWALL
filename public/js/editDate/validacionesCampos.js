@@ -6,7 +6,6 @@ const basicDataFirstName=document.getElementById('basic_datos_firstName');
 const basicDataLastName=document.getElementById('basic_datos_lastName');
 const fileImg=document.getElementById('inputImg');
 
-
 const formPassword= document.getElementById('form_password')
 const actualPassword=document.getElementById('actual_password');
 const newPassword=document.getElementById('new_password');
@@ -14,10 +13,10 @@ const newPasswordRepeat=document.getElementById('new_passwordRepeat');
 
 //objeto de formulario registro
 const formBasicDataIsValid ={
-    mail:false,
-    firstname:false,
-    lastname:false,
-    image:false,
+    mail:true,
+    firstname:true,
+    lastname:true,
+    // image:false,
 }
  
 //objeto de formulario registro
@@ -51,7 +50,7 @@ const validateName = (name) => {
 }
 
 const validateForm =(ObjectForm, formulario)=>{
-    // valida si el formulario pasado como primer parametro posee todos sus campos correctos
+    // valida si el formulario pasado como primer parametro posee todos sus campos correctos(true)
     const formValid= Object.values(ObjectForm);
     const valid= formValid.findIndex(value=> value == false );
     if(valid == -1){
@@ -166,7 +165,7 @@ fileImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('error')){
             parent.classList.remove('error');
         }
-        formBasicDataIsValid.image=true;
+        // formBasicDataIsValid.image=true;
         parent.classList.add('valid');
     }
     else{
@@ -174,11 +173,15 @@ fileImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('valid')){
             parent.classList.remove('valid');
         }
-        formBasicDataIsValid.image=false;
+        // formBasicDataIsValid.image=false;
         parent.classList.add('error');
        
     }   
 })
+
+
+
+// PASSWORDS
 
 newPassword.addEventListener('change', (e)=>{
     if(validatePasswordComplex(newPassword.value)){
@@ -196,6 +199,7 @@ newPassword.addEventListener('change', (e)=>{
 newPasswordRepeat.addEventListener('change', (e)=>{
     const passwordValid=validatePasswordComplex(newPasswordRepeat.value);
     const same_password=samePassword(newPassword.value, newPasswordRepeat.value)
+    console.log(passwordValid, same_password)
     if(passwordValid && same_password){
         evalueInvalidActive(e);
         formPasswordIsValid.newPasswordR=true;
@@ -208,7 +212,9 @@ newPasswordRepeat.addEventListener('change', (e)=>{
         formPasswordIsValid.newPasswordR=false;
         formPasswordIsValid.samePassword=false;
     }
+    console.log(formPasswordIsValid);
 })
+
 
 
 

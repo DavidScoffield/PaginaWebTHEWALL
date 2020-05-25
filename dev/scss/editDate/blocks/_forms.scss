@@ -147,12 +147,16 @@
         }
     }
     .container-dual {
-        display: grid;
-        grid-template-columns: 50% 50%;
+        // display: grid;
+        // grid-template-columns: 50% 50%;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
 
         .container-button {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            width: 60%;
             .btn {
                 display: flex;
                 justify-content: center;

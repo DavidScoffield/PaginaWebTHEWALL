@@ -92,19 +92,27 @@
                     width: 100%;
                     justify-content: center;
 
-                    .nombre,
-                    .apellido {
-                        align-self: start;
-                        width: 100%;
-                        padding-left: 5%;
-                    }
-                    .nombre {
-                        font-size: 16px;
-                    }
-                    .apellido {
-                        font-size: 19px;
+                    a:link,
+                    a:visited,
+                    a:active {
+                        text-decoration: none;
+                        color: rgba(255, 255, 255, 0.897);
+
+                        .nombre,
+                        .apellido {
+                            align-self: start;
+                            width: 100%;
+                            padding-left: 5%;
+                        }
+                        .nombre {
+                            font-size: 16px;
+                        }
+                        .apellido {
+                            font-size: 19px;
+                        }
                     }
                 }
+
                 .contenedor-botonFollow {
                     grid-area: button;
                     width: 100%;

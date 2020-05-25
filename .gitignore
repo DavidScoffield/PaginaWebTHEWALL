@@ -2,3 +2,5 @@ prepros.config
 /node_modules
 package.json
 TrabajoPráctico2020PrimerSemestre.pdf
+/.vscode
+_dev-gulp

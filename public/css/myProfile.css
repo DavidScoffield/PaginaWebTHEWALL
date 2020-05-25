@@ -101,7 +101,7 @@
 .perfil .contenedor .contenedor-datos .contenedor-nombre p,
 .perfil .contenedor .contenedor-datos .contenedor-apellido p {
   font-size: 30px;
-  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
+  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
 }
 
 .perfil .contenedor .contenedor-datos .contenedor-username {
@@ -110,7 +110,7 @@
 
 .perfil .contenedor .contenedor-datos .contenedor-username p {
   font-size: 18px;
-  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
+  text-shadow: 1px 1px 2px black, 0 0 5em #a4a4ff, 0 0 0.4em #0000ff;
 }
 
 .perfil .contenedor .contenedor-boton {
@@ -251,7 +251,7 @@
   background: radial-gradient(circle, #450b0b 0%, #c10000 100%);
   color: white;
   border-color: white;
-  text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d, 0 0 1rem #ff3535;
+  text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d, 0 0 1rem #ff3535;
   font-size: 60%;
 }
 

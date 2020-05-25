@@ -48,7 +48,8 @@ const resetarFocus= (modal)=>{
 }
 
 //eventos para el apartado datos generales
-resetDatosGenerales.addEventListener('click', ()=> resetarFocus(editar));
+/* resetDatosGenerales.addEventListener('click', ()=> resetarFocus(editar)); */
+
 document.getElementById('iconoSubirImagen').addEventListener('click', ()=>{
     document.getElementById('inputImg').click();
  })
@@ -56,7 +57,7 @@ document.getElementById('iconoSubirImagen').addEventListener('click', ()=>{
 //eventos para el apartado password
 
 
-resetPassword.addEventListener('click', ()=> resetarFocus(editar));
+/* resetPassword.addEventListener('click', ()=> resetarFocus(editar)); */
 
 
 

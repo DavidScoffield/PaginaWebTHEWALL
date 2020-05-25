@@ -2,12 +2,12 @@ body {
   background: radial-gradient(circle, #404040 0%, #020024 100%);
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "buscador central menu" "footer footer footer";
+      grid-template-areas: "buscador central menu" "footer footer footer";
 }
 
 @media screen and (max-width: 769px) {
   body {
-        grid-template-areas: "menu" "central" "footer";
+        grid-template-areas: "menu" "central" "footer";
   }
 }
 
@@ -104,7 +104,7 @@ body {
   color: rgba(255, 255, 255, 0.897);
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "nombre button" "username username";
+      grid-template-areas: "nombre button" "username username";
 }
 
 .buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre {
@@ -125,8 +125,19 @@ body {
           justify-content: center;
 }
 
-.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre,
-.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .apellido {
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:link,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:visited,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:active {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.897);
+}
+
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:link .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:link .apellido,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:visited .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:visited .apellido,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:active .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:active .apellido {
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
@@ -134,11 +145,15 @@ body {
   padding-left: 5%;
 }
 
-.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .nombre {
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:link .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:visited .nombre,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:active .nombre {
   font-size: 16px;
 }
 
-.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre .apellido {
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:link .apellido,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:visited .apellido,
+.buscador .contenedor-busqueda .resultado-busqueda .usuario .contenedor-nombre a:active .apellido {
   font-size: 19px;
 }
 
@@ -203,7 +218,7 @@ body {
   background: radial-gradient(circle, #450b0b 0%, #c10000 100%);
   color: white;
   border-color: white;
-  text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d, 0 0 1rem #ff3535;
+  text-shadow: 1px 1px 2px black, 0 0 1rem #db2d2d, 0 0 1rem #ff3535;
   font-size: 70%;
 }
 
@@ -400,7 +415,7 @@ body {
           align-items: center;
 }
 
-.enviar-msj .contenedor-dos input[type="submit"] {
+.enviar-msj .contenedor-dos .btnPublicar {
   width: 100px;
   height: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -428,13 +443,25 @@ body {
           box-shadow: 0 0 10px 0 #000030;
 }
 
-.enviar-msj .contenedor-dos input[type="submit"]:hover {
+.enviar-msj .contenedor-dos .btnPublicar:hover {
   background-position: right;
 }
 
-.enviar-msj .contenedor-dos input[type="submit"]:active {
+.enviar-msj .contenedor-dos .btnPublicar:active {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
+}
+
+.enviar-msj .contenedor-dos .disabled {
+  background-image: -webkit-gradient(linear, left top, right top, from(#1f1f1f), color-stop(#8f7e7e), to(#1f1f1f));
+  background-image: linear-gradient(to right, #1f1f1f, #8f7e7e, #1f1f1f);
+  color: #8f8f8f;
+  /*     background-image: none;
+            background-color: grey; */
+}
+
+.enviar-msj .contenedor-dos .disabled:hover {
+  background-position: left;
 }
 
 .enviar-msj .contenedor-dos .container-imagen-prev {
@@ -497,6 +524,7 @@ body {
 
 .enviar-msj .contenedor-dos .container-imagen-prev .inputImg {
   opacity: 0;
+  width: 5%;
 }
 
 .opciones-menu-perfil {
