@@ -1,6 +1,11 @@
 prepros.config
 /node_modules
-package.json
 TrabajoPráctico2020PrimerSemestre.pdf
 /.vscode
-_dev-gulp
+.babelrc
+.browserslistrc
+gulpfile.babel.js
+instalaciones.txt
+package-lock.json
+package.json
+.gitattributes
