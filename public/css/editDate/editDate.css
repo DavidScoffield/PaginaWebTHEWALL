@@ -1,0 +1,447 @@
+.datos {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#basic_datos_email:invalid {
+  box-shadow: none;
+}
+
+.datos-generales,
+.password {
+  border: 3px solid #000030;
+  margin: 10px 0;
+  background-color: rgba(13, 7, 63, 0.295);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.datos-generales .container-dualDate,
+.datos-generales .container-individual,
+.password .container-dualDate,
+.password .container-individual {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: inherit;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.datos-generales .container-dualDate .containers,
+.datos-generales .container-individual .containers,
+.password .container-dualDate .containers,
+.password .container-individual .containers {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border-bottom: 2px solid #969696;
+  margin: 0.4rem 1rem;
+  padding: 0.6rem 0;
+  width: 100%;
+  position: relative;
+  /* ---estilos para cuando es invalido el contenido del campo */
+  /* ---/ */
+  /* ---estilos para cuando es valido el contenido del campo */
+  /* ---/ */
+}
+
+.datos-generales .container-dualDate .containers .i,
+.datos-generales .container-individual .containers .i,
+.password .container-dualDate .containers .i,
+.password .container-individual .containers .i {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20px;
+  width: 23px;
+}
+
+.datos-generales .container-dualDate .containers .i i,
+.datos-generales .container-individual .containers .i i,
+.password .container-dualDate .containers .i i,
+.password .container-individual .containers .i i {
+  color: #969696;
+  font-size: 70%;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.datos-generales .container-dualDate .containers > div,
+.datos-generales .container-individual .containers > div,
+.password .container-dualDate .containers > div,
+.password .container-individual .containers > div {
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+
+.datos-generales .container-dualDate .containers > div label,
+.datos-generales .container-individual .containers > div label,
+.password .container-dualDate .containers > div label,
+.password .container-individual .containers > div label {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  font-size: 1.2vw;
+  color: #969696;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100 bold;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.datos-generales .container-dualDate .containers > div .input,
+.datos-generales .container-individual .containers > div .input,
+.password .container-dualDate .containers > div .input,
+.password .container-individual .containers > div .input {
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 5%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.1rem 0;
+  font-size: 1.2vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.datos-generales .container-dualDate .containers.focus .i i,
+.datos-generales .container-individual .containers.focus .i i,
+.password .container-dualDate .containers.focus .i i,
+.password .container-individual .containers.focus .i i {
+  color: white;
+}
+
+.datos-generales .container-dualDate .containers.focus div label,
+.datos-generales .container-individual .containers.focus div label,
+.password .container-dualDate .containers.focus div label,
+.password .container-individual .containers.focus div label {
+  color: white;
+  font-size: 0.8vw;
+  top: -50%;
+}
+
+.datos-generales .container-dualDate .containers::after, .datos-generales .container-dualDate .containers::before,
+.datos-generales .container-individual .containers::after,
+.datos-generales .container-individual .containers::before,
+.password .container-dualDate .containers::after,
+.password .container-dualDate .containers::before,
+.password .container-individual .containers::after,
+.password .container-individual .containers::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.datos-generales .container-dualDate .containers::after,
+.datos-generales .container-individual .containers::after,
+.password .container-dualDate .containers::after,
+.password .container-individual .containers::after {
+  right: 50%;
+}
+
+.datos-generales .container-dualDate .containers::before,
+.datos-generales .container-individual .containers::before,
+.password .container-dualDate .containers::before,
+.password .container-individual .containers::before {
+  left: 50%;
+}
+
+.datos-generales .container-dualDate .containers.focus::after, .datos-generales .container-dualDate .containers.focus::before,
+.datos-generales .container-individual .containers.focus::after,
+.datos-generales .container-individual .containers.focus::before,
+.password .container-dualDate .containers.focus::after,
+.password .container-dualDate .containers.focus::before,
+.password .container-individual .containers.focus::after,
+.password .container-individual .containers.focus::before {
+  width: 50%;
+}
+
+.datos-generales .container-dualDate .containers.error,
+.datos-generales .container-individual .containers.error,
+.password .container-dualDate .containers.error,
+.password .container-individual .containers.error {
+  box-shadow: 0 0 10px 1px red;
+}
+
+.datos-generales .container-dualDate .containers.error .i i,
+.datos-generales .container-individual .containers.error .i i,
+.password .container-dualDate .containers.error .i i,
+.password .container-individual .containers.error .i i {
+  color: rgba(216, 0, 0, 0.842);
+}
+
+.datos-generales .container-dualDate .containers.focus.error div label,
+.datos-generales .container-individual .containers.focus.error div label,
+.password .container-dualDate .containers.focus.error div label,
+.password .container-individual .containers.focus.error div label {
+  color: rgba(216, 0, 0, 0.842);
+}
+
+.datos-generales .container-dualDate .containers.focus.error::after, .datos-generales .container-dualDate .containers.focus.error::before,
+.datos-generales .container-individual .containers.focus.error::after,
+.datos-generales .container-individual .containers.focus.error::before,
+.password .container-dualDate .containers.focus.error::after,
+.password .container-dualDate .containers.focus.error::before,
+.password .container-individual .containers.focus.error::after,
+.password .container-individual .containers.focus.error::before {
+  width: 50%;
+  background-color: rgba(216, 0, 0, 0.842);
+}
+
+.datos-generales .container-dualDate .containers.valid,
+.datos-generales .container-individual .containers.valid,
+.password .container-dualDate .containers.valid,
+.password .container-individual .containers.valid {
+  box-shadow: 0 0 10px 1px #00b30f;
+}
+
+.datos-generales .container-dualDate .containers.valid .i i,
+.datos-generales .container-individual .containers.valid .i i,
+.password .container-dualDate .containers.valid .i i,
+.password .container-individual .containers.valid .i i {
+  color: #00c711;
+}
+
+.datos-generales .container-dualDate .containers.focus.valid div label,
+.datos-generales .container-individual .containers.focus.valid div label,
+.password .container-dualDate .containers.focus.valid div label,
+.password .container-individual .containers.focus.valid div label {
+  color: #00c711;
+}
+
+.datos-generales .container-dualDate .containers.focus.valid::after, .datos-generales .container-dualDate .containers.focus.valid::before,
+.datos-generales .container-individual .containers.focus.valid::after,
+.datos-generales .container-individual .containers.focus.valid::before,
+.password .container-dualDate .containers.focus.valid::after,
+.password .container-dualDate .containers.focus.valid::before,
+.password .container-individual .containers.focus.valid::after,
+.password .container-individual .containers.focus.valid::before {
+  width: 50%;
+  background-color: #00c711;
+}
+
+.datos-generales .container-dual,
+.password .container-dual {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.datos-generales .container-dual .container-button,
+.password .container-dual .container-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 60%;
+}
+
+.datos-generales .container-dual .container-button .btn,
+.password .container-dual .container-button .btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 80%;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 0;
+  width: 60%;
+  height: 40px;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  border: 1px solid #000030;
+  border-radius: 25px;
+  background-image: -webkit-linear-gradient(left, #000030, #0079b1, #000030);
+  background-image: linear-gradient(to right, #000030, #0079b1, #000030);
+  color: white;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200%;
+  box-shadow: 0 0 10px 0 #000030;
+}
+
+.datos-generales .container-dual .container-button .btn:hover,
+.password .container-dual .container-button .btn:hover {
+  background-position: right;
+}
+
+.password .container-individual .containers > div label,
+.password .container-individual .containers > div .input {
+  left: -3%;
+}
+
+.password .container-individual .containers > div .input {
+  padding: 0;
+}
+
+.datos-generales .container-dualDate .container-img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 100%;
+  margin: 0.4rem 1rem;
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev i {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70%;
+  width: 90%;
+  font-size: 120%;
+  background-image: -webkit-radial-gradient(circle, white, #dfdfdf);
+  background-image: radial-gradient(circle, white, #dfdfdf);
+  border-radius: 10px;
+  border: 5px dashed #000030;
+  color: #000030;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev i:hover {
+  background-image: -webkit-radial-gradient(circle, #eeeeee, #c2c2c2);
+  background-image: radial-gradient(circle, #eeeeee, #c2c2c2);
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev.error i {
+  box-shadow: 0 0 10px 1px red;
+  color: rgba(216, 0, 0, 0.842);
+  border: 5px dashed rgba(216, 0, 0, 0.842);
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev.valid i {
+  box-shadow: 0 0 10px 1px #00c711;
+  color: #00c711;
+  border: 5px dashed #00c711;
+}
+
+.datos-generales .container-dualDate .container-img .container-imagen-prev .inputImg {
+  opacity: 0;
+  width: 5%;
+}
+
+@media screen and (max-width: 769px) {
+  .datos-generales .container-dualDate .containers > div label,
+  .password .container-dualDate .containers > div label,
+  .password .container-individual .containers > div label {
+    font-size: 13px;
+  }
+  .datos-generales .container-dualDate .containers > div .input,
+  .password .container-dualDate .containers > div .input,
+  .password .container-individual .containers > div .input {
+    font-size: 13px;
+  }
+  .datos-generales .container-dualDate .containers.focus div label,
+  .password .container-dualDate .containers.focus div label,
+  .password .container-individual .containers.focus div label {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .datos-generales .container-dualDate .containers > div label,
+  .password .container-dualDate .containers > div label,
+  .password .container-individual .containers > div label {
+    font-size: 15px;
+  }
+  .datos-generales .container-dualDate .containers > div .input,
+  .password .container-dualDate .containers > div .input,
+  .password .container-individual .containers > div .input {
+    font-size: 15px;
+  }
+  .datos-generales .container-dualDate .containers.focus div label,
+  .password .container-dualDate .containers.focus div label,
+  .password .container-individual .containers.focus div label {
+    font-size: 10px;
+  }
+}
