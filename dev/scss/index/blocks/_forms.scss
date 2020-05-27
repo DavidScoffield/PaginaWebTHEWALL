@@ -83,9 +83,27 @@
                 display: grid;
                 grid-template-columns: 10% 90%;
                 border-bottom: 2px solid $gris;
-                margin: 0.4rem 1rem;
+                margin: 0.6rem 1rem;
                 padding: 0.6rem 0;
                 position: relative;
+
+                .contenedor-msj-error {
+                    font-family: "Poppins", sans-serif;
+                    position: absolute;
+                    color: rgb(207, 0, 0);
+                    width: 100%;
+                    top: -22px;
+                    right: 0px;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    .msj-error {
+                        align-self: center;
+                        font-size: 10px;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
 
                 .i {
                     display: flex;
@@ -237,61 +255,88 @@
                 }
             }
 
-            .container-imagen-prev {
-                display: flex;
-                width: 100%;
-                margin: 16px 0;
-                padding: 0.6rem 0;
+            .contenedor-img {
                 position: relative;
-                justify-content: center;
+                min-height: auto;
+                margin: 30px 0;
+                padding: 0.6rem 0;
+                display: flex;
                 align-items: center;
 
-                i {
+                .contenedor-msj-error {
+                    font-family: "Poppins", sans-serif;
                     position: absolute;
+                    color: rgb(207, 0, 0);
+                    width: 100%;
+                    top: -30px;
+                    right: 0px;
                     display: flex;
                     justify-content: center;
-                    align-items: center;
-                    height: 40px;
-                    width: 70%;
-                    font-size: 170%;
-                    background-image: radial-gradient(
-                        circle,
-                        rgb(255, 255, 255),
-                        rgb(223, 223, 223)
-                    );
-                    border-radius: 10px;
-                    border: 5px dashed $color-bordes;
-                    color: $color-bordes;
-                    z-index: 100;
-                    cursor: pointer;
 
-                    &:hover {
+                    .msj-error {
+                        align-self: center;
+                        font-size: 10px;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                .container-imagen-prev {
+                    display: flex;
+                    width: 100%;
+                    // margin: 16px 0;
+                    // padding: 0.6rem 0;
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+
+                    i {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 40px;
+                        width: 70%;
+                        font-size: 170%;
                         background-image: radial-gradient(
                             circle,
-                            rgb(238, 238, 238),
-                            rgb(194, 194, 194)
+                            rgb(255, 255, 255),
+                            rgb(223, 223, 223)
                         );
-                    }
-                }
+                        border-radius: 10px;
+                        border: 5px dashed $color-bordes;
+                        color: $color-bordes;
+                        z-index: 100;
+                        cursor: pointer;
 
-                &.error {
-                    i {
-                        box-shadow: 0 0 10px 1px red;
-                        color: rgba(216, 0, 0, 0.842);
-                        border: 5px dashed rgba(216, 0, 0, 0.842);
+                        &:hover {
+                            background-image: radial-gradient(
+                                circle,
+                                rgb(238, 238, 238),
+                                rgb(194, 194, 194)
+                            );
+                        }
                     }
-                }
 
-                &.valid {
-                    i {
-                        box-shadow: 0 0 10px 1px rgb(0, 199, 17);
-                        color: rgb(0, 199, 17);
-                        border: 5px dashed rgb(0, 199, 17);
+                    &.error {
+                        i {
+                            box-shadow: 0 0 10px 1px red;
+                            color: rgba(216, 0, 0, 0.842);
+                            border: 5px dashed rgba(216, 0, 0, 0.842);
+                        }
                     }
-                }
 
-                .inputImg {
-                    opacity: 0;
+                    &.valid {
+                        i {
+                            box-shadow: 0 0 10px 1px rgb(0, 199, 17);
+                            color: rgb(0, 199, 17);
+                            border: 5px dashed rgb(0, 199, 17);
+                        }
+                    }
+
+                    .inputImg {
+                        opacity: 0;
+                        width: 5px;
+                    }
                 }
             }
         }
@@ -334,14 +379,72 @@
         width: 70%;
         height: 60%;
 
-        .form .container-dual .btn {
-            height: 40px;
+        .form {
+            .containers {
+                .contenedor-msj-error {
+                    top: -17px;
+                    .msj-error {
+                        font-size: 8.5px;
+                    }
+                }
+                .input {
+                    font-size: 9px;
+                }
+                & > div {
+                    label {
+                        font-size: 1.9vw;
+                    }
+                }
+                &.focus div label {
+                    font-size: 1.1vw;
+                }
+            }
+            .container-dual .btn {
+                height: 40px;
+            }
+
+            .contenedor-img {
+                margin: 25px 0;
+
+                .contenedor-msj-error {
+                    top: -27px;
+                }
+                .container-imagen-prev {
+                    i {
+                        width: 60%;
+                        font-size: 120%;
+                        height: 30px;
+                    }
+                }
+            }
         }
         &.LogIn {
             height: 30%;
         }
         .cambiar_opcion {
             font-size: 12px;
+        }
+    }
+}
+
+@include mobile {
+    .bg-modal .window_modal .form {
+        .containers .contenedor-msj-error {
+            top: -15px;
+            .msj-error {
+                font-size: 7px;
+            }
+        }
+
+        .contenedor-img {
+            margin: 20px 0;
+
+            .contenedor-msj-error {
+                top: -24px;
+                .msj-error {
+                    font-size: 8.5px;
+                }
+            }
         }
     }
 }

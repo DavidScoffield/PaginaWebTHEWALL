@@ -58,6 +58,37 @@
   /* ---/ */
 }
 
+.datos-generales .container-dualDate .containers .contenedor-msj-error,
+.datos-generales .container-individual .containers .contenedor-msj-error,
+.password .container-dualDate .containers .contenedor-msj-error,
+.password .container-individual .containers .contenedor-msj-error {
+  position: absolute;
+  color: #cf0000;
+  width: 105%;
+  top: -23px;
+  right: -5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.datos-generales .container-dualDate .containers .contenedor-msj-error .msj-error,
+.datos-generales .container-individual .containers .contenedor-msj-error .msj-error,
+.password .container-dualDate .containers .contenedor-msj-error .msj-error,
+.password .container-individual .containers .contenedor-msj-error .msj-error {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
 .datos-generales .container-dualDate .containers .i,
 .datos-generales .container-individual .containers .i,
 .password .container-dualDate .containers .i,
@@ -342,6 +373,32 @@
   width: 100%;
   min-height: 100%;
   margin: 0.4rem 1rem;
+  position: relative;
+}
+
+.datos-generales .container-dualDate .container-img .contenedor-msj-error {
+  position: absolute;
+  color: #cf0000;
+  width: 105%;
+  top: -15px;
+  right: -5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.datos-generales .container-dualDate .container-img .contenedor-msj-error .msj-error {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .datos-generales .container-dualDate .container-img .container-imagen-prev {
@@ -443,5 +500,23 @@
   .password .container-dualDate .containers.focus div label,
   .password .container-individual .containers.focus div label {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 1013px) {
+  .datos-generales .container-dualDate .containers .contenedor-msj-error {
+    top: -20px;
+  }
+  .datos-generales .container-dualDate .containers .contenedor-msj-error .msj-error {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .datos-generales .container-dualDate .containers .contenedor-msj-error {
+    right: 0px;
+  }
+  .datos-generales .container-dualDate .containers .contenedor-msj-error .msj-error {
+    font-size: 6px;
   }
 }

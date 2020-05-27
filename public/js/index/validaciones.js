@@ -1,6 +1,5 @@
 // variables para escuchar los eventos
 
-const btnSubmitRegister= document.getElementById('btn_submitRegister') ;
 const formRegister= document.getElementById('formulario_registro')
 const registerEmail=document.getElementById('register_email');
 const registerFirstName=document.getElementById('register_firstName');
@@ -9,11 +8,14 @@ const registerUsername=document.getElementById('register_user');
 const registerPassword=document.getElementById('register_password');
 const registerPasswordRepeat=document.getElementById('register_RepeatPassword');
 const registerImg=document.getElementById('inputImg');
+const btnSubmitRegister= document.getElementById('btn_submitRegister') ;
+const btnResetLogIn= document.getElementById('resetLogIn') ;
 
-const btnSubmitLogin= document.getElementById('btn_submitLogIn') ;
 const formLogin= document.getElementById('formulario_logIn')
 const loginUsername=document.getElementById('login_user');
 const loginPassword=document.getElementById('login_password');
+const btnSubmitLogin= document.getElementById('btn_submitLogIn') ;
+const btnResetRegister= document.getElementById('resetRegister') ;
 
 
 //objeto de formulario registro
@@ -74,16 +76,11 @@ const isEmpty= (element)=>{
 
 
 
-const validateForm =(ObjectForm, formulario)=>{
+const validateForm =(ObjectForm)=>{
     // valida si el formulario pasado como primer parametro posee todos sus campos correctos
     const formValid= Object.values(ObjectForm);
     const valid= formValid.findIndex(value=> value == false );
-    if(valid == -1){
-        formulario.submit();
-    }
-    else{
-        alert('campos invalidos o incompletos');
-    }
+    return (valid == -1);
 }
 
 
@@ -130,22 +127,117 @@ const evalueValidActive= (e) => {
     }
 };
 
+const agregarClassValida=(e)=>{
+    //agrega la clase valido que da estilo verde al campo valido
+    let parent = e.target.parentNode.parentNode;
+    parent.classList.add('valido');
+}
+
+const eliminarClassValida= (e) => {
+    //evalua si la clase valido esta activa, de ser asi la elimina
+    let parent = e.target.parentNode.parentNode;
+    if(parent.classList.contains('valido')){
+        parent.classList.remove('valido');
+    }
+};
+
+const containMsjError = (e) =>{
+    const padre= e.target.parentNode.parentNode;
+    const ultHijoError= padre.lastElementChild;
+    return ultHijoError.classList.contains("contenedor-msj-error");
+}
+
+const createMsjError=(e,valorAConcatenar)=>{
+    // inserta un mensaje de error con sus clases correspondientes para que se ubique encima del imput
+    // recibe en imput el nodo imput al que agregarle el error(que se encuentra en el contenedor principal de este), y en valorAConcatenar el contenido del msj a mostrar
+    const padre= e.target.parentNode.parentNode; //se accede al contenedor principal
+    const newNodoError= document.createElement("div");
+    newNodoError.setAttribute("class", "contenedor-msj-error");
+    padre.appendChild(newNodoError);
+    const html= "<p class='msj-error'>" + valorAConcatenar + "</p></div>";
+    newNodoError.innerHTML= html;      
+}
 
 
+const removeMsjError=(e)=>{
+    // elimina el mensaje de error
+    // recibe en imput el nodo imput al que eliminar el msj(que se encuentra en el contenedor principal de este)
+    const padre= e.target.parentNode.parentNode; //se accede al contenedor principal
+    const ultHijoError= padre.lastElementChild;    
+    padre.removeChild(ultHijoError);
+}
+
+const crearMsjdeCampoVacio= (contenedorDondeAgregarClase , contenedorDondeAgregarMsj ) =>{
+    if((!contenedorDondeAgregarClase.classList.contains("valid")) && (!contenedorDondeAgregarClase.classList.contains("error") && (!contenedorDondeAgregarClase.classList.contains("valido")))){         //comprueba que el input este vacio 
+        contenedorDondeAgregarClase.classList.add("error");                                                              //se le agrega la clase error
+        if(!contenedorDondeAgregarMsj.lastElementChild.classList.contains("contenedor-msj-error")){          //se verifica si ya contenia un msj de error
+            const msj= "Campo obligatorio"                                                      // se le agrega el msj error
+            const newNodoError= document.createElement("div");
+            newNodoError.setAttribute("class", "contenedor-msj-error");
+            contenedorDondeAgregarMsj.appendChild(newNodoError);
+            const html= "<p class='msj-error'>" + msj + "</p></div>";
+            newNodoError.innerHTML= html;  
+        }
+    }
+}
+const invalidatedImputs = (formulario) =>{
+    const contenedoresInputs= Array.from(formulario.getElementsByClassName("contenedor-input"))
+    contenedoresInputs.forEach(contenedor=>{
+        if(contenedor.classList.contains("contenedor-img")){               //si se trata del imput file
+            const hijo= contenedor.firstElementChild;
+            crearMsjdeCampoVacio(hijo,contenedor)
+        }
+        else{
+            crearMsjdeCampoVacio(contenedor,contenedor)
+        }
+    })
+
+}
+
+const eliminarTodosMsjError = (formulario) =>{
+    const contenedoresInputs= Array.from(formulario.getElementsByClassName("contenedor-input"))
+    contenedoresInputs.forEach(contenedor=>{
+        if(contenedor.lastElementChild.classList.contains("contenedor-msj-error")){
+            contenedor.removeChild(contenedor.lastElementChild)
+        }
+    });
+}
 
 // eventos de escucha para validar los campos del formulario de registro
 
+
+//---------------------LOGIN
 formLogin.addEventListener('submit', (e)=>{
     e.preventDefault();
-    validateForm(LogInFormIsValid, formLogin)
+    if(validateForm(LogInFormIsValid)){
+        formLogin.submit();
+    }else{
+        invalidatedImputs(formLogin)
+    }
 })
+
+btnResetLogIn.addEventListener('click', ()=>{
+    eliminarTodosMsjError(formLogin)
+    
+})
+
+
 
 loginUsername.addEventListener('change', (e)=>{
     if(!isEmpty(loginUsername.value)){
         LogInFormIsValid.username=true;
+        agregarClassValida(e)
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         LogInFormIsValid.username=false;
+        eliminarClassValida(e)
+        if(!containMsjError(e)){
+            const msj= "No se permiten campos vacios"
+            createMsjError(e, msj)
+        }
 
     }
 })
@@ -153,19 +245,36 @@ loginUsername.addEventListener('change', (e)=>{
 loginPassword.addEventListener('change', (e)=>{
     if(!isEmpty(loginPassword.value)){
         LogInFormIsValid.password=true;
+        agregarClassValida(e)
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         LogInFormIsValid.password=false;
-
+        eliminarClassValida(e)
+        if(!containMsjError(e)){
+            const msj= "No se permiten campos vacios"
+            createMsjError(e, msj)
+        }
     }
 })
 
 
-
+//----------------------REGISTRO
 
 formRegister.addEventListener('submit', (e)=>{
     e.preventDefault();
-    validateForm(registerFormIsValid, formRegister);
+    if(validateForm(registerFormIsValid)){
+        formRegister.submit();
+    }else{
+        invalidatedImputs(formRegister)
+    }
+})
+
+btnResetRegister.addEventListener('click', ()=>{
+    eliminarTodosMsjError(formRegister)
+    
 })
 
 registerEmail.addEventListener('change', (e)=>{
@@ -173,11 +282,18 @@ registerEmail.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         registerFormIsValid.mail=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.mail=false;
+        if(!containMsjError(e)){
+            const msj= "El email no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 
 })
@@ -187,11 +303,18 @@ registerFirstName.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         registerFormIsValid.firstname=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.firstname=false;
+        if(!containMsjError(e)){
+            const msj= "El nombre no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 })
 
@@ -200,11 +323,18 @@ registerLastName.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         registerFormIsValid.lastname=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.lastname=false;
+        if(!containMsjError(e)){
+            const msj= "El apellido no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 })
 
@@ -213,11 +343,18 @@ registerUsername.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         registerFormIsValid.username=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.username=false;
+        if(!containMsjError(e)){
+            const msj= "El nombre de usuario no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 })
 
@@ -226,28 +363,59 @@ registerPassword.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         registerFormIsValid.password=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.password=false;
+        if(!containMsjError(e)){
+            const msj= "La contraseña no cumple con los parametros básicos"
+            createMsjError(e, msj)
+        }
     }
 })
 
 registerPasswordRepeat.addEventListener('change', (e)=>{
     const passwordValid=validatePasswordComplex(registerPasswordRepeat.value);
     const same_password=samePassword(registerPassword.value, registerPasswordRepeat.value)
-    if(passwordValid && same_password){
-        evalueInvalidActive(e);
+    
+    if(passwordValid){
+        // console.log("ENTROpasswordValid---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
         registerFormIsValid.passwordR=true;
-        registerFormIsValid.samePassword=true;
-        isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+        if(same_password){
+            // console.log("ENTROsamePassword---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
+            evalueInvalidActive(e);
+            registerFormIsValid.samePassword=true;
+            isValid(e);
+            if(containMsjError(e)){
+                removeMsjError(e);
+            }
+        }
+        else{
+            // console.log("NOENTROsamePassword---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
+            evalueValidActive(e);
+            isInvalid(e);
+            registerFormIsValid.samePassword=false;
+            const msj= "No es la misma contraseña"
+            createMsjError(e, msj)
+        }
     }
     else{
+        // console.log("NOENTROpasswordValid---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.passwordR=false;
-        registerFormIsValid.samePassword=false;
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+        const msj= "La contraseña no cumple con los parametros básicos"
+        createMsjError(e, msj)
     }
 })
 
@@ -259,6 +427,10 @@ registerImg.addEventListener('change', (e)=>{
         }
         registerFormIsValid.image=true;
         parent.classList.add('valid');
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+        console.log(registerImg.value)
     }
     else{
         let parent = e.target.parentNode;
@@ -267,6 +439,10 @@ registerImg.addEventListener('change', (e)=>{
         }
         registerFormIsValid.image=false;
         parent.classList.add('error');
+        if(!containMsjError(e)){
+            const msj= "El archivo no es valida, cambielo"
+            createMsjError(e, msj)
+        }
        
     }   
 })

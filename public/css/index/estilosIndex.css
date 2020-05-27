@@ -537,13 +537,39 @@ body {
   display: grid;
   grid-template-columns: 10% 90%;
   border-bottom: 2px solid #969696;
-  margin: 0.4rem 1rem;
+  margin: 0.6rem 1rem;
   padding: 0.6rem 0;
   position: relative;
   /* ---estilos para cuando es invalido el contenido del campo */
   /* ---/ */
   /* ---estilos para cuando es valido el contenido del campo */
   /* ---/ */
+}
+
+.bg-modal .window_modal .form .containers .contenedor-msj-error {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  color: #cf0000;
+  width: 100%;
+  top: -22px;
+  right: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.bg-modal .window_modal .form .containers .contenedor-msj-error .msj-error {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .bg-modal .window_modal .form .containers .i {
@@ -709,15 +735,54 @@ body {
   background-position: right;
 }
 
-.bg-modal .window_modal .form .container-imagen-prev {
+.bg-modal .window_modal .form .contenedor-img {
+  position: relative;
+  min-height: auto;
+  margin: 30px 0;
+  padding: 0.6rem 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bg-modal .window_modal .form .contenedor-img .contenedor-msj-error {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  color: #cf0000;
+  width: 100%;
+  top: -30px;
+  right: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bg-modal .window_modal .form .contenedor-img .contenedor-msj-error .msj-error {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  margin: 16px 0;
-  padding: 0.6rem 0;
-  position: relative;
+  position: absolute;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -728,7 +793,7 @@ body {
           align-items: center;
 }
 
-.bg-modal .window_modal .form .container-imagen-prev i {
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev i {
   position: absolute;
   display: -webkit-box;
   display: -webkit-flex;
@@ -754,25 +819,26 @@ body {
   cursor: pointer;
 }
 
-.bg-modal .window_modal .form .container-imagen-prev i:hover {
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev i:hover {
   background-image: -webkit-radial-gradient(circle, #eeeeee, #c2c2c2);
   background-image: radial-gradient(circle, #eeeeee, #c2c2c2);
 }
 
-.bg-modal .window_modal .form .container-imagen-prev.error i {
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev.error i {
   box-shadow: 0 0 10px 1px red;
   color: rgba(216, 0, 0, 0.842);
   border: 5px dashed rgba(216, 0, 0, 0.842);
 }
 
-.bg-modal .window_modal .form .container-imagen-prev.valid i {
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev.valid i {
   box-shadow: 0 0 10px 1px #00c711;
   color: #00c711;
   border: 5px dashed #00c711;
 }
 
-.bg-modal .window_modal .form .container-imagen-prev .inputImg {
+.bg-modal .window_modal .form .contenedor-img .container-imagen-prev .inputImg {
   opacity: 0;
+  width: 5px;
 }
 
 .bg-modal .window_modal .cambiar_opcion {
@@ -820,13 +886,57 @@ body {
     width: 70%;
     height: 60%;
   }
+  .bg-modal .window_modal .form .containers .contenedor-msj-error {
+    top: -17px;
+  }
+  .bg-modal .window_modal .form .containers .contenedor-msj-error .msj-error {
+    font-size: 8.5px;
+  }
+  .bg-modal .window_modal .form .containers .input {
+    font-size: 9px;
+  }
+  .bg-modal .window_modal .form .containers > div label {
+    font-size: 1.9vw;
+  }
+  .bg-modal .window_modal .form .containers.focus div label {
+    font-size: 1.1vw;
+  }
   .bg-modal .window_modal .form .container-dual .btn {
     height: 40px;
+  }
+  .bg-modal .window_modal .form .contenedor-img {
+    margin: 25px 0;
+  }
+  .bg-modal .window_modal .form .contenedor-img .contenedor-msj-error {
+    top: -27px;
+  }
+  .bg-modal .window_modal .form .contenedor-img .container-imagen-prev i {
+    width: 60%;
+    font-size: 120%;
+    height: 30px;
   }
   .bg-modal .window_modal.LogIn {
     height: 30%;
   }
   .bg-modal .window_modal .cambiar_opcion {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .bg-modal .window_modal .form .containers .contenedor-msj-error {
+    top: -15px;
+  }
+  .bg-modal .window_modal .form .containers .contenedor-msj-error .msj-error {
+    font-size: 7px;
+  }
+  .bg-modal .window_modal .form .contenedor-img {
+    margin: 20px 0;
+  }
+  .bg-modal .window_modal .form .contenedor-img .contenedor-msj-error {
+    top: -24px;
+  }
+  .bg-modal .window_modal .form .contenedor-img .contenedor-msj-error .msj-error {
+    font-size: 8.5px;
   }
 }

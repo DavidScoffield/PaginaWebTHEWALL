@@ -35,7 +35,10 @@ const contenidoBusqueda= modalBuscador.firstElementChild;
 //Eventos de escucha
 
 btnAbrirBusqueda.addEventListener('click', () => {
-    createItem(contenidoBusqueda,"div", "+" , "closeSearch", "close");   //la funcion crear un elemento en el DOM enviando como parametros los datos con los que lo quiere crear (padre que insertara al hijo,tipo, contenido, ID, class)
+    if(!document.getElementById("closeSearch")){
+        createItem(contenidoBusqueda,"div", "+" , "closeSearch", "close");   //la funcion crear un elemento en el DOM enviando como parametros los datos con los que lo quiere crear (padre que insertara al hijo,tipo, contenido, ID, class)
+    }
+    // console.log(document.getElementById("closeSearch"))
     abrirModal(modalBuscador)
 });
 

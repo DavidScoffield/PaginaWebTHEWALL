@@ -16,11 +16,15 @@ const formBasicDataIsValid ={
     mail:true,
     firstname:true,
     lastname:true,
-    // image:false,
+    image:true,        //se la tiene en cuenta para verificar si enviar el formulario, 
+                       //si esta vacio, este se envia  igual y se comprueba con php y se obvio para no subir,
+                       //en caso de que se lo llene, si el archivo no es valido no se envia el formulario
+                       //y si es valido se va a poder enviar con el submit 
 }
  
 //objeto de formulario registro
 const formPasswordIsValid ={
+    actualPassword:false,           
     newPassword:false,
     newPasswordR:false,
     samePassword:false,
@@ -57,13 +61,13 @@ const validateForm =(ObjectForm, formulario)=>{
         formulario.submit();
     }
     else{
-        alert('campos invalidos');
+        // alert('campos invalidos');
     }
 }
 
 const samePassword=(password1, password2)=>{
     // Evalua si las contraseñas ingresadas son iguales
-   return password1 == password2;
+   return password1 === password2;
       
 }
 
@@ -103,6 +107,32 @@ const evalueValidActive= (e) => {
     }
 };
 
+const containMsjError = (e) =>{
+    const padre= e.target.parentNode.parentNode;
+    const ultHijoError= padre.lastElementChild;
+    return ultHijoError.classList.contains("contenedor-msj-error");
+}
+
+const createMsjError=(e,valorAConcatenar)=>{
+    // inserta un mensaje de error con sus clases correspondientes para que se ubique encima del imput
+    // recibe en imput el nodo imput al que agregarle el error(que se encuentra en el contenedor principal de este), y en valorAConcatenar el contenido del msj a mostrar
+    const padre= e.target.parentNode.parentNode; //se accede al contenedor principal
+    const newNodoError= document.createElement("div");
+    newNodoError.setAttribute("class", "contenedor-msj-error");
+    padre.appendChild(newNodoError);
+    const html= "<p class='msj-error'>" + valorAConcatenar + "</p></div>";
+    newNodoError.innerHTML= html;      
+}
+
+
+const removeMsjError=(e)=>{
+    // elimina el mensaje de error
+    // recibe en imput el nodo imput al que eliminar el msj(que se encuentra en el contenedor principal de este)
+    const padre= e.target.parentNode.parentNode; //se accede al contenedor principal
+    const ultHijoError= padre.lastElementChild;    
+    padre.removeChild(ultHijoError);
+}
+
 
 
 
@@ -124,11 +154,18 @@ basicDataEmail.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         formBasicDataIsValid.mail=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         formBasicDataIsValid.mail=false;
+        if(!containMsjError(e)){
+            const msj= "El email no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 
 })
@@ -138,11 +175,18 @@ basicDataFirstName.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         formBasicDataIsValid.firstname=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         formBasicDataIsValid.firstname=false;
+        if(!containMsjError(e)){
+            const msj= "El nombre no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 })
 
@@ -151,11 +195,18 @@ basicDataLastName.addEventListener('change', (e)=>{
         evalueInvalidActive(e);
         formBasicDataIsValid.lastname=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
         formBasicDataIsValid.lastname=false;
+        if(!containMsjError(e)){
+            const msj= "El apellido no es valido, cambielo"
+            createMsjError(e, msj)
+        }
     }
 })
 
@@ -165,62 +216,104 @@ fileImg.addEventListener('change', (e)=>{
         if(parent.classList.contains('error')){
             parent.classList.remove('error');
         }
-        // formBasicDataIsValid.image=true;
+        formBasicDataIsValid.image=true;        
         parent.classList.add('valid');
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+
     }
     else{
         let parent = e.target.parentNode;
         if(parent.classList.contains('valid')){
             parent.classList.remove('valid');
         }
-        // formBasicDataIsValid.image=false;
+        formBasicDataIsValid.image=false;
         parent.classList.add('error');
-       
+        if(!containMsjError(e)){
+            const msj= "El archivo no es valida, cambielo"
+            createMsjError(e, msj)
+        }
     }   
 })
 
+const isEmpty= (element)=>{
+    //comprueba que el campo no este vacio . Devuelve verdaderi si esta vacio, y falso en caso de contener algun caracter
+    if(element.length == 0){
+        return true;
+    }
+    return false;
+}
 
 
 // PASSWORDS
 
+actualPassword.addEventListener('change', (e)=>{
+    if(!isEmpty(actualPassword.value)){
+        formPasswordIsValid.actualPassword= true;
+    }
+    else{
+        formPasswordIsValid.actualPassword= false;
+    }
+});
+
 newPassword.addEventListener('change', (e)=>{
     if(validatePasswordComplex(newPassword.value)){
         evalueInvalidActive(e);
-        formPasswordIsValid.password=true;
+        formPasswordIsValid.newPassword=true;
         isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         evalueValidActive(e);
         isInvalid(e);
-        formPasswordIsValid.password=false;
+        formPasswordIsValid.newPassword=false;
+        if(!containMsjError(e)){
+            const msj= "La contraseña no cumple con los parametros básicos"
+            createMsjError(e, msj)
+        }
     }
 })
 
 newPasswordRepeat.addEventListener('change', (e)=>{
     const passwordValid=validatePasswordComplex(newPasswordRepeat.value);
     const same_password=samePassword(newPassword.value, newPasswordRepeat.value)
-    console.log(passwordValid, same_password)
-    if(passwordValid && same_password){
-        evalueInvalidActive(e);
+    
+    if(passwordValid){
+        // console.log("ENTROpasswordValid---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
         formPasswordIsValid.newPasswordR=true;
-        formPasswordIsValid.samePassword=true;
-        isValid(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+        if(same_password){
+            // console.log("ENTROsamePassword---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
+            evalueInvalidActive(e);
+            formPasswordIsValid.samePassword=true;
+            isValid(e);
+            if(containMsjError(e)){
+                removeMsjError(e);
+            }
+        }
+        else{
+            // console.log("NOENTROsamePassword---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
+            evalueValidActive(e);
+            isInvalid(e);
+            formPasswordIsValid.samePassword=false;
+            const msj= "No es la misma contraseña"
+            createMsjError(e, msj)
+        }
     }
     else{
+        // console.log("NOENTROpasswordValid---" + "PasswordValid:" + passwordValid + ", SamePassword: " + same_password+ ", Password: " + newPassword.value + ", PasswRepeat:" + newPasswordRepeat.value)
         evalueValidActive(e);
         isInvalid(e);
         formPasswordIsValid.newPasswordR=false;
-        formPasswordIsValid.samePassword=false;
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
+        const msj= "La contraseña no cumple con los parametros básicos"
+        createMsjError(e, msj)
     }
-    console.log(formPasswordIsValid);
 })
-
-
-
-
-
-
-
-
-
-
