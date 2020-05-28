@@ -551,7 +551,7 @@ body {
   position: absolute;
   color: #cf0000;
   width: 100%;
-  top: -22px;
+  top: -25px;
   right: 0px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -567,7 +567,7 @@ body {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  font-size: 10px;
+  font-size: 11px;
   margin: 0;
   padding: 0;
 }
