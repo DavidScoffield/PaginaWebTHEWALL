@@ -49,8 +49,10 @@
                 unset($usuarioExistente);
             }
             $registro->registrarUsuario($user);
+            session_start();
+            $_SESSION['usuario']=$nombre_usuario;
+            header('Location:InicialPage.php');
         }else{                                                                 //no esta disponible el nombre de usuario elegido
-            echo "EL USUARIO YA EXISTE";
             $usuarioExistente=true;
         }
         
