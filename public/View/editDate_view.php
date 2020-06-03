@@ -22,6 +22,14 @@
 </head>
 
 <body>
+    <?php 
+
+    session_start();
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index.php');
+    }
+
+    ?>
     <!-- Buscador lateral de perfiles -->
     <div class="buscador" id="buscador">
         <div class="contenedor-busqueda">
@@ -147,10 +155,10 @@
         <div class="menu-lista" id="menu">
             <ul>
                 <li class="opciones">
-                    <a href="InicialPage.html"><i class="icono fas fa-home"></i>Inicio</a>
+                    <a href="InicialPage.php"><i class="icono fas fa-home"></i>Inicio</a>
                 </li>
                 <li class="opciones">
-                    <a href="MyPerfil.html"><i class="icono fas fa-portrait"></i>Perfil</a>
+                    <a href="MyPerfil.php"><i class="icono fas fa-portrait"></i>Perfil</a>
                 </li>
                 <!-- <li class="opciones">
                         <a href="#"
@@ -163,10 +171,10 @@
                         <i class="icono fas fa-tools"></i>Opciones<i class="icono-derecha fas fa-chevron-down"></i></a>
                     <ul class="submenu slideUp">
                         <li class="opciones">
-                            <a href="#"> Editar Perfil</a>
+                            <a href="editDate.php"> Editar Perfil</a>
                         </li>
                         <li class="opciones">
-                            <a href="index.html"> Cerrar Sesión </a>
+                            <a href="Model/cerrarsesion.php"> Cerrar Sesión </a>
                         </li>
                     </ul>
                 </li>

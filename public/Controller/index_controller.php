@@ -12,12 +12,15 @@
         $user= new UsuarioLogIn($nombre_usuario,$contrasenia);
         
         $login= new Login();
-        if($login->Logearse($user)){
-            echo "LOGEADO, SE ENCONTRO UN USUARIO CON LOS DATOS";
+        if($login->Logearse($user)){            //se encontro usuario con los datos ingresados
             if(isset($usuarioIncorrecto)){
                 unset($usuarioIncorrecto);
             }
-        }else{
+            session_start();
+            $_SESSION['usuario']=$nombre_usuario;
+            header('Location:InicialPage.php');
+
+        }else{                                  //no existe el usuario
             $usuarioIncorrecto=true;
         }
 
@@ -41,12 +44,12 @@
 
         $user= new UsuarioRegistro($email,$nombre,$apellido,$nombre_usuario,$contrasenia,$img,$img_type);
 
-        if(!$registro->nombreUsuarioExiste($user->getNombreUsuario())){
+        if(!$registro->nombreUsuarioExiste($user->getNombreUsuario())){     //el nombre de usuario que eligio esta disponible para ser usado
             if(isset($usuarioExistente)){
                 unset($usuarioExistente);
             }
             $registro->registrarUsuario($user);
-        }else{
+        }else{                                                                 //no esta disponible el nombre de usuario elegido
             echo "EL USUARIO YA EXISTE";
             $usuarioExistente=true;
         }

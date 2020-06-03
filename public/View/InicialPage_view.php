@@ -24,9 +24,18 @@
             rel="stylesheet"
             href="css/PrincipalPage/estilosPrincipalPage.css"
         />
-        <link rel="stylesheet" href="css/MyProfile/myProfile.css" />
+        <link rel="stylesheet" href="css/InicialPage/inicialPage.css" />
     </head>
     <body>
+
+        <?php 
+
+            session_start();
+            if(!isset($_SESSION['usuario'])){
+                header('Location: index.php');
+            }
+
+        ?>
         <!-- Buscador lateral de perfiles -->
         <div class="buscador" id="buscador">
             <div class="contenedor-busqueda">
@@ -155,12 +164,12 @@
             <div class="menu-lista" id="menu">
                 <ul>
                     <li class="opciones">
-                        <a href="InicialPage.html"
+                        <a href="InicialPage.php"
                             ><i class="icono fas fa-home"></i>Inicio</a
                         >
                     </li>
                     <li class="opciones">
-                        <a href="MyPerfil.html"
+                        <a href="MyPerfil.php"
                             ><i class="icono fas fa-portrait"></i>Perfil</a
                         >
                     </li>
@@ -178,10 +187,10 @@
                         ></a>
                         <ul class="submenu slideUp">
                             <li class="opciones">
-                                <a href="editDate.html"> Editar Perfil</a>
+                                <a href="editDate.php"> Editar Perfil</a>
                             </li>
                             <li class="opciones">
-                                <a href="index.html"> Cerrar Sesión </a>
+                                <a href="Model/cerrarsesion.php"> Cerrar Sesión </a>
                             </li>
                         </ul>
                     </li>
@@ -193,33 +202,7 @@
         <div class="central">
             <div class="contenido">
                 <div class="titulo">
-                    Mi pefil
-                </div>
-                <div class="perfil">
-                    <div class="contenedor">
-                        <div class="contenedor-img">
-                            <img
-                                src="assets/media/img/nature-3082832.jpg"
-                                alt="Foto de perfil"
-                            />
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-nombre">
-                                <p class="nombre">Pepeto</p>
-                            </div>
-                            <div class="contenedor-apellido">
-                                <p class="apellido">Apellido</p>
-                            </div>
-                            <div class="contenedor-username">
-                                <p class="username">@PepeUsuario</p>
-                            </div>
-                        </div>
-                        <div class="contenedor-boton">
-                            <a href="editDate.html" class="link"
-                                >Editar Datos</a
-                            >
-                        </div>
-                    </div>
+                    Inicio
                 </div>
                 <div class="crear-msj">
                     <form class="enviar-msj">
@@ -260,34 +243,29 @@
                         </div>
                     </form>
                 </div>
+
                 <div class="opciones-menu-perfil">
                     <div class="contenedor-opciones">
                         <ul class="lista">
                             <li class="opciones" id="btn_publicaciones">
-                                Mis publicaciones
-                            </li>
-                            <li class="opciones" id="btn_lista_usuarios">
-                                Siguiendo
+                                Publicaciones mas recientes
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="publicaciones activeOption" id="publicaciones">
+                <div class="publicaciones activeOption">
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/dingyi/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @DiamondRobel
                                     </p>
                                 </div>
                             </div>
@@ -319,19 +297,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/santi_urso/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @GianniSchmitt33
                                     </p>
                                 </div>
                             </div>
@@ -357,19 +332,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/depaulawagner/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @KenyaCollier95
                                     </p>
                                 </div>
                             </div>
@@ -401,19 +373,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/maximsorokin/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @ColleenOndricka
                                     </p>
                                 </div>
                             </div>
@@ -439,19 +408,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/rweve/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @NoemyWilderman
                                     </p>
                                 </div>
                             </div>
@@ -480,19 +446,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/mwarkentin/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @CristinaWer
                                     </p>
                                 </div>
                             </div>
@@ -517,19 +480,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/wikiziner/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @JuanPabloDominguez1
                                     </p>
                                 </div>
                             </div>
@@ -558,19 +518,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/danpliego/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @P2Meri
                                     </p>
                                 </div>
                             </div>
@@ -594,19 +551,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/spacewood_/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @CarlosMau574
                                     </p>
                                 </div>
                             </div>
@@ -638,19 +592,16 @@
                     </div>
                     <div class="publicacion">
                         <div class="contenedor">
-                            <div class="contenedor-delete">
-                                <i class="far fa-trash-alt"></i>
-                            </div>
                             <div class="contenedor-datos">
                                 <div class="contenedor-img">
                                     <img
-                                        src="assets/media/img/nature-3082832.jpg"
-                                        alt="Foto de perfil"
+                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/rdsaunders/128.jpg"
+                                        alt="foto de perfil"
                                     />
                                 </div>
                                 <div class="contenedor-nombreUsuario">
                                     <p class="nombre-usuario">
-                                        @PepeUsuario
+                                        @Merito154
                                     </p>
                                 </div>
                             </div>
@@ -671,189 +622,6 @@
                                     <p class="fecha">18/05/2020</p>
                                     <p class="hora">18:25</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lista-usuarios" id="lista_usuarios">
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="assets/media/img/messiPerfil.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @PepeUsuario
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/AlbertoCococi/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Maria12Fer
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/ripplemdk/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @MrsJones
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/michaelkoper/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Cale212
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/IsaryAmairani/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Kertzmann
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/rikas/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @XzavierTromp
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/m_kalibry/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @MrsBorer
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/alterchuca/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @neuralSpinka
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="usuarioPerfil">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/danpliego/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @RossieCormier19
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-botonFollow unFollow">
-                                <button class="follow">No seguir</button>
                             </div>
                         </div>
                     </div>
@@ -906,8 +674,6 @@
         <script src="js/PaginaPrincipal/buscador.js"></script>
         <script src="js/PaginaPrincipal/followUnfollow.js"></script>
         <script src="js/PaginaPrincipal/publicacion.js"></script>
-        <script src="js/MyProfile/deletePublicacion.js"></script>
-        <script src="js/MyProfile/alternarSubmenu.js"></script>
         <script src="js/PaginaPrincipal/publicar.js"></script>
     </body>
 </html>

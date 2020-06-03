@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
     <!-- titulo  -->
     <header class="header">
         <h1 class="titulo">
@@ -46,92 +47,7 @@
     </div>
 
 
-
-
-
-
     <!-- ventana modal de inicio de sesion  -->
-
-    <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) : ?>
-        <!-- si los datos ingresados son incorrectos -->
-        <!-- <div class="bg-modal" id="bg-modal-LogIn">
-            <div class="window_modal LogIn" id="window-modal">
-                <div class="close" id="closeLogIn">+</div>
-
-                <div class="encabezado">
-                    <img src="assets/media/img/logo.png" alt="Logo de la pagina, THE WALL la nueva red social" />
-                    <div class="titulo">Iniciar sesion</div>
-                </div>
-
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_logIn">
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <label for="user">Nombre usuario</label>
-                            <input type="text" class="input" name="user_login" id="login_user" />
-                        </div>
-                    </div>
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="password">Contraseña</label>
-                            <input class="input" type="password" name="password_login" id="login_password" />
-                        </div>
-                    </div>
-                    <div class="container-dual">
-                        <input type="submit" name="btn_submit_login" id="btn_submitLogIn" value="Enviar" class="btn" />
-                        <input type="reset" value="Vaciar" class="btn" id="resetLogIn" />
-                    </div>
-                </form>
-                <div class="cambiar_opcion" id="cambiar_opcion_LogIn">
-                    ¿No tenes cuenta? Registrarse
-                </div>
-            </div>
-        </div> -->
-    <?php else : ?>
-        <!--  <div class="bg-modal" id="bg-modal-LogIn">
-            <div class="window_modal LogIn" id="window-modal">
-                <div class="close" id="closeLogIn">+</div>
-
-                <div class="encabezado">
-                    <img src="assets/media/img/logo.png" alt="Logo de la pagina, THE WALL la nueva red social" />
-                    <div class="titulo">Iniciar sesion</div>
-                </div>
-
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_logIn">
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <label for="user">Nombre usuario</label>
-                            <input type="text" class="input" name="user_login" id="login_user" />
-                        </div>
-                    </div>
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="password">Contraseña</label>
-                            <input class="input" type="password" name="password_login" id="login_password" />
-                        </div>
-                    </div>
-                    <div class="container-dual">
-                        <input type="submit" name="btn_submit_login" id="btn_submitLogIn" value="Enviar" class="btn" />
-                        <input type="reset" value="Vaciar" class="btn" id="resetLogIn" />
-                    </div>
-                </form>
-                <div class="cambiar_opcion" id="cambiar_opcion_LogIn">
-                    ¿No tenes cuenta? Registrarse
-                </div>
-            </div>
-        </div> -->
-    <?php endif; ?>
 
     <div class="bg-modal" id="bg-modal-LogIn" <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "style='display:flex;'" ?>>
         <div class="window_modal LogIn" id="window-modal">
@@ -147,6 +63,7 @@
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
+                    
                     <div>
                         <label for="user">Nombre usuario</label>
                         <input type="text" class="input" name="user_login" id="login_user" />
@@ -177,10 +94,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 
     <!-- modal de registro -->
