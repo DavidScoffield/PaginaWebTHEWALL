@@ -169,12 +169,16 @@ body {
     width: 100vw;
     height: 50vh;
   }
+  .center .box-login {
+    height: 100%;
+  }
   .center .box-login .bienvenida {
     font-size: 25px;
   }
   .center .box-login button {
     width: 50%;
     min-width: 250px;
+    margin: 0.2rem;
   }
 }
 
@@ -567,7 +571,7 @@ body {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  font-size: 11px;
+  font-size: 12px;
   margin: 0;
   padding: 0;
 }
@@ -916,7 +920,7 @@ body {
     height: 30px;
   }
   .bg-modal .window_modal.LogIn {
-    height: 30%;
+    height: 50%;
   }
   .bg-modal .window_modal .cambiar_opcion {
     font-size: 12px;
@@ -938,5 +942,8 @@ body {
   }
   .bg-modal .window_modal .form .contenedor-img .contenedor-msj-error .msj-error {
     font-size: 8.5px;
+  }
+  .bg-modal .window_modal.LogIn {
+    height: 40%;
   }
 }

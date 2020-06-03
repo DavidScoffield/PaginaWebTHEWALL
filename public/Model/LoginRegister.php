@@ -23,8 +23,7 @@
                 }
             }catch(Exception $e){
                 
-                die("Error nombreUsuario: " . $e->getMessage());
-
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
                 
             }
         }
@@ -63,4 +62,26 @@
 
     }
 
+    class Login extends Conexion{
+
+        public function  __construct(){
+            parent::__construct();
+        }
+
+        public function Logearse(UsuarioLogIn $objUsuario ){
+            try{
+
+                 $sql= "SELECT * FROM usuarios WHERE nombreusuario=:nombreusuario AND contrasenia=:contrasenia";
+                 $resultado=$this->conexion_db->prepare($sql);
+                 $resultado->execute(array(":nombreusuario"=>$objUsuario->getNombreUsuario(),":contrasenia"=>$objUsuario->getContrasenia()));
+                 $numero_registros_afectados= $resultado->rowCount();
+                 return ($numero_registros_afectados!=0);   //devuelve true si encontro un usuario con los datos pasados, y false si no lo encuentra
+
+            }catch(Exception $e){
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            }
+
+        }
+
+    }
 ?>

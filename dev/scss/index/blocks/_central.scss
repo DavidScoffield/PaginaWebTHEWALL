@@ -64,6 +64,7 @@
         height: 50vh;
 
         .box-login {
+            height: 100%;
             .bienvenida {
                 font-size: 25px;
             }
@@ -71,6 +72,7 @@
             button {
                 width: 50%;
                 min-width: 250px;
+                margin: 0.2rem;
             }
         }
     }

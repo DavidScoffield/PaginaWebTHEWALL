@@ -99,7 +99,7 @@
 
                     .msj-error {
                         align-self: center;
-                        font-size: 11px;
+                        font-size: 12px;
                         margin: 0;
                         padding: 0;
                     }
@@ -419,7 +419,7 @@
             }
         }
         &.LogIn {
-            height: 30%;
+            height: 50%;
         }
         .cambiar_opcion {
             font-size: 12px;
@@ -428,23 +428,29 @@
 }
 
 @include mobile {
-    .bg-modal .window_modal .form {
-        .containers .contenedor-msj-error {
-            top: -15px;
-            .msj-error {
-                font-size: 7px;
+    .bg-modal .window_modal {
+        .form {
+            .containers .contenedor-msj-error {
+                top: -15px;
+                .msj-error {
+                    font-size: 7px;
+                }
+            }
+
+            .contenedor-img {
+                margin: 20px 0;
+
+                .contenedor-msj-error {
+                    top: -24px;
+                    .msj-error {
+                        font-size: 8.5px;
+                    }
+                }
             }
         }
 
-        .contenedor-img {
-            margin: 20px 0;
-
-            .contenedor-msj-error {
-                top: -24px;
-                .msj-error {
-                    font-size: 8.5px;
-                }
-            }
+        &.LogIn {
+            height: 40%;
         }
     }
 }

@@ -11,6 +11,16 @@
         $contrasenia= $_POST['password_login'];
         $user= new UsuarioLogIn($nombre_usuario,$contrasenia);
         
+        $login= new Login();
+        if($login->Logearse($user)){
+            echo "LOGEADO, SE ENCONTRO UN USUARIO CON LOS DATOS";
+            if(isset($usuarioIncorrecto)){
+                unset($usuarioIncorrecto);
+            }
+        }else{
+            $usuarioIncorrecto=true;
+        }
+
     }
     
     
