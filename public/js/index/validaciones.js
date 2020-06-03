@@ -29,6 +29,15 @@ const registerFormIsValid ={
     samePassword:false,
     image:false
 }
+if(document.getElementById("nombreUsuarioRepetido")){
+    registerFormIsValid.mail=true;
+    registerFormIsValid.firstname=true;
+    registerFormIsValid.lastname=true;
+    registerFormIsValid.password=true;
+    registerFormIsValid.passwordR=true;
+    registerFormIsValid.samePassword=true;    
+}
+
 
 const LogInFormIsValid={
     username:false,
@@ -141,6 +150,17 @@ const eliminarClassValida= (e) => {
     }
 };
 
+const eliminarClaseValidoDeTodosImputs = (formulario) => {
+    // elimina del formulario la clase valido de todos los imputs
+    contenedoresImputs= Array.from(formulario.getElementsByClassName("contenedor-input"));
+    contenedoresImputs.forEach(contenedor => {
+        if(contenedor.classList.contains('valido')){
+            contenedor.classList.remove('valido');
+        }
+    });
+}
+
+
 const containMsjError = (e) =>{
     const padre= e.target.parentNode.parentNode;
     const ultHijoError= padre.lastElementChild;
@@ -203,6 +223,25 @@ const eliminarTodosMsjError = (formulario) =>{
     });
 }
 
+const negarFormularioLogIn = (f) =>{
+    f.username=false;
+    f.password=false;
+}
+
+
+const negarFormularioRegister= (f) =>{
+    f.mail=false
+    f.firstname=false
+    f.lastname=false
+    f.username=false
+    f.password=false
+    f.passwordR=false
+    f.samePassword=false
+    f.image=false
+}
+
+
+
 // eventos de escucha para validar los campos del formulario de registro
 
 
@@ -217,8 +256,9 @@ formLogin.addEventListener('submit', (e)=>{
 })
 
 btnResetLogIn.addEventListener('click', ()=>{
+    negarFormularioLogIn(LogInFormIsValid);
     eliminarTodosMsjError(formLogin)
-    
+    eliminarClaseValidoDeTodosImputs(formLogin)
 })
 
 
@@ -226,6 +266,7 @@ btnResetLogIn.addEventListener('click', ()=>{
 loginUsername.addEventListener('change', (e)=>{
     if(!isEmpty(loginUsername.value)){
         LogInFormIsValid.username=true;
+        evalueInvalidActive(e);
         agregarClassValida(e)
         if(containMsjError(e)){
             removeMsjError(e);
@@ -245,6 +286,7 @@ loginUsername.addEventListener('change', (e)=>{
 loginPassword.addEventListener('change', (e)=>{
     if(!isEmpty(loginPassword.value)){
         LogInFormIsValid.password=true;
+        evalueInvalidActive(e);
         agregarClassValida(e)
         if(containMsjError(e)){
             removeMsjError(e);
@@ -274,7 +316,7 @@ formRegister.addEventListener('submit', (e)=>{
 
 btnResetRegister.addEventListener('click', ()=>{
     eliminarTodosMsjError(formRegister)
-    
+    negarFormularioRegister(registerFormIsValid)
 })
 
 registerEmail.addEventListener('change', (e)=>{
@@ -290,8 +332,11 @@ registerEmail.addEventListener('change', (e)=>{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.mail=false;
-        if(!containMsjError(e)){
-            const msj= "El email no es valido, cambielo"
+        const msj= "El email no es valido, cambielo"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{ 
             createMsjError(e, msj)
         }
     }
@@ -311,8 +356,11 @@ registerFirstName.addEventListener('change', (e)=>{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.firstname=false;
-        if(!containMsjError(e)){
-            const msj= "El nombre no es valido, cambielo"
+        const msj= "El nombre no es valido, cambielo"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{ 
             createMsjError(e, msj)
         }
     }
@@ -331,8 +379,11 @@ registerLastName.addEventListener('change', (e)=>{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.lastname=false;
-        if(!containMsjError(e)){
-            const msj= "El apellido no es valido, cambielo"
+        const msj= "El apellido no es valido, cambielo"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{ 
             createMsjError(e, msj)
         }
     }
@@ -351,8 +402,11 @@ registerUsername.addEventListener('change', (e)=>{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.username=false;
-        if(!containMsjError(e)){
-            const msj= "El nombre de usuario no es valido, cambielo"
+        const msj="El nombre de usuario no es valido, cambielo"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{ 
             createMsjError(e, msj)
         }
     }
@@ -371,8 +425,11 @@ registerPassword.addEventListener('change', (e)=>{
         evalueValidActive(e);
         isInvalid(e);
         registerFormIsValid.password=false;
-        if(!containMsjError(e)){
-            const msj= "La contraseña no cumple con los parametros básicos"
+        const msj= "La contraseña no cumple con los parametros básicos"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{ 
             createMsjError(e, msj)
         }
     }
@@ -430,7 +487,6 @@ registerImg.addEventListener('change', (e)=>{
         if(containMsjError(e)){
             removeMsjError(e);
         }
-        console.log(registerImg.value)
     }
     else{
         let parent = e.target.parentNode;
@@ -439,8 +495,11 @@ registerImg.addEventListener('change', (e)=>{
         }
         registerFormIsValid.image=false;
         parent.classList.add('error');
-        if(!containMsjError(e)){
-            const msj= "El archivo no es valida, cambielo"
+        const msj= "El archivo no es valida, cambielo"
+        if(containMsjError(e)){
+            removeMsjError(e);
+            createMsjError(e, msj)
+        }else{
             createMsjError(e, msj)
         }
        
