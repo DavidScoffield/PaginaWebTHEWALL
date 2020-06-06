@@ -3,7 +3,6 @@
     require_once("Model/Usuario.php");
     require_once("BD.php");
     require_once("Model/LoginRegister.php");
-    $conexion= new Conexion();
 
 
     if(isset($_POST['user_login'])){
@@ -42,7 +41,7 @@
         $img=$registro->convertirImgBLOB($img_tamanio,$img_temporal,$img_type);  //en img esta el conjunto de bytes para almacenar en la BD
         $img_type= substr($img_type,6);  //elimino del string la parte "image/"
 
-        $user= new UsuarioRegistro($email,$nombre,$apellido,$nombre_usuario,$contrasenia,$img,$img_type);
+        $user= new Usuario($email,$nombre,$apellido,$nombre_usuario,$contrasenia,$img,$img_type);
 
         if(!$registro->nombreUsuarioExiste($user->getNombreUsuario())){     //el nombre de usuario que eligio esta disponible para ser usado
             if(isset($usuarioExistente)){

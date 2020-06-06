@@ -1,6 +1,6 @@
 <?php 
 
-    class UsuarioRegistro{
+    class Usuario{
 
         protected $email;
         protected $nombre;
@@ -97,5 +97,6 @@
             $this->contrasenia=$contrasenia;
         }
     }
+
 
 ?>

@@ -47,7 +47,7 @@
             }
         }
         
-        public function registrarUsuario(UsuarioRegistro $objUsuario){
+        public function registrarUsuario(Usuario $objUsuario){
             try{
                 
                 $sql= "INSERT INTO usuarios (apellido, nombre, email, nombreusuario, contrasenia, foto_contenido, foto_tipo) VALUES (:apellido, :nombre, :email, :nombreusuario, :contrasenia, :fotoContenido, :fotoTipo)";

@@ -22,14 +22,7 @@
 </head>
 
 <body>
-    <?php 
 
-    session_start();
-    if(!isset($_SESSION['usuario'])){
-        header('Location: index.php');
-    }
-
-    ?>
     <!-- Buscador lateral de perfiles -->
     <div class="buscador" id="buscador">
         <div class="contenedor-busqueda">
@@ -190,7 +183,7 @@
             </div>
 
             <div class="editar" id="contenido-edicion">
-                <form class="datos-generales" id="form-datos-generales">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="datos-generales" id="form-datos-generales" enctype="multipart/form-data">
                     <div class="container-dualDate">
                         <div class="containers focus">
                             <div class="i">
@@ -199,7 +192,7 @@
                             <div>
                                 <label for="first-name">Nombre</label>
                                 <input class="input" type="text" name="first-name" id="basic_datos_firstName"
-                                    value="ACA VA EL NOMBRE PRECARGADO" />
+                                    value="<?= $datosPersonales['nombre'] ?>" />
                             </div>
                         </div>
                         <div class="containers focus">
@@ -209,7 +202,7 @@
                             <div>
                                 <label for="last-name">Apellido</label>
                                 <input class="input" type="text" name="last-name" id="basic_datos_lastName"
-                                    value="ACA VA EL APELLIDO PRECARGADO" />
+                                    value="<?= $datosPersonales['apellido'] ?>" />
                             </div>
                         </div>
                     </div>
@@ -229,7 +222,7 @@
                             <div>
                                 <label for="email">Correo electrónico</label>
                                 <input type="email" class="input" name="email" id="basic_datos_email" novalidate
-                                    value="davidscoffield@gmail.com" />
+                                    value="<?= $datosPersonales['email'] ?>" />
                             </div>
                         </div>
                     </div>
@@ -248,7 +241,7 @@
                         </div>
                     </div>
                 </form>
-                <form class="password" id="form_password">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="password" id="form_password">
                     <div class="container-individual">
                         <div class="containers">
                             <div class="i">
@@ -256,7 +249,7 @@
                             </div>
                             <div>
                                 <label for="password">Contraseña actual</label>
-                                <input class="input" type="password" name="password" id="actual_password" />
+                                <input class="input" type="password" name="actualPassword" id="actual_password" />
                             </div>
                         </div>
                     </div>
@@ -267,7 +260,7 @@
                             </div>
                             <div>
                                 <label for="password">Nueva contraseña</label>
-                                <input class="input" type="password" name="password" id="new_password" />
+                                <input class="input" type="password" name="newPassword" id="new_password" />
                             </div>
                         </div>
                         <div class="containers">
@@ -276,7 +269,7 @@
                             </div>
                             <div>
                                 <label for="repeatPassword">Repita la contraseña</label>
-                                <input class="input" type="password" name="repeatPassword" id="new_passwordRepeat" />
+                                <input class="input" type="password" name="newRepeatPassword" id="new_passwordRepeat" />
                             </div>
                         </div>
                     </div>
