@@ -34,22 +34,41 @@ if (isset($_POST['first-name'])) {
         $img_type = null;
     }
 
-    $user = new Usuario($email, $nombre, $apellido, $nombre_usuario, $contrasenia, $img, $img_type);
-    $personal->updateDatosPersonales($user);
-}
+    $user = new Usuario($email, $nombre, $apellido, $nombre_usuario, $contrasenia, $img, $img_type);//objeto que se enviara a la funcion que actualice los datos
+    $personal->updateDatosPersonales($user);    //se actualizan los datos
+    $datosGeneralesActualizados=true;
 
-if(isset($_POST['actualPassword'])){
-    $actContrasenia=$_POST['actualPassword'];
-    $newContrasenia=$_POST['newPassword'];
-    if($personal->contraseñaCorrecta($actContrasenia,$nombre_usuario)){
-        $personal->updatePassword($newContrasenia, $nombre_usuario);
-    }else{
-        echo "Contraseña incorrecta";        
+    //elimino las variables una vez que ya se realizaron los pasos necesarios con estas
+    unset($email);
+    unset($nombre);
+    unset($apellido);
+    unset($contrasenia);
+    if ($_FILES['img_profile']['name'] != null) { 
+        unset($img_type);
+        unset($img_tamanio);
+        unset($img_temporal);
     }
 }
 
 
 //actualizar formulario de contraseñas
+if(isset($_POST['actualPassword'])){
+    $actContrasenia=$_POST['actualPassword'];
+    $newContrasenia=$_POST['newPassword'];
+    if($personal->contraseñaCorrecta($actContrasenia,$nombre_usuario)){
+        $personal->updatePassword($newContrasenia, $nombre_usuario);
+        $contraseniaIncorrecta=false;
+    }else{
+        // echo "Contraseña incorrecta";  
+        $contraseniaIncorrecta=true;      
+    }
+
+    //elimino las variables una vez que ya se realizaron los pasos necesarios con estas
+    unset($actContrasenia);
+    unset($newContrasenia);
+}
+
+
 
 //obtener los datos propios de la base de datos
 

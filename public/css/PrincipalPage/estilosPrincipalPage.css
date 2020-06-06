@@ -11,6 +11,103 @@ body {
   }
 }
 
+.contenedor_msj_exito {
+  background-color: red;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
+  margin: 5px 0 0;
+  border-radius: 10px;
+  width: 45%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 3px solid #6da715;
+  background-color: #dfffae;
+  z-index: 100000;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+.contenedor_msj_exito .contenido {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 8px;
+  color: #00af09;
+  text-transform: uppercase;
+}
+
+.contenedor_msj_exito .contenido .icono,
+.contenedor_msj_exito .contenido .msj_exito {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 4px;
+  height: 100%;
+}
+
+.contenedor_msj_exito .contenido .icono {
+  font-size: 18px;
+}
+
+.contenedor_msj_exito .contenido .msj_exito {
+  font-size: 15px;
+  text-align: center;
+}
+
+.elevar {
+  -webkit-transform: translate(-50%, -130%);
+      -ms-transform: translate(-50%, -130%);
+          transform: translate(-50%, -130%);
+}
+
+@media screen and (max-width: 769px) {
+  .contenedor_msj_exito {
+    margin-top: 55px;
+    width: 60%;
+  }
+  .elevar {
+    -webkit-transform: translate(-50%, -250%);
+        -ms-transform: translate(-50%, -250%);
+            transform: translate(-50%, -250%);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .contenedor_msj_exito {
+    width: 80%;
+  }
+  .contenedor_msj_exito .contenido .msj_exito {
+    font-size: 12px;
+  }
+  .contenedor_msj_exito .contenido .icono {
+    font-size: 15px;
+  }
+  .elevar {
+    -webkit-transform: translate(-50%, -260%);
+        -ms-transform: translate(-50%, -260%);
+            transform: translate(-50%, -260%);
+  }
+}
+
 .buscador {
   width: 30vw;
   height: 100%;

@@ -11,6 +11,7 @@ const actualPassword=document.getElementById('actual_password');
 const newPassword=document.getElementById('new_password');
 const newPasswordRepeat=document.getElementById('new_passwordRepeat');
 
+
 //objeto de formulario registro
 const formBasicDataIsValid ={
     mail:true,
@@ -30,6 +31,11 @@ const formPasswordIsValid ={
     samePassword:false,
 }
 
+if(document.getElementById('contraseniaIncorrecta')){
+    formPasswordIsValid.newPassword=true;
+    formPasswordIsValid.newPasswordR=true;
+    formPasswordIsValid.samePassword=true;
+}
 
 // funciones para validar campos
 
@@ -142,11 +148,6 @@ formBasicData.addEventListener('submit', (e)=>{
     e.preventDefault();
     validateForm(formBasicDataIsValid, formBasicData);
 })
-formPassword.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    validateForm(formPasswordIsValid, formPassword);
-})
-
 
 
 basicDataEmail.addEventListener('change', (e)=>{
@@ -248,16 +249,28 @@ const isEmpty= (element)=>{
 
 // PASSWORDS
 
+formPassword.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    validateForm(formPasswordIsValid, formPassword);
+})
+
 actualPassword.addEventListener('change', (e)=>{
+
     if(!isEmpty(actualPassword.value)){
         formPasswordIsValid.actualPassword= true;
+        evalueInvalidActive(e);
+        if(containMsjError(e)){
+            removeMsjError(e);
+        }
     }
     else{
         formPasswordIsValid.actualPassword= false;
     }
 });
 
+
 newPassword.addEventListener('change', (e)=>{
+    
     if(validatePasswordComplex(newPassword.value)){
         evalueInvalidActive(e);
         formPasswordIsValid.newPassword=true;

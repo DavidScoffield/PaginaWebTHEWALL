@@ -97,7 +97,7 @@
 
 
     <!-- modal de registro -->
-    <?php if (isset($usuarioExistente) && $usuarioExistente = true) : ?>
+    <?php if (isset($usuarioExistente) && $usuarioExistente == true) : ?>
         <!-- si el nombre de usuario ingresado ya existia se dirije a la misma pagina y se inserta un msj de error en nombre de usuario  -->
         <div class="bg-modal" id="bg-modal-register" style="display: flex;">
             <div class="window_modal" id="window-modal-register">

@@ -23,6 +23,32 @@
 
 <body>
 
+    <?php if(isset($contraseniaIncorrecta) && $contraseniaIncorrecta===false):?>
+        <!-- crea msj de exito porque se actualizo la contraseña -->
+        <div class="contenedor_msj_exito">
+            <div class="contenido">
+                <div class="icono">
+                    <i class="far fa-check-circle"></i> 
+                </div>
+                <p class="msj_exito">La contrasña se ha actualizado con exito</p>
+            </div>
+        </div>
+    <?php endif;?>
+
+    <?php if(isset($datosGeneralesActualizados) && $datosGeneralesActualizados==true):?>
+        <!-- crea msj de exito porque se actualizaron los datos generales -->
+        <div class="contenedor_msj_exito ">
+            <div class="contenido">
+                <div class="icono">
+                    <i class="far fa-check-circle"></i> 
+                </div>
+                <p class="msj_exito">Los datos se han actualizado con exito</p>
+            </div>
+        </div>
+    
+    <?php endif;?>
+
+
     <!-- Buscador lateral de perfiles -->
     <div class="buscador" id="buscador">
         <div class="contenedor-busqueda">
@@ -241,6 +267,63 @@
                         </div>
                     </div>
                 </form>
+
+
+                <?php if(isset($contraseniaIncorrecta) && $contraseniaIncorrecta==true): ?>       
+                <!-- si entra es porque la contraseña ingresada no corresponde con la que esta en la BD -->
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="password" id="form_password">
+                    <input type="hidden" id="contraseniaIncorrecta">    
+                    <div class="container-individual">
+                        <div class="containers focus error">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <label for="password">Contraseña actual</label>
+                                <input class="input" type="password" name="actualPassword" id="actual_password" value="<?= $_POST['actualPassword'] ?>"/>
+                            </div>
+                            <!-- Se ingresa un msj de error en la contraseña actual -->
+                            <div class="contenedor-msj-error">
+                                <p class="msj-error">Contraseña incorrecta</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-dualDate">
+                        <div class="containers focus valid">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <label for="password">Nueva contraseña</label>
+                                <input class="input" type="password" name="newPassword" id="new_password" value="<?= $_POST['newPassword'] ?>"/>
+                            </div>
+                        </div>
+                        <div class="containers focus valid">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <label for="repeatPassword">Repita la contraseña</label>
+                                <input class="input" type="password" name="newRepeatPassword" id="new_passwordRepeat" value="<?= $_POST['newRepeatPassword'] ?>"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-dual">
+                        <!-- <div class="container-button">
+                                <input
+                                    type="reset"
+                                    value="Vaciar"
+                                    class="btn"
+                                    id="resetPassword"
+                                />
+                            </div> -->
+
+                        <div class="container-button">
+                            <input type="submit" name="btn-submit" value="Enviar" class="btn" id="submitPassword" />
+                        </div>
+                    </div>
+                </form>
+                <?php else: ?>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="password" id="form_password">
                     <div class="container-individual">
                         <div class="containers">
@@ -288,6 +371,7 @@
                         </div>
                     </div>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -326,6 +410,8 @@
     <script src="js/PaginaPrincipal/followUnfollow.js"></script>
     <script src="js/editDate/editForm.js"></script>
     <script src="js/editDate/validacionesCampos.js"></script>
+    <script src="js/PaginaPrincipal/mensajeExito.js"></script>
+    
     <!-- <script src="js/PaginaPrincipal/publicacion.js"></script> -->
 </body>
 
