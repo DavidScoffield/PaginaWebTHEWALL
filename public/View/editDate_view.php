@@ -30,7 +30,7 @@
                 <div class="icono">
                     <i class="far fa-check-circle"></i> 
                 </div>
-                <p class="msj_exito">La contrasña se ha actualizado con exito</p>
+                <p class="msj_exito">La contraseña se ha actualizado con exito</p>
             </div>
         </div>
     <?php endif;?>

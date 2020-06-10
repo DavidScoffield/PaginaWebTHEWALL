@@ -29,15 +29,16 @@
         }
 
         public function convertirImgBLOB($tamanioImg, $temporalImg, $tipoImg ){
+            // echo $tamanioImg ." " . $temporalImg ." " . $tipoImg ." ";
             try{
                 $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
                 // $limite_kb = 16384;
                 // if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024){
                 if (in_array($tipoImg, $permitidos)){
-                    $fp = fopen($temporalImg, 'rb');
-                    $archivoBit = fread($fp, $tamanioImg);
-                    $archivoBit = addslashes($archivoBit);
-                    fclose($fp);
+                    // $fp = fopen($temporalImg, 'r');
+                    // $archivoBit = fread($fp, $tamanioImg);
+                    // fclose($fp);
+                    $archivoBit = file_get_contents($temporalImg);
                     return $archivoBit;
                 }else{
                     echo "NO ES UN TIPO PERMITIDO";

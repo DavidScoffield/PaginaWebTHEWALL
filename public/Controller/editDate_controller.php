@@ -34,6 +34,7 @@ if (isset($_POST['first-name'])) {
         $img_type = null;
     }
 
+
     $user = new Usuario($email, $nombre, $apellido, $nombre_usuario, $contrasenia, $img, $img_type);//objeto que se enviara a la funcion que actualice los datos
     $personal->updateDatosPersonales($user);    //se actualizan los datos
     $datosGeneralesActualizados=true;

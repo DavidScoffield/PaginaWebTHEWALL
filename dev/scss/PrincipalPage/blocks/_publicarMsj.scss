@@ -26,6 +26,14 @@
                 margin: 8px 10px 5px;
                 background-color: $transparente;
                 border: none;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: rgb(194, 194, 194);
+                }
             }
         }
     }

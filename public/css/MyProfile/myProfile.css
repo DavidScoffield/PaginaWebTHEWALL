@@ -44,16 +44,17 @@
 
 .perfil .contenedor .contenedor-img {
   box-shadow: 0 0 30px 6px #02083f;
-  height: 190px;
-  width: 190px;
   border-radius: 20px;
   overflow: hidden;
+  width: auto;
+  height: auto;
 }
 
 .perfil .contenedor .contenedor-img img {
   width: auto;
-  height: 100%;
   display: block;
+  margin: 0 auto;
+  height: 190px;
 }
 
 .perfil .contenedor .contenedor-datos {

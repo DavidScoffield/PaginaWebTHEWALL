@@ -9,7 +9,7 @@
             
                 $this->conexion_db= new PDO("mysql:host=". DB_HOST. "; dbname=". DB_NOMBRE ."","". DB_USUARIO ."","". DB_CONTRASEÑA ."");
                 $this->conexion_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $this->conexion_db->exec("SET CHARACTER SET ". DB_CHARSET ."");
+                // $this->conexion_db->exec("SET CHARACTER SET ". DB_CHARSET ."");
                 return $this->conexion_db; 
             
             }catch(Exception $e){
