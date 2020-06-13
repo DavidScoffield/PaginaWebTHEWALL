@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="crear-msj">
-                <form class="enviar-msj">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="enviar-msj" enctype="multipart/form-data">
                     <div class="contenedor-uno">
                         <div class="contenedor-textarea">
                             <textarea name="msj" id="msj" maxlength="140" placeholder="¿En qué estás pensando?" ></textarea>
@@ -214,7 +214,7 @@
 
                             <input class="inputImg" type="file" name="img_profile" id="inputImg" accept="image/*" />
                         </div>
-                        <input type="submit" class="btnPublicar" id="btn_publicar" value="Publicar" />
+                        <input type="submit" class="btnPublicar" id="btn_publicar" value="Publicar" name="btnPublicarMsj" />
                     </div>
                 </form>
             </div>
@@ -231,6 +231,7 @@
                 </div>
             </div>
             <div class="publicaciones activeOption" id="publicaciones">
+                <?php foreach ($mensajes as $mensaje):  ?>
                 <div class="publicacion">
                     <div class="contenedor">
                         <div class="contenedor-delete">
@@ -238,355 +239,67 @@
                         </div>
                         <div class="contenedor-datos">
                             <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
+                                <img src="data:image/<?= $datosPersonales['foto_tipo'] ?>;base64, <?php echo base64_encode($datosPersonales['foto_contenido']) ?>" alt="Foto de perfil" />
                             </div>
                             <div class="contenedor-nombreUsuario">
                                 <p class="nombre-usuario">
-                                    @PepeUsuario
+                                    @<?= $nombre_usuario ?>
                                 </p>
                             </div>
                         </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-file">
-                            <img src="assets/media/img/fotoperfil.jpg" alt="foto subida" />
-                        </div>
+
+                        <?php if($mensaje['texto']!=null): ?>
+                            <div class="contenedor-texto">
+                                <p class="texto">
+                                    <?= $mensaje['texto']; ?>
+                                </p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if($mensaje['imagen_contenido']!=null): ?>
+                            <div class="contenedor-file">
+                                <img src="data:image/<?= $mensaje['imagen_tipo'] ?>;base64, <?php echo base64_encode($mensaje['imagen_contenido']) ?>" alt="foto subida" />
+                            </div>
+                        <?php endif; ?>
+
                         <div class="contenedor-inferior">
                             <div class="contenedor-MG">
                                 <i class="far fa-heart like"></i>
                                 <p class="cantMG">5496</p>
                             </div>
                             <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
+                                <p class="fecha"><?= $mensaje['fechayhora'] ?></p>
+                                <!-- <p class="fecha">18/05/2020</p> -->
+                                <!-- <p class="hora">18:25</p> -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
+                <?php endforeach; ?>
+                <?php if($total_paginas>1): ?>
+                    <div class="contenedor-paginacion">
+                        <div class="contenedor-opciones">
+                            <?php if($pagina==1 || $pagina==$total_paginas): ?>
+                                <?php if($pagina==1): ?>
+                                    <div class="opcion">
+                                        <a href="?pagina=<?= $pagina+1 ?>">Siguiente</a>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="opcion">
+                                        <a href="?pagina=<?= $pagina-1 ?>">Anterior</a>
+                                    </div>  
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <div class="opcion">
+                                    <a href="?pagina=<?= $pagina-1 ?>">Anterior</a>
+                                </div>  
+                                <div class="opcion">
+                                    <a href="?pagina=<?= $pagina+1 ?>">Siguiente</a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-file">
-                            <img src="assets/media/img/apple-macos-sierra-final.jpg" alt="foto subida" />
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                speriores blanditiis.Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-file">
-                            <img src="assets/media/img/logo.png" alt="foto subida" />
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                eEveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur ad
-                            </p>
-                        </div>
-                        <div class="contenedor-file">
-                            <img src="assets/media/img/nature-3082832.jpg" alt="foto subida" />
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-file">
-                            <img src="assets/media/img/eclipse_3840x2160_xtrafondos.com.jpg" alt="foto subida" />
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/nature-3082832.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-texto">
-                            <p class="texto">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing alias quos volupt atibus quia
-                                earum quis nihil asperiores blanditiis.
-                                Eveniet voluptatem a
-                            </p>
-                        </div>
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha">18/05/2020</p>
-                                <p class="hora">18:25</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
 
             <div class="lista-usuarios" id="lista_usuarios">

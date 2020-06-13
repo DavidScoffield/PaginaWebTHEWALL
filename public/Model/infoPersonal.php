@@ -36,6 +36,25 @@
             
             }
         }
+        public function getId($nombreUsuario){
+            try{
+                $sql= "SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario";
+                $resultado=$this->conexion_db->prepare($sql);
+                $resultado->execute(array(":nombreusuario"=>$nombreUsuario));
+                $datosPersonales=$resultado->fetch(PDO::FETCH_ASSOC);
+                if($resultado->rowCount()==1){
+                    return $datosPersonales['id'];
+                }else{
+                    die("ERROR, HAY MAS DE UN USUARIO CON EL MISMO NOMBRE DE USUARIO");         //NUNCA DEBERIA SUCEDER
+                }
+            
+
+            }catch(Exception $e){
+
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            
+            }
+        }
 
         public function updateDatosPersonales(Usuario $datosPersonales){
 

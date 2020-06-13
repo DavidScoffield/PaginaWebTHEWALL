@@ -51,11 +51,21 @@ msj.addEventListener('change', (e)=>{
 })
 
 inputImg.addEventListener('change', (e)=>{
+    console.log("HOLAAA");
+    
     if(validateImg(inputImg.value)){
         habilitarBoton(btnPublicar);
+        if(contenedorImg.classList.contains('error')){
+            contenedorImg.classList.remove('error');
+        }
+        contenedorImg.classList.add('valid');
     }
     else{
         desabilitarBoton(btnPublicar);
+        if(contenedorImg.classList.contains('valid')){
+            contenedorImg.classList.remove('valid');
+        }
+        contenedorImg.classList.add('error');
        
     }   
 })

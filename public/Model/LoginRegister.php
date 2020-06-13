@@ -76,6 +76,7 @@
                  $resultado=$this->conexion_db->prepare($sql);
                  $resultado->execute(array(":nombreusuario"=>$objUsuario->getNombreUsuario(),":contrasenia"=>$objUsuario->getContrasenia()));
                  $numero_registros_afectados= $resultado->rowCount();
+                 $resultado->closeCursor();
                  return ($numero_registros_afectados!=0);   //devuelve true si encontro un usuario con los datos pasados, y false si no lo encuentra
 
             }catch(Exception $e){

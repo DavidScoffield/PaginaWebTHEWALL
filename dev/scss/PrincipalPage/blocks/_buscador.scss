@@ -61,7 +61,7 @@
             // width: 52%;
             // min-width: 245px;
             // max-width: 400px;
-            overflow: scroll;
+            overflow: auto;
             width: 99%;
             border: 2px solid rgba(255, 255, 255, 0.897);
             margin-top: 1.5rem;
@@ -188,6 +188,16 @@
                     font-size: 13px;
                     padding: 0% 0% 5% 3%;
                 }
+            }
+
+            &::-webkit-scrollbar {
+                width: 5px; /* Tamaño del scroll en vertical */
+                height: 0px; /* Tamaño del scroll en horizontal */
+                // display: none; /* Ocultar scroll */
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: white;
+                border-radius: 20px;
             }
         }
     }
