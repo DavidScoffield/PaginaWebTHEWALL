@@ -233,7 +233,7 @@
             <div class="publicaciones activeOption" id="publicaciones">
                 <?php foreach ($mensajes as $mensaje):  ?>
                 <div class="publicacion">
-                    <div class="contenedor">
+                <div class="contenedor">
                         <div class="contenedor-delete">
                             <i class="far fa-trash-alt"></i>
                         </div>
@@ -265,7 +265,7 @@
                         <div class="contenedor-inferior">
                             <div class="contenedor-MG">
                                 <i class="far fa-heart like"></i>
-                                <p class="cantMG">5496</p>
+                                <p class="cantMG"><?= $mensaje['cant_me_gusta'] ?></p>
                             </div>
                             <div class="contenedor-FH">
                                 <p class="fecha"><?= $mensaje['fechayhora'] ?></p>
@@ -276,6 +276,7 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
+
                 <?php if($total_paginas>1): ?>
                     <div class="contenedor-paginacion">
                         <div class="contenedor-opciones">

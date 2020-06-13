@@ -22,8 +22,14 @@ require_once("Model/infoPersonal.php");
 
         public function getMensajesPropios($nombreusuario,$desde,$cantidad)
         {
-            $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
-            // $sql="SELECT texto,fechayhora FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
+            // $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
+            $sql= "SELECT mensaje.*, COUNT(me_gusta.mensaje_id) as cant_me_gusta 
+                   FROM mensaje 
+                   LEFT JOIN me_gusta ON mensaje.id=me_gusta.mensaje_id  
+                   WHERE mensaje.usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario)
+                   GROUP BY mensaje.id
+                   ORDER BY fechayhora DESC
+                   LIMIT $desde,$cantidad";
             $resultado=$this->conexion_db->prepare($sql);
             $resultado->execute(array(":nombreusuario"=>$nombreusuario));
             $arrayResultado= $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -85,6 +91,8 @@ require_once("Model/infoPersonal.php");
             
             }
         }
+
+        
 
     }
 
