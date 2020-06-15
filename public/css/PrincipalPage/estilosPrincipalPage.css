@@ -924,13 +924,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .publicacion .contenedor .contenedor-inferior .contenedor-MG .cantMG {
+  width: auto;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   height: 100%;
-  width: 50px;
   font-size: 13px;
   margin: 0;
-  margin-left: 5%;
+  margin-left: 10px;
   text-align: center;
   line-height: 25px;
   text-shadow: 1px 1px 2px #2e0000, 0 0 1em #810000, 0 0 0.2em #790000;

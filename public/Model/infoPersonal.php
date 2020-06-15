@@ -8,14 +8,7 @@
         public function  __construct(){
             parent::__construct();
         }
-
-        // public function imprimirImg($codigo,$tipo){
-        //     // se imprime la imagen y se le avisa al navegador que lo que se está  enviando no es texto, sino que es una imagen de un tipo en particular
-        //     header("Content-type: " . $tipo); 
-        //     echo $codigo;
-        // }
-
-
+        
         public function getDatosPersonales($nombreUsuario){
             try{
 

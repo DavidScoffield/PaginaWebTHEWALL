@@ -15,6 +15,8 @@
     $personal= new DatosPersonales();
     $datosPersonales= $personal->getDatosPersonales($nombre_usuario);
     
+    //publicar msj si es existe
+    require_once("Model/publicarMensaje.php");
     
     //recuperar todos los mensajes personales
     $mensajesObj= new Mensajes();
@@ -24,7 +26,6 @@
     $mensajes= $mensajesObj->getMensajesPropios($nombre_usuario,$empezar_desde,$cant_msj_por_pagina);
     unset($mensajesObj);
 
-    require_once("Model/publicarMensaje.php");
 
 
     require_once("View/MyPerfil_view.php");

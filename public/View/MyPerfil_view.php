@@ -202,7 +202,11 @@
                 </div>
             </div>
             <div class="crear-msj">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="enviar-msj" enctype="multipart/form-data">
+                <form action="<?php if(isset($_GET['pagina'])){
+                                        echo $_SERVER['PHP_SELF']."?pagina=$pagina";
+                                    }else{
+                                        echo $_SERVER['PHP_SELF'];
+                                    }?>" method="post" class="enviar-msj" enctype="multipart/form-data">
                     <div class="contenedor-uno">
                         <div class="contenedor-textarea">
                             <textarea name="msj" id="msj" maxlength="140" placeholder="¿En qué estás pensando?" ></textarea>
@@ -232,8 +236,8 @@
             </div>
             <div class="publicaciones activeOption" id="publicaciones">
                 <?php foreach ($mensajes as $mensaje):  ?>
-                <div class="publicacion">
-                <div class="contenedor">
+                <div class="publicacion" idMensaje="<?= $mensaje['id'] ?>">
+                    <div class="contenedor">
                         <div class="contenedor-delete">
                             <i class="far fa-trash-alt"></i>
                         </div>
@@ -276,7 +280,7 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
-
+                <!-- paginacio -->
                 <?php if($total_paginas>1): ?>
                     <div class="contenedor-paginacion">
                         <div class="contenedor-opciones">

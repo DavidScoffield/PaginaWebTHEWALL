@@ -35,7 +35,7 @@ require_once("Model/infoPersonal.php");
             $arrayResultado= $resultado->fetchAll(PDO::FETCH_ASSOC);
             $resultado->closeCursor();
             return $arrayResultado;
-        }
+        } 
 
 
         public function convertirImgBLOB($tamanioImg, $temporalImg, $tipoImg ){
@@ -48,6 +48,7 @@ require_once("Model/infoPersonal.php");
                     // $archivoBit = fread($fp, $tamanioImg);
                     // fclose($fp);
                     $archivoBit = file_get_contents($temporalImg);
+                    // $archivoBit= addslashes($archivoBit);
                     return $archivoBit;
                 }else{
                     echo "NO ES UN TIPO PERMITIDO";
