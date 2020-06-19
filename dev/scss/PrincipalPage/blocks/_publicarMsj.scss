@@ -79,6 +79,15 @@
             &:active {
                 transform: scale(0.8);
             }
+
+            &.enviado {
+                background-image: linear-gradient(
+                    to right,
+                    rgb(1, 36, 1),
+                    rgb(7, 211, 0),
+                    rgb(1, 36, 1)
+                );
+            }
         }
 
         .disabled {

@@ -3,12 +3,12 @@ const buttonsFollow= document.querySelectorAll('.contenedor-botonFollow ')
 
 const showFollow=(elemento)=>{
     elemento.classList.toggle('unFollow');
-    elemento.firstElementChild.innerHTML= "Seguir"
+    elemento.firstElementChild.textContent= "Seguir"
 }
 
 const showUnFollow=(elemento)=>{
     elemento.classList.toggle('unFollow');
-    elemento.firstElementChild.innerHTML= 'No seguir'
+    elemento.firstElementChild.textContent= 'No seguir'
 }
 
 const changeFollow = (elemento)=>{

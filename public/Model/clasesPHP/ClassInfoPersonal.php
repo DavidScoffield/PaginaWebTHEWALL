@@ -1,7 +1,7 @@
 <?php 
 
-    require_once("Model/Usuario.php"); 
-    require_once("Model/LoginRegister.php"); 
+    require_once("clasesPHP/ClassUsuario.php"); 
+    require_once("clasesPHP/ClassLoginRegister.php"); 
 
     class DatosPersonales extends Registro{
 
@@ -17,6 +17,7 @@
                 $resultado->execute(array(":nombreusuario"=>$nombreUsuario));
                 $datosPersonales=$resultado->fetch(PDO::FETCH_ASSOC);
                 if($resultado->rowCount()==1){
+                    $resultado->closeCursor();
                     return $datosPersonales;
                 }else{
                     die("ERROR, HAY MAS DE UN USUARIO CON EL MISMO NOMBRE DE USUARIO");         //NUNCA DEBERIA SUCEDER
@@ -29,6 +30,30 @@
             
             }
         }
+
+        public function getDatosPersonalesBasicos($nombreUsuario){
+            try{
+
+                $sql= "SELECT nombre, apellido, email FROM usuarios WHERE nombreusuario=:nombreusuario";
+                $resultado=$this->conexion_db->prepare($sql);
+                $resultado->execute(array(":nombreusuario"=>$nombreUsuario));
+                $datosPersonales=$resultado->fetch(PDO::FETCH_ASSOC);
+                if($resultado->rowCount()==1){
+                    $resultado->closeCursor();
+                    return $datosPersonales;
+                }else{
+                    die("ERROR, HAY MAS DE UN USUARIO CON EL MISMO NOMBRE DE USUARIO");         //NUNCA DEBERIA SUCEDER
+                }
+            
+
+            }catch(Exception $e){
+
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            
+            }
+        }
+
+
         public function getId($nombreUsuario){
             try{
                 $sql= "SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario";
@@ -67,6 +92,8 @@
                 }
                 $resultado->closeCursor();
 
+                return ($resultado->rowCount()>0);
+
             }catch(Exception $e){
 
                 die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
@@ -97,9 +124,17 @@
 
 
         public function contraseñaCorrecta(string $contrasenia, string $nombreUsuario){
+            try{
 
-            $contraseniaEnBD=$this->devolverContrasenia($nombreUsuario);
-            return $contrasenia==$contraseniaEnBD['contrasenia'];
+                $contraseniaEnBD=$this->devolverContrasenia($nombreUsuario);
+                $estado=$contrasenia==$contraseniaEnBD['contrasenia'];
+                return $estado;
+
+            }catch(Exception $e){
+
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            
+            }
 
         }
 
@@ -110,7 +145,10 @@
                 $sql="UPDATE usuarios SET contrasenia=:contrasenia WHERE nombreusuario=:nombreusuario";
                 $resultado= $this->conexion_db->prepare($sql);
                 $resultado->execute(array(":contrasenia"=>$newContrasenia, ":nombreusuario"=>$nombreUsuario));
+                
+                $actualizada=($resultado->rowCount()>0);
                 $resultado->closeCursor();
+                return $actualizada;
 
             }catch(Exception $e){
 

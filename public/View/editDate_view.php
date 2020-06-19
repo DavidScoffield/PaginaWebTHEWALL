@@ -16,38 +16,17 @@
     <script src="https://kit.fontawesome.com/3f9cdd4385.js" crossorigin="anonymous"></script>
 
     <!-- ESTILOS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/PrincipalPage/estilosPrincipalPage.css" />
-    <link rel="stylesheet" href="css/editDate/editDate.css" />
+    <link rel="stylesheet" href="css/normalize.css?t=1592197586444" />
+    <link rel="stylesheet" href="css/PrincipalPage/estilosPrincipalPage.css?t=1592197586444" />
+    <link rel="stylesheet" href="css/editDate/editDate.css?t=1592197586444" />
 </head>
 
 <body>
 
-    <?php if(isset($contraseniaIncorrecta) && $contraseniaIncorrecta===false):?>
-        <!-- crea msj de exito porque se actualizo la contraseña -->
-        <div class="contenedor_msj_exito">
-            <div class="contenido">
-                <div class="icono">
-                    <i class="far fa-check-circle"></i> 
-                </div>
-                <p class="msj_exito">La contraseña se ha actualizado con exito</p>
-            </div>
-        </div>
-    <?php endif;?>
-
-    <?php if(isset($datosGeneralesActualizados) && $datosGeneralesActualizados==true):?>
-        <!-- crea msj de exito porque se actualizaron los datos generales -->
-        <div class="contenedor_msj_exito ">
-            <div class="contenido">
-                <div class="icono">
-                    <i class="far fa-check-circle"></i> 
-                </div>
-                <p class="msj_exito">Los datos se han actualizado con exito</p>
-            </div>
-        </div>
-    
-    <?php endif;?>
-
+     <!-- nombre de usuario para trabajar con ajax -->
+     <script type="text/javascript">
+        const nombreUsuario= "<?= $_SESSION['usuario'];?>"
+    </script>
 
     <!-- Buscador lateral de perfiles -->
     <div class="buscador" id="buscador">
@@ -209,26 +188,24 @@
             </div>
 
             <div class="editar" id="contenido-edicion">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="datos-generales" id="form-datos-generales" enctype="multipart/form-data">
+                <form class="datos-generales" id="form-datos-generales" enctype="multipart/form-data">
                     <div class="container-dualDate">
-                        <div class="containers focus">
+                        <div class="containers">
                             <div class="i">
                                 <i class="fas fa-signature"></i>
                             </div>
                             <div>
                                 <label for="first-name">Nombre</label>
-                                <input class="input" type="text" name="first-name" id="basic_datos_firstName"
-                                    value="<?= $datosPersonales['nombre'] ?>" />
+                                <input class="input" type="text" name="first-name" id="basic_datos_firstName" />
                             </div>
                         </div>
-                        <div class="containers focus">
+                        <div class="containers">
                             <div class="i">
                                 <i class="fas fa-signature"></i>
                             </div>
                             <div>
                                 <label for="last-name">Apellido</label>
-                                <input class="input" type="text" name="last-name" id="basic_datos_lastName"
-                                    value="<?= $datosPersonales['apellido'] ?>" />
+                                <input class="input" type="text" name="last-name" id="basic_datos_lastName" />
                             </div>
                         </div>
                     </div>
@@ -240,27 +217,18 @@
                                 <input class="inputImg" type="file" name="img_profile" id="inputImg" />
                             </div>
                         </div>
-                        <div class="containers focus">
+                        <div class="containers">
                             <div class="i">
                                 <i class="fas fa-envelope"></i>
                             </div>
 
                             <div>
                                 <label for="email">Correo electrónico</label>
-                                <input type="email" class="input" name="email" id="basic_datos_email" novalidate
-                                    value="<?= $datosPersonales['email'] ?>" />
+                                <input type="email" class="input" name="email" id="basic_datos_email" novalidate/>
                             </div>
                         </div>
                     </div>
                     <div class="container-dual">
-                        <!-- <div class="container-button">
-                                <input
-                                    type="reset"
-                                    value="Vaciar"
-                                    class="btn"
-                                    id="resetDatosGenerales"
-                                />
-                            </div> -->
                         <div class="container-button">
                             <input type="submit" name="btn-submit" value="Enviar" class="btn"
                                 id="submitDatosGenerales" />
@@ -269,62 +237,7 @@
                 </form>
 
 
-                <?php if(isset($contraseniaIncorrecta) && $contraseniaIncorrecta==true): ?>       
-                <!-- si entra es porque la contraseña ingresada no corresponde con la que esta en la BD -->
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="password" id="form_password">
-                    <input type="hidden" id="contraseniaIncorrecta">    
-                    <div class="container-individual">
-                        <div class="containers focus error">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div>
-                                <label for="password">Contraseña actual</label>
-                                <input class="input" type="password" name="actualPassword" id="actual_password" value="<?= $_POST['actualPassword'] ?>"/>
-                            </div>
-                            <!-- Se ingresa un msj de error en la contraseña actual -->
-                            <div class="contenedor-msj-error">
-                                <p class="msj-error">Contraseña incorrecta</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-dualDate">
-                        <div class="containers focus valid">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div>
-                                <label for="password">Nueva contraseña</label>
-                                <input class="input" type="password" name="newPassword" id="new_password" value="<?= $_POST['newPassword'] ?>"/>
-                            </div>
-                        </div>
-                        <div class="containers focus valid">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div>
-                                <label for="repeatPassword">Repita la contraseña</label>
-                                <input class="input" type="password" name="newRepeatPassword" id="new_passwordRepeat" value="<?= $_POST['newRepeatPassword'] ?>"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-dual">
-                        <!-- <div class="container-button">
-                                <input
-                                    type="reset"
-                                    value="Vaciar"
-                                    class="btn"
-                                    id="resetPassword"
-                                />
-                            </div> -->
-
-                        <div class="container-button">
-                            <input type="submit" name="btn-submit" value="Enviar" class="btn" id="submitPassword" />
-                        </div>
-                    </div>
-                </form>
-                <?php else: ?>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="password" id="form_password">
+                <form class="password" id="form_password">
                     <div class="container-individual">
                         <div class="containers">
                             <div class="i">
@@ -357,21 +270,11 @@
                         </div>
                     </div>
                     <div class="container-dual">
-                        <!-- <div class="container-button">
-                                <input
-                                    type="reset"
-                                    value="Vaciar"
-                                    class="btn"
-                                    id="resetPassword"
-                                />
-                            </div> -->
-
                         <div class="container-button">
                             <input type="submit" name="btn-submit" value="Enviar" class="btn" id="submitPassword" />
                         </div>
                     </div>
                 </form>
-                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -404,15 +307,14 @@
             </div>
         </div>
     </footer>
-    <script src="js/index/redesSocialesFooter.js"></script>
-    <script src="js/PaginaPrincipal/menu.js"></script>
-    <script src="js/PaginaPrincipal/buscador.js"></script>
-    <script src="js/PaginaPrincipal/followUnfollow.js"></script>
-    <script src="js/editDate/editForm.js"></script>
-    <script src="js/editDate/validacionesCampos.js"></script>
-    <script src="js/PaginaPrincipal/mensajeExito.js"></script>
-    
-    <!-- <script src="js/PaginaPrincipal/publicacion.js"></script> -->
+    <script src="js/PaginaPrincipal/mensajeExito.js?t=1592197586444"></script>
+    <script src="js/editDate/actualizarDatos.js"></script>
+    <script src="js/index/redesSocialesFooter.js?t=1592197586444"></script>
+    <script src="js/PaginaPrincipal/menu.js?t=1592197586444"></script>
+    <script src="js/PaginaPrincipal/buscador.js?t=1592197586444"></script>
+    <script src="js/editDate/editForm.js?t=1592197586444"></script>
+    <script src="js/editDate/validacionesCampos.js?t=1592197586444"></script>
+    <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586444"></script> -->
 </body>
 
 </html>

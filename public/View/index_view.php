@@ -11,14 +11,15 @@
     <!-- FUENTES DE TEXTO -->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@700&family=Anton&family=Caveat:wght@400;700&family=Girassol&family=Josefin+Sans:ital,wght@1,600&family=Lobster&family=Merriweather:ital,wght@1,700&family=Poppins:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
     <!-- ESTILOS CSS/SCSS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/index/estilosIndex.css" />
+    <link rel="stylesheet" href="css/normalize.css?t=1592197586422" />
+    <link rel="stylesheet" href="css/index/estilosIndex.css?t=1592197586422" />
 
     <!-- ICONOS -->
     <script src="https://kit.fontawesome.com/3f9cdd4385.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
 
     <!-- titulo  -->
     <header class="header">
@@ -49,7 +50,7 @@
 
     <!-- ventana modal de inicio de sesion  -->
 
-    <div class="bg-modal" id="bg-modal-LogIn" <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "style='display:flex;'" ?>>
+    <div class="bg-modal" id="bg-modal-LogIn" <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "style='display:flex;'" ?>>
         <div class="window_modal LogIn" id="window-modal">
             <div class="close" id="closeLogIn">+</div>
 
@@ -59,7 +60,7 @@
             </div>
 
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_logIn">
-                <div class="containers contenedor-input <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
+                <div class="containers contenedor-input <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
@@ -68,14 +69,14 @@
                         <label for="user">Nombre usuario</label>
                         <input type="text" class="input" name="user_login" id="login_user" />
                     </div>
-                    <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true): ?>
-                        <div class="contenedor-msj-error">
+                    <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true): ?>
+                        <!-- <div class="contenedor-msj-error">
                             <p class="msj-error">Nombre de usuario o contraseña incorrectos.</p>
-                        </div>
-                    <?php endif; ?>
+                        </div> -->
+                    <?php // endif; ?>
                          
                 </div>
-                <div class="containers contenedor-input <?php if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
+                <div class="containers contenedor-input <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
                     <div class="i">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -97,199 +98,96 @@
 
 
     <!-- modal de registro -->
-    <?php if (isset($usuarioExistente) && $usuarioExistente == true) : ?>
-        <!-- si el nombre de usuario ingresado ya existia se dirije a la misma pagina y se inserta un msj de error en nombre de usuario  -->
-        <div class="bg-modal" id="bg-modal-register" style="display: flex;">
-            <div class="window_modal" id="window-modal-register">
-                <div class="close" id="closeRegister">+</div>
+   <div class="bg-modal" id="bg-modal-register">
+        <div class="window_modal" id="window-modal-register">
+            <div class="close" id="closeRegister">+</div>
 
-                <div class="encabezado">
-                    <img src="assets/media/img/logo.png" alt="Logo de la pagina, THE WALL la nueva red social" />
-                    <div class="titulo">Registrarse</div>
+            <div class="encabezado">
+                <img src="assets/media/img/logo.png" alt="Logo de la pagina, THE WALL la nueva red social" />
+                <div class="titulo">Registrarse</div>
+            </div>
+
+            <form method="post" class="form" id="formulario_registro" enctype="multipart/form-data">
+                <div class="containers contenedor-input">
+
+                    <div class="i">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <label for="register_email">Correo electrónico</label>
+                        <input type="email" class="input" name="email_register" id="register_email" novalidate />
+                    </div>
                 </div>
 
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_registro" enctype="multipart/form-data">
-                    <input type="hidden" id="nombreUsuarioRepetido">
-                    <div class="containers contenedor-input focus valid">
-
-                        <div class="i">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-
-                        <div>
-                            <label for="register_email">Correo electrónico</label>
-                            <input type="email" class="input" name="email_register" id="register_email" novalidate value="<?= $email ?>" />
-                        </div>
+                <div class="containers contenedor-input">
+                    <div class="i">
+                        <i class="fas fa-signature"></i>
                     </div>
-
-                    <div class="containers contenedor-input focus valid">
-                        <div class="i">
-                            <i class="fas fa-signature"></i>
-                        </div>
-                        <div>
-                            <label for="register_firstName">Nombre</label>
-                            <input class="input" type="text" name="first_name_register" id="register_firstName" value="<?= $nombre ?>" />
-                        </div>
+                    <div>
+                        <label for="register_firstName">Nombre</label>
+                        <input class="input" type="text" name="first_name_register" id="register_firstName" />
                     </div>
-                    <div class="containers contenedor-input focus valid">
-                        <div class="i">
-                            <i class="fas fa-signature"></i>
-                        </div>
-                        <div>
-                            <label for="register_lastName">Apellido</label>
-                            <input class="input" type="text" name="last_name_register" id="register_lastName" value="<?= $apellido ?>" />
-                        </div>
-                    </div>
-
-                    <div class="containers contenedor-input focus error">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <label for="register_user">Nombre usuario</label>
-                            <input type="text" class="input" name="user_register" id="register_user" value="<?= $nombre_usuario ?>" />
-                        </div>
-                        <!-- Se debe cargar nuevamente la imagen si el nombre de usuario fue repetido -->
-                        <div class="contenedor-msj-error">
-                            <p class="msj-error">El nombre de usuario ya existe</p>
-                        </div>
-                    </div>
-
-                    <div class="containers contenedor-input focus valid">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="register_password">Contraseña</label>
-                            <input class="input" type="password" name="password_register" id="register_password" value="<?= $contrasenia ?>" />
-                        </div>
-                    </div>
-                    <div class="containers contenedor-input focus valid">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="register_RepeatPassword">Repita la contraseña</label>
-                            <input class="input" type="password" name="repeatPassword_register" id="register_RepeatPassword" value="<?= $contrasenia ?>" />
-                        </div>
-                    </div>
-
-                    <div class="contenedor-img contenedor-input">
-                        <div class="container-imagen-prev error">
-                            <i class="fas fa-camera" id="iconoSubirImagen"></i>
-
-                            <input class="inputImg" type="file" name="img_profile_register" id="inputImg" />
-                        </div>
-                        <!-- Se debe cargar nuevamente la imagen si el nombre de usuario fue repetido -->
-                        <div class="contenedor-msj-error">
-                            <p class="msj-error">Ingrese la foto nuevamente</p>
-                        </div>
-                    </div>
-
-                    <div class="container-dual">
-                        <input type="submit" name="btn_submit_register" id="btn_submitRegister" value="Enviar" class="btn" />
-                        <input type="reset" value="Vaciar" class="btn" id="resetRegister" />
-                    </div>
-                </form>
-
-                <div class="cambiar_opcion" id="cambiar_opcion_register">
-                    ¿Ya estás registrado? Iniciar Sesión
                 </div>
+                <div class="containers contenedor-input">
+                    <div class="i">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <div>
+                        <label for="register_lastName">Apellido</label>
+                        <input class="input" type="text" name="last_name_register" id="register_lastName" />
+                    </div>
+                </div>
+
+                <div class="containers contenedor-input">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <label for="register_user">Nombre usuario</label>
+                        <input type="text" class="input" name="user_register" id="register_user" />
+                    </div>
+                </div>
+
+                <div class="containers contenedor-input">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <label for="register_password">Contraseña</label>
+                        <input class="input" type="password" name="password_register" id="register_password" />
+                    </div>
+                </div>
+                <div class="containers contenedor-input">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <label for="register_RepeatPassword">Repita la contraseña</label>
+                        <input class="input" type="password" name="repeatPassword_register" id="register_RepeatPassword" />
+                    </div>
+                </div>
+
+                <div class="contenedor-img contenedor-input">
+                    <div class="container-imagen-prev">
+                        <i class="fas fa-camera" id="iconoSubirImagen"></i>
+
+                        <input class="inputImg" type="file" name="img_profile_register" id="inputImg" />
+                    </div>
+                </div>
+
+                <div class="container-dual">
+                    <input type="submit" name="btn_submit_register" id="btn_submitRegister" value="Enviar" class="btn" />
+                    <input type="reset" value="Vaciar" class="btn" id="resetRegister" />
+                </div>
+            </form>
+
+            <div class="cambiar_opcion" id="cambiar_opcion_register">
+                ¿Ya estás registrado? Iniciar Sesión
             </div>
         </div>
+    </div>
 
-    <?php else : ?>
-        <div class="bg-modal" id="bg-modal-register">
-            <div class="window_modal" id="window-modal-register">
-                <div class="close" id="closeRegister">+</div>
-
-                <div class="encabezado">
-                    <img src="assets/media/img/logo.png" alt="Logo de la pagina, THE WALL la nueva red social" />
-                    <div class="titulo">Registrarse</div>
-                </div>
-
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_registro" enctype="multipart/form-data">
-                    <div class="containers contenedor-input">
-
-                        <div class="i">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-
-                        <div>
-                            <label for="register_email">Correo electrónico</label>
-                            <input type="email" class="input" name="email_register" id="register_email" novalidate />
-                        </div>
-                    </div>
-
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-signature"></i>
-                        </div>
-                        <div>
-                            <label for="register_firstName">Nombre</label>
-                            <input class="input" type="text" name="first_name_register" id="register_firstName" />
-                        </div>
-                    </div>
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-signature"></i>
-                        </div>
-                        <div>
-                            <label for="register_lastName">Apellido</label>
-                            <input class="input" type="text" name="last_name_register" id="register_lastName" />
-                        </div>
-                    </div>
-
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <label for="register_user">Nombre usuario</label>
-                            <input type="text" class="input" name="user_register" id="register_user" />
-                        </div>
-                    </div>
-
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="register_password">Contraseña</label>
-                            <input class="input" type="password" name="password_register" id="register_password" />
-                        </div>
-                    </div>
-                    <div class="containers contenedor-input">
-                        <div class="i">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                            <label for="register_RepeatPassword">Repita la contraseña</label>
-                            <input class="input" type="password" name="repeatPassword_register" id="register_RepeatPassword" />
-                        </div>
-                    </div>
-
-                    <div class="contenedor-img contenedor-input">
-                        <div class="container-imagen-prev">
-                            <i class="fas fa-camera" id="iconoSubirImagen"></i>
-
-                            <input class="inputImg" type="file" name="img_profile_register" id="inputImg" />
-                        </div>
-                    </div>
-
-                    <div class="container-dual">
-                        <input type="submit" name="btn_submit_register" id="btn_submitRegister" value="Enviar" class="btn" />
-                        <input type="reset" value="Vaciar" class="btn" id="resetRegister" />
-                    </div>
-                </form>
-
-                <div class="cambiar_opcion" id="cambiar_opcion_register">
-                    ¿Ya estás registrado? Iniciar Sesión
-                </div>
-            </div>
-        </div>
-
-    <?php endif; ?>
 
     <!-- footer -->
     <footer class="footer">
@@ -321,9 +219,10 @@
     </footer>
 
     <!-- archivos javascrip -->
-    <script src="js/index/redesSocialesFooter.js"></script>
-    <script src="js/index/validaciones.js"></script>
-    <script src="js/index/ventana-modal.js"></script>
+    <script src="js/baseDatos/IniciarSesionRegistro.js"></script>
+    <script src="js/index/redesSocialesFooter.js?t=1592197586422"></script>
+    <script src="js/index/validaciones.js?t=1592197586422"></script>
+    <script src="js/index/ventana-modal.js?t=1592197586422"></script>
 </body>
 
 </html>

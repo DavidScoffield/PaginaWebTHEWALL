@@ -63,12 +63,7 @@ const validateForm =(ObjectForm, formulario)=>{
     // valida si el formulario pasado como primer parametro posee todos sus campos correctos(true)
     const formValid= Object.values(ObjectForm);
     const valid= formValid.findIndex(value=> value == false );
-    if(valid == -1){
-        formulario.submit();
-    }
-    else{
-        // alert('campos invalidos');
-    }
+    return (valid == -1)
 }
 
 const samePassword=(password1, password2)=>{
@@ -140,13 +135,42 @@ const removeMsjError=(e)=>{
 }
 
 
+const insertarMsjError=(contenedorInput,msj)=>{
+    if(!contenedorInput.lastElementChild.classList.contains("contenedor-msj-error")){
+        fragmento= document.createDocumentFragment();
+
+        divContenedorMsjError= crearElemento('div', ['contenedor-msj-error'],'');
+        pTexto= crearElemento('p', ['msj-error'],'');
+        pTexto.textContent=msj;
+            divContenedorMsjError.append(pTexto);
+
+            fragmento.append(divContenedorMsjError)
+        
+        contenedorInput.append(fragmento);
+    }
+}
+
+const contraseñaACmabiarIgualBD=(inputs)=>{
+    inputs.forEach(input => {
+        padre= input.parentElement.parentElement;
+        padre.classList.replace("valid", "error");
+        insertarMsjError(padre, "Debe ser diferente a la actual")
+    });
+}
 
 
 // eventos de escucha para validar los campos del formulario de registro
 
-formBasicData.addEventListener('submit', (e)=>{
+formBasicData.addEventListener('submit', async(e)=>{
     e.preventDefault();
-    validateForm(formBasicDataIsValid, formBasicData);
+    if(validateForm(formBasicDataIsValid, formBasicData)){
+        resultado= await enviarActualizacionDatosBasicos(formBasicData);
+        if(resultado){
+            vaciarFormulario(formBasicData);
+            actualizarDatosBasicosEnDOM()
+            mostrarMensajeExito("Los datos se han actualizado con exito");
+        }
+    };
 })
 
 
@@ -249,9 +273,27 @@ const isEmpty= (element)=>{
 
 // PASSWORDS
 
-formPassword.addEventListener('submit', (e)=>{
+formPassword.addEventListener('submit', async(e)=>{
     e.preventDefault();
-    validateForm(formPasswordIsValid, formPassword);
+    if(validateForm(formPasswordIsValid, formPassword)){
+        passwordActual=document.getElementById("actual_password").value;
+        actualPasswordCorrect= await validarContraseñaActual(passwordActual); //compruebo que la contraseña actual es correcta
+        if(actualPasswordCorrect){
+            resultado= await enviarActualizacionContraseñas(document.getElementById("new_password").value);
+            if(resultado){
+                vaciarFormulario(formPassword);
+                mostrarMensajeExito("La contraseña se ha actualizado con exito");
+            }else{
+                inputs2=[document.getElementById("new_password"),document.getElementById("new_passwordRepeat")]
+                console.log(inputs2)
+                contraseñaACmabiarIgualBD(inputs2)
+            }
+        }else{
+            padreInput=document.getElementById("actual_password").parentElement.parentElement;
+            padreInput.classList.add("error")
+            insertarMsjError(padreInput,'Contraseña incorrecta')
+        }
+    };
 })
 
 actualPassword.addEventListener('change', (e)=>{

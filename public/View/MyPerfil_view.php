@@ -14,12 +14,17 @@
     <script src="https://kit.fontawesome.com/3f9cdd4385.js" crossorigin="anonymous"></script>
 
     <!-- ESTILOS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/PrincipalPage/estilosPrincipalPage.css" />
-    <link rel="stylesheet" href="css/MyProfile/myProfile.css" />
+    <link rel="stylesheet" href="css/normalize.css?t=1592197586490" />
+    <link rel="stylesheet" href="css/PrincipalPage/estilosPrincipalPage.css?t=1592197586490" />
+    <link rel="stylesheet" href="css/MyProfile/myProfile.css?t=1592197586490" />
 </head>
 
 <body>
+
+    <!-- nombre de usuario para trabajar con ajax -->
+    <script type="text/javascript">
+        const nombreUsuario= "<?= $_SESSION['usuario'];?>"
+    </script>
 
     <!-- Buscador lateral de perfiles -->
     <div class="buscador" id="buscador">
@@ -172,28 +177,27 @@
             </ul>
         </div>
     </nav>
-
+    
     <!-- PARTE CENTRLA DE LA PAGINA -->
     <div class="central">
         <div class="contenido">
             <div class="titulo">
                 Mi pefil
             </div>
-            <div class="perfil">
-                <div class="contenedor">
+            <div class="perfil" id="myperfil">
+                <div class="contenedor" id="contenedor-perfil">
                     <div class="contenedor-img">
-                    <img src="data:image/<?= $datosPersonales['foto_tipo'] ?>;base64, <?php echo base64_encode($datosPersonales['foto_contenido']) ?>" alt="Foto de perfil" />
-                        <!-- <img src="mostrarImagen.php?id=2" alt="Foto de perfil" /> -->
+                        <img alt="Foto de perfil" />
                     </div>
                     <div class="contenedor-datos">
                         <div class="contenedor-nombre">
-                            <p class="nombre"><?= $datosPersonales['nombre'] ?></p>
+                            <p class="nombre"></p>
                         </div>
                         <div class="contenedor-apellido">
-                            <p class="apellido"><?= $datosPersonales['apellido'] ?></p>
+                            <p class="apellido"></p>
                         </div>
                         <div class="contenedor-username">
-                            <p class="username">@<?= $datosPersonales['nombreusuario'] ?></p>
+                            <p class="username"></p>
                         </div>
                     </div>
                     <div class="contenedor-boton">
@@ -202,11 +206,7 @@
                 </div>
             </div>
             <div class="crear-msj">
-                <form action="<?php if(isset($_GET['pagina'])){
-                                        echo $_SERVER['PHP_SELF']."?pagina=$pagina";
-                                    }else{
-                                        echo $_SERVER['PHP_SELF'];
-                                    }?>" method="post" class="enviar-msj" enctype="multipart/form-data">
+                <form method="post" class="enviar-msj " enctype="multipart/form-data" id="crear_msj">
                     <div class="contenedor-uno">
                         <div class="contenedor-textarea">
                             <textarea name="msj" id="msj" maxlength="140" placeholder="¿En qué estás pensando?" ></textarea>
@@ -235,232 +235,9 @@
                 </div>
             </div>
             <div class="publicaciones activeOption" id="publicaciones">
-                <?php foreach ($mensajes as $mensaje):  ?>
-                <div class="publicacion" idMensaje="<?= $mensaje['id'] ?>">
-                    <div class="contenedor">
-                        <div class="contenedor-delete">
-                            <i class="far fa-trash-alt"></i>
-                        </div>
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="data:image/<?= $datosPersonales['foto_tipo'] ?>;base64, <?php echo base64_encode($datosPersonales['foto_contenido']) ?>" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @<?= $nombre_usuario ?>
-                                </p>
-                            </div>
-                        </div>
-
-                        <?php if($mensaje['texto']!=null): ?>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    <?= $mensaje['texto']; ?>
-                                </p>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if($mensaje['imagen_contenido']!=null): ?>
-                            <div class="contenedor-file">
-                                <img src="data:image/<?= $mensaje['imagen_tipo'] ?>;base64, <?php echo base64_encode($mensaje['imagen_contenido']) ?>" alt="foto subida" />
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="contenedor-inferior">
-                            <div class="contenedor-MG">
-                                <i class="far fa-heart like"></i>
-                                <p class="cantMG"><?= $mensaje['cant_me_gusta'] ?></p>
-                            </div>
-                            <div class="contenedor-FH">
-                                <p class="fecha"><?= $mensaje['fechayhora'] ?></p>
-                                <!-- <p class="fecha">18/05/2020</p> -->
-                                <!-- <p class="hora">18:25</p> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-                <!-- paginacio -->
-                <?php if($total_paginas>1): ?>
-                    <div class="contenedor-paginacion">
-                        <div class="contenedor-opciones">
-                            <?php if($pagina==1 || $pagina==$total_paginas): ?>
-                                <?php if($pagina==1): ?>
-                                    <div class="opcion">
-                                        <a href="?pagina=<?= $pagina+1 ?>">Siguiente</a>
-                                    </div>
-                                <?php else: ?>
-                                    <div class="opcion">
-                                        <a href="?pagina=<?= $pagina-1 ?>">Anterior</a>
-                                    </div>  
-                                <?php endif; ?>
-                            <?php else: ?>
-                                <div class="opcion">
-                                    <a href="?pagina=<?= $pagina-1 ?>">Anterior</a>
-                                </div>  
-                                <div class="opcion">
-                                    <a href="?pagina=<?= $pagina+1 ?>">Siguiente</a>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
             </div>
 
             <div class="lista-usuarios" id="lista_usuarios">
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="assets/media/img/messiPerfil.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @PepeUsuario
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/AlbertoCococi/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @Maria12Fer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/ripplemdk/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @MrsJones
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/michaelkoper/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @Cale212
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/IsaryAmairani/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @Kertzmann
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/rikas/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @XzavierTromp
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/m_kalibry/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @MrsBorer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/alterchuca/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @neuralSpinka
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="usuarioPerfil">
-                    <div class="contenedor">
-                        <div class="contenedor-datos">
-                            <div class="contenedor-img">
-                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/danpliego/128.jpg" alt="Foto de perfil" />
-                            </div>
-                            <div class="contenedor-nombreUsuario">
-                                <p class="nombre-usuario">
-                                    @RossieCormier19
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -493,14 +270,19 @@
             </div>
         </div>
     </footer>
-    <script src="js/index/redesSocialesFooter.js"></script>
-    <script src="js/PaginaPrincipal/menu.js"></script>
-    <script src="js/PaginaPrincipal/buscador.js"></script>
-    <script src="js/PaginaPrincipal/followUnfollow.js"></script>
-    <script src="js/PaginaPrincipal/publicacion.js"></script>
-    <script src="js/MyProfile/deletePublicacion.js"></script>
-    <script src="js/MyProfile/alternarSubmenu.js"></script>
-    <script src="js/PaginaPrincipal/publicar.js"></script>
+
+    <script src="js/baseDatos/mostrarDatosPersonales.js"></script>
+    <script src="js/PaginaPrincipal/unfollowUser.js"></script>
+    <script src="js/baseDatos/mostrarMjsPropios.js"></script>
+    <script src="js/baseDatos/mostrarUsuariosSeguidos.js"></script>
+    <script src="js/index/redesSocialesFooter.js?t=1592197586490"></script>
+    <script src="js/PaginaPrincipal/menu.js?t=1592197586490"></script>
+    <script src="js/PaginaPrincipal/buscador.js?t=1592197586490"></script>
+    <script src="js/PaginaPrincipal/publicacion.js?t=1592197586490"></script>
+    <script src="js/MyProfile/alternarSubmenu.js?t=1592197586490"></script>
+    <script src="js/PaginaPrincipal/publicar.js?t=1592197586490"></script>
+    <script src="js/MyProfile/deletePublicacion.js?t=1592197586490"></script>
+    <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586490"></script> -->
 </body>
 
 </html>

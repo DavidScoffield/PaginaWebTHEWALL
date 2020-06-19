@@ -249,7 +249,7 @@ const negarFormularioRegister= (f) =>{
 formLogin.addEventListener('submit', (e)=>{
     e.preventDefault();
     if(validateForm(LogInFormIsValid)){
-        formLogin.submit();
+        iniciarSesion(formLogin)
     }else{
         invalidatedImputs(formLogin)
     }
@@ -308,7 +308,7 @@ loginPassword.addEventListener('change', (e)=>{
 formRegister.addEventListener('submit', (e)=>{
     e.preventDefault();
     if(validateForm(registerFormIsValid)){
-        formRegister.submit();
+        registrarse(formRegister)
     }else{
         invalidatedImputs(formRegister)
     }

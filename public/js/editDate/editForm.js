@@ -47,17 +47,11 @@ const resetarFocus= (modal)=>{
     if(img.classList.contains('error')) img.classList.remove('error');
 }
 
-//eventos para el apartado datos generales
-/* resetDatosGenerales.addEventListener('click', ()=> resetarFocus(editar)); */
 
 document.getElementById('iconoSubirImagen').addEventListener('click', ()=>{
     document.getElementById('inputImg').click();
  })
 
-//eventos para el apartado password
-
-
-/* resetPassword.addEventListener('click', ()=> resetarFocus(editar)); */
 
 
 

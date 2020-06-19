@@ -19,24 +19,23 @@
         ></script>
 
         <!-- ESTILOS -->
-        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/normalize.css?t=1592197586509" />
         <link
             rel="stylesheet"
-            href="css/PrincipalPage/estilosPrincipalPage.css"
+            href="css/PrincipalPage/estilosPrincipalPage.css?t=1592197586509"
         />
-        <link rel="stylesheet" href="css/MyProfile/myProfile.css" />
-        <link rel="stylesheet" href="css/userProfile/userProfile.css" />
+        <link rel="stylesheet" href="css/MyProfile/myProfile.css?t=1592197586509" />
+        <link rel="stylesheet" href="css/userProfile/userProfile.css?t=1592197586509" />
     </head>
     <body>
 
-        <?php 
+        <!-- nombre de usuario para trabajar con ajax -->
+        <script type="text/javascript">
+            const nombreUsuarioLogeado= "<?= $_SESSION['usuario'];?>"
+            const nombreUsuario= "<?= $_GET['user'];?>"
+            if(nombreUsuario==nombreUsuarioLogeado) window.location="MyPerfil.php"  
+        </script>
 
-            session_start();
-            if(!isset($_SESSION['usuario'])){
-                header('Location: index.php');
-            }
-
-        ?>
         <!-- Buscador lateral de perfiles -->
         <div class="buscador" id="buscador">
             <div class="contenedor-busqueda">
@@ -202,32 +201,30 @@
         <!-- PARTE CENTRLA DE LA PAGINA -->
         <div class="central">
             <div class="contenido">
-                <div class="titulo">
-                    Ursula65
+                <div class="titulo" id="titulo">
+                    usuario
                 </div>
-                <div class="perfil">
-                    <div class="contenedor">
+                <div class="perfil" id="userperfil">
+                    <div class="contenedor" id="contenedor-perfil">
                         <div class="contenedor-img">
-                            <img
-                                src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                alt="Foto de perfil"
-                            />
+                            <img alt="Foto de perfil" />
                         </div>
                         <div class="contenedor-datos">
                             <div class="contenedor-nombre">
-                                <p class="nombre">Ursula</p>
+                                <p class="nombre"></p>
                             </div>
                             <div class="contenedor-apellido">
-                                <p class="apellido">Watsica</p>
+                                <p class="apellido"></p>
                             </div>
                             <div class="contenedor-username">
-                                <p class="username">@Ursula65</p>
+                                <p class="username"></p>
                             </div>
                         </div>
-                        <div class="contenedor-botonFollow unFollow">
-                            <button class="follow">No seguir</button>
+                        <div class="contenedor-botonFollow" id="btnFollowPerfil">
+                            <button class="follow"></button>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="opciones-menu-perfil">
                     <div class="contenedor-opciones">
@@ -239,377 +236,7 @@
                     </div>
                 </div>
                 <div class="publicaciones activeOption" id="publicaciones">
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-file">
-                                <img
-                                    src="assets/media/img/fotoperfil.jpg"
-                                    alt="foto subida"
-                                />
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-file">
-                                <img
-                                    src="assets/media/img/apple-macos-sierra-final.jpg"
-                                    alt="foto subida"
-                                />
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    speriores blanditiis.Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-file">
-                                <img
-                                    src="assets/media/img/logo.png"
-                                    alt="foto subida"
-                                />
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    eEveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur ad
-                                </p>
-                            </div>
-                            <div class="contenedor-file">
-                                <img
-                                    src="assets/media/img/nature-3082832.jpg"
-                                    alt="foto subida"
-                                />
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-file">
-                                <img
-                                    src="assets/media/img/eclipse_3840x2160_xtrafondos.com.jpg"
-                                    alt="foto subida"
-                                />
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="publicacion">
-                        <div class="contenedor">
-                            <div class="contenedor-datos">
-                                <div class="contenedor-img">
-                                    <img
-                                        src="https://s3.amazonaws.com/uifaces/faces/twitter/xalionmalik/128.jpg"
-                                        alt="Foto de perfil"
-                                    />
-                                </div>
-                                <div class="contenedor-nombreUsuario">
-                                    <p class="nombre-usuario">
-                                        @Ursula65
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="contenedor-texto">
-                                <p class="texto">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing alias quos volupt atibus quia
-                                    earum quis nihil asperiores blanditiis.
-                                    Eveniet voluptatem a
-                                </p>
-                            </div>
-                            <div class="contenedor-inferior">
-                                <div class="contenedor-MG">
-                                    <i class="far fa-heart like"></i>
-                                    <p class="cantMG">5496</p>
-                                </div>
-                                <div class="contenedor-FH">
-                                    <p class="fecha">18/05/2020</p>
-                                    <p class="hora">18:25</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -654,10 +281,13 @@
                 </div>
             </div>
         </footer>
-        <script src="js/index/redesSocialesFooter.js"></script>
-        <script src="js/PaginaPrincipal/menu.js"></script>
-        <script src="js/PaginaPrincipal/buscador.js"></script>
-        <script src="js/PaginaPrincipal/followUnfollow.js"></script>
-        <script src="js/PaginaPrincipal/publicacion.js"></script>
+        <script src="js/baseDatos/seguimiento.js"></script>
+        <script src="js/baseDatos/mostrarDatosPersonales.js"></script>
+        <script src="js\baseDatos\mostrarMjsPropios.js"></script>
+        <script src="js/index/redesSocialesFooter.js?t=1592197586509"></script>
+        <script src="js/PaginaPrincipal/menu.js?t=1592197586509"></script>
+        <script src="js/PaginaPrincipal/buscador.js?t=1592197586509"></script>
+        <script src="js/PaginaPrincipal/publicacion.js?t=1592197586509"></script>
+        <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586509"></script> -->
     </body>
 </html>

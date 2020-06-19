@@ -1,23 +1,49 @@
 <?php 
 
-require_once("BD.php"); 
-require_once("Model/infoPersonal.php"); 
+require_once("clasesPHP/ClassInfoPersonal.php"); 
+require_once("../BD.php"); 
 
     class Mensajes extends Conexion{
 
         public function  __construct(){
             parent::__construct();
         }
-
+        
         public function cantMensajesPropios($nombreusuario)
         {
-            $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario)";
+            $sql="SELECT id FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario)";
             $resultado=$this->conexion_db->prepare($sql);
             $resultado->execute(array(":nombreusuario"=>$nombreusuario));
             $cantRegistros= $resultado->rowCount();
             $resultado->closeCursor();
             return $cantRegistros;
 
+        }
+        
+        public function cantMensajesUsuariosSeguidos($nombreusuario)
+        {
+            $sql="SELECT id FROM mensaje 
+                  WHERE mensaje.usuarios_id IN 
+                  (SELECT siguiendo.usuarioseguido_id FROM siguiendo WHERE siguiendo.usuarios_id IN 
+                  (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario))";
+            $resultado=$this->conexion_db->prepare($sql);
+            $resultado->execute(array(":nombreusuario"=>$nombreusuario));
+            $cantRegistros= $resultado->rowCount();
+            $resultado->closeCursor();
+            return $cantRegistros;
+
+        }
+        
+
+        public function getDatosBasicos($id)
+        {
+            $sql= "SELECT nombreusuario, foto_contenido, foto_tipo FROM usuarios WHERE id=:id";
+            $resultado=$this->conexion_db->prepare($sql);
+            $resultado->execute(array(":id"=>$id));
+            $objResultado= $resultado->fetchAll(PDO::FETCH_OBJ);
+            $resultado->closeCursor();
+            return $objResultado;
+            
         }
 
         public function getMensajesPropios($nombreusuario,$desde,$cantidad)
@@ -32,7 +58,27 @@ require_once("Model/infoPersonal.php");
                    LIMIT $desde,$cantidad";
             $resultado=$this->conexion_db->prepare($sql);
             $resultado->execute(array(":nombreusuario"=>$nombreusuario));
-            $arrayResultado= $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $arrayResultado= $resultado->fetchAll(PDO::FETCH_OBJ);
+            $resultado->closeCursor();
+            return $arrayResultado;
+        } 
+        
+        
+        public function getMensajesUsuariosSeguidos($nombreusuario,$desde,$cantidad)
+        {
+            // $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
+            $sql= "SELECT mensaje.*, COUNT(me_gusta.mensaje_id) as cant_me_gusta 
+                   FROM mensaje 
+                   LEFT JOIN me_gusta ON mensaje.id=me_gusta.mensaje_id  
+                   WHERE mensaje.usuarios_id IN 
+                   (SELECT siguiendo.usuarioseguido_id FROM siguiendo WHERE siguiendo.usuarios_id IN 
+                   (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario))
+                   GROUP BY mensaje.id
+                   ORDER BY fechayhora DESC
+                   LIMIT $desde,$cantidad";
+            $resultado=$this->conexion_db->prepare($sql);
+            $resultado->execute(array(":nombreusuario"=>$nombreusuario));
+            $arrayResultado= $resultado->fetchAll(PDO::FETCH_OBJ);
             $resultado->closeCursor();
             return $arrayResultado;
         } 
@@ -85,6 +131,23 @@ require_once("Model/infoPersonal.php");
                     }
                 }
                 $resultado->closeCursor();
+
+            }catch(Exception $e){
+
+                die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            
+            }
+        }
+
+        public function deleteMsj($id){
+            try{
+
+                $sql='DELETE FROM mensaje WHERE id=:id';
+                $resultado= $this->conexion_db->prepare($sql);
+                $resultado->execute(array(":id"=>$id));
+                $eliminado= ($resultado->rowCount()>0);
+                $resultado->closeCursor();
+                return $eliminado;
 
             }catch(Exception $e){
 

@@ -31,7 +31,7 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
+  position: fixed;
   left: 50%;
   -webkit-transform: translate(-50%);
       -ms-transform: translate(-50%);
@@ -616,6 +616,11 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: scale(0.8);
       -ms-transform: scale(0.8);
           transform: scale(0.8);
+}
+
+.enviar-msj .contenedor-dos .btnPublicar.enviado {
+  background-image: -webkit-linear-gradient(left, #012401, #07d300, #012401);
+  background-image: linear-gradient(to right, #012401, #07d300, #012401);
 }
 
 .enviar-msj .contenedor-dos .disabled {
