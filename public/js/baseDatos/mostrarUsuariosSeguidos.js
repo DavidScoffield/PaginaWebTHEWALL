@@ -62,7 +62,8 @@ const crearUsuario = async (usuario)=>{
     divUsuario=crearElemento('div', ['usuarioPerfil'], usuario.id )
     divContenedor= crearElemento('div', ['contenedor'], "")
 
-
+    aHref= crearElemento('a', [],'');
+    aHref.setAttribute('href', `userProfile.php?user=${usuario.nombreusuario}`)
     divContenedorDatos= crearElemento('div', ['contenedor-datos'],'')
     divContenedorImg= crearElemento('div', ['contenedor-img'],'')
     imgFotoPerfil=crearElemento('img',[],'')
@@ -75,8 +76,8 @@ const crearUsuario = async (usuario)=>{
     divContenedorUsuario.append(pNombreUsuario)
     divContenedorDatos.append(divContenedorImg)
     divContenedorDatos.append(divContenedorUsuario)
-
-        divContenedor.append(divContenedorDatos)
+        aHref.append(divContenedorDatos)
+        divContenedor.append(aHref)
     
 
     divContenedorFollow= crearElemento('div', ['contenedor-botonFollow', 'unFollow'],'')

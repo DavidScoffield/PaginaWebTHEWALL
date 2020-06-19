@@ -792,8 +792,16 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
-.publicacion .contenedor .contenedor-datos,
-.usuarioPerfil .contenedor .contenedor-datos {
+.publicacion .contenedor a,
+.usuarioPerfil .contenedor a {
+  text-decoration: none;
+  color: white;
+  height: 50px;
+  width: auto;
+}
+
+.publicacion .contenedor a .contenedor-datos,
+.usuarioPerfil .contenedor a .contenedor-datos {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -803,10 +811,11 @@ body::-webkit-scrollbar-thumb {
       -ms-flex-align: center;
           align-items: center;
   height: 50px;
+  width: auto;
 }
 
-.publicacion .contenedor .contenedor-datos .contenedor-img,
-.usuarioPerfil .contenedor .contenedor-datos .contenedor-img {
+.publicacion .contenedor a .contenedor-datos .contenedor-img,
+.usuarioPerfil .contenedor a .contenedor-datos .contenedor-img {
   height: 40px;
   width: 40px;
   display: -webkit-box;
@@ -821,20 +830,20 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
-.publicacion .contenedor .contenedor-datos .contenedor-img img,
-.usuarioPerfil .contenedor .contenedor-datos .contenedor-img img {
+.publicacion .contenedor a .contenedor-datos .contenedor-img img,
+.usuarioPerfil .contenedor a .contenedor-datos .contenedor-img img {
   width: auto;
   height: 100%;
   cursor: pointer;
 }
 
-.publicacion .contenedor .contenedor-datos .contenedor-nombreUsuario,
-.usuarioPerfil .contenedor .contenedor-datos .contenedor-nombreUsuario {
+.publicacion .contenedor a .contenedor-datos .contenedor-nombreUsuario,
+.usuarioPerfil .contenedor a .contenedor-datos .contenedor-nombreUsuario {
   margin-left: 10px;
 }
 
-.publicacion .contenedor .contenedor-datos .contenedor-nombreUsuario .nombre-usuario,
-.usuarioPerfil .contenedor .contenedor-datos .contenedor-nombreUsuario .nombre-usuario {
+.publicacion .contenedor a .contenedor-datos .contenedor-nombreUsuario .nombre-usuario,
+.usuarioPerfil .contenedor a .contenedor-datos .contenedor-nombreUsuario .nombre-usuario {
   font-weight: 500;
   font-size: 17px;
   cursor: pointer;

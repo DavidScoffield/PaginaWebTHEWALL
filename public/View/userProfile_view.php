@@ -202,7 +202,7 @@
         <div class="central">
             <div class="contenido">
                 <div class="titulo" id="titulo">
-                    usuario
+                    Usuario
                 </div>
                 <div class="perfil" id="userperfil">
                     <div class="contenedor" id="contenedor-perfil">

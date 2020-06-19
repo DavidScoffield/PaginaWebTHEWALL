@@ -14,33 +14,42 @@
         flex-direction: column;
         position: relative;
 
-        .contenedor-datos {
-            display: flex;
-            align-items: center;
+        // a:link a:visited a:active {
+        a {
+            text-decoration: none;
+            color: white;
             height: 50px;
+            width: auto;
 
-            .contenedor-img {
-                height: 40px;
-                width: 40px;
+            .contenedor-datos {
                 display: flex;
-                justify-content: center;
-                border-radius: 50%;
-                overflow: hidden;
+                align-items: center;
+                height: 50px;
+                width: auto;
 
-                img {
-                    width: auto;
-                    height: 100%;
-                    cursor: pointer;
+                .contenedor-img {
+                    height: 40px;
+                    width: 40px;
+                    display: flex;
+                    justify-content: center;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                        width: auto;
+                        height: 100%;
+                        cursor: pointer;
+                    }
                 }
-            }
 
-            .contenedor-nombreUsuario {
-                margin-left: 10px;
+                .contenedor-nombreUsuario {
+                    margin-left: 10px;
 
-                .nombre-usuario {
-                    font-weight: 500;
-                    font-size: 17px;
-                    cursor: pointer;
+                    .nombre-usuario {
+                        font-weight: 500;
+                        font-size: 17px;
+                        cursor: pointer;
+                    }
                 }
             }
         }

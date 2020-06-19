@@ -132,6 +132,7 @@ const crearMensaje = async (mensaje)=>{
     
     const datosUsuarioMsj= await obtenerDatosDelAutorMensaje(mensaje.usuarios_id)               //obtiene los datos del usuario que publico el msj
             
+    aHref= crearElemento('a', [],'');
     divContenedorDatos= crearElemento('div', ['contenedor-datos'],'')
     divContenedorImg= crearElemento('div', ['contenedor-img'],'')
     imgFotoPerfil=crearElemento('img',[],'')
@@ -144,9 +145,10 @@ const crearMensaje = async (mensaje)=>{
     divContenedorUsuario.append(pNombreUsuario)
     divContenedorDatos.append(divContenedorImg)
     divContenedorDatos.append(divContenedorUsuario)
-
     
-    divContenedor.append(divContenedorDatos)
+        aHref.append(divContenedorDatos)
+        divContenedor.append(aHref)
+    
 
         
     if(mensaje.texto!=""){                                  //se crea texto del msj en caso de que exista
