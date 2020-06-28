@@ -3,6 +3,9 @@ const modalBuscador= document.getElementById('buscador');
 const btnAbrirBusqueda= document.getElementById('openSearch');
 const contenidoBusqueda= modalBuscador.firstElementChild;
 
+const busqueda= document.getElementById('formBusqueda')
+
+
 // funciones para los eventos y animaciones de las ventanas modales
     //eventos
     const abrirModal=(elemento)=>{
@@ -69,3 +72,122 @@ window.addEventListener('resize', ()=>{
         modalBuscador.style.display ="none"
     }
 })
+
+// const crearElemento=(tipo,clases,id )=>{    
+//     elemento= document.createElement(tipo);
+//     if(clases!=""){
+//         elemento.setAttribute("class","")
+//         clases.forEach(clase => {
+//             elemento.classList.add(clase)
+//         });
+//     }
+//     if(id !=""){
+//         elemento.setAttribute('id', id)
+//     }
+//     return elemento
+// }
+
+
+const eliminarBusqueda= (arreglo,contenedor) =>{
+    arreglo.forEach(usuario => {
+        contenedor.removeChild(usuario) // eliminar busqueda previa
+    });
+}
+
+const actualizarBusqueda= async (textoBusqueda)=>{
+
+    const contenedorBusqueda = document.getElementById('resultado-busqueda')
+
+    const arrayBusqueda = Array.from(contenedorBusqueda.children)
+   
+    eliminarBusqueda(arrayBusqueda, contenedorBusqueda)
+
+    resBusq = await getBusqueda(textoBusqueda)
+    fragmento= document.createDocumentFragment();
+    for (const usuario of resBusq) {
+        let res= await crearBusquedaUsuario(usuario);
+        fragmento.append(res)
+    }    
+   
+    contenedorBusqueda.append(fragmento)
+
+}
+
+const crearBusquedaUsuario=(u)=>{
+    divContenedorGral = crearElemento('div',['usuario'],'')
+
+    divContenedorUser = crearElemento('div',['contenedor-nombre'],'')
+
+    aContenedorUser = crearElemento('a', [], '')
+    aContenedorUser.setAttribute('href', `userProfile.php?user=${u.nombreusuario}`)
+    divNombreUsuario = crearElemento('div', ['nombre'],'')
+    divNombreUsuario.textContent = u.nombre
+    divApellidoUsuario = crearElemento('div', ['apellido'],'')
+    divApellidoUsuario.textContent = u.apellido
+
+    divUsername = crearElemento('div', ['username'],'')
+    divUsername.textContent = u.nombreusuario
+
+    divContenedorBoton = crearElemento('div', ['contenedor-botonFollow'],'')
+    botonSeguir = crearElemento('button', ['follow'],'') 
+    //creacion individual hasta aca
+
+    aContenedorUser.append(divNombreUsuario)
+    aContenedorUser.append(divApellidoUsuario)
+
+    divContenedorUser.append(aContenedorUser)
+
+    divContenedorBoton.append(botonSeguir)
+
+    divContenedorGral.append(divContenedorUser)
+    divContenedorGral.append(divUsername)
+    divContenedorGral.append(divContenedorBoton)
+
+    //anidacion
+
+    return divContenedorGral
+
+}
+
+const getBusqueda = async (busca)=>{
+    let formData= new FormData()
+    formData.append("username", nombreUsuario)
+    formData.append("busca", busca)
+
+    let resBusqueda= await fetch('Model/busquedaUsuario.php',{
+        method: 'POST',
+        body: formData
+    })
+    //.then((res) => resBusqueda.json())
+    let busqueda = resBusqueda.json()                
+    //console.log(res)
+    return busqueda
+
+}
+
+
+
+busqueda.addEventListener('keyup', async (e) => {
+
+    let textoBusqueda = document.getElementById('textoBusqueda').value.trim()
+    if(textoBusqueda){
+        await actualizarBusqueda(textoBusqueda) 
+    }
+    else{
+        const contenedorBusqueda = document.getElementById('resultado-busqueda')
+
+        const arrayBusqueda = Array.from(contenedorBusqueda.children)
+
+        eliminarBusqueda(arrayBusqueda,contenedorBusqueda)
+    }
+})
+
+busqueda.addEventListener('submit', (e)=>{
+    e.preventDefault()
+})
+
+
+
+
+
+
