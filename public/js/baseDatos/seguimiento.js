@@ -15,7 +15,7 @@ const consultarSeguimiento=async(nombreUsuarioLogeado,nombreUsuario)=>{
 const seguir =async(nombreUsuarioLogeado,nombreUsuarioASeguir)=>{
     formData= new FormData();
     formData.append('username', nombreUsuarioLogeado)
-    formData.append('usernameASeguir', nombreUsuario)
+    formData.append('usernameASeguir', nombreUsuarioASeguir)
     const repuesta= await fetch('Model/follow.php', {
         method:"POST",
         body: formData
