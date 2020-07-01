@@ -49,7 +49,7 @@ const validateImg = (file) =>{
 
 
 //EVENTO DE ESCUCHA PARA EL TEXTAREA DE CREAR MSJ
-msj.addEventListener('change', (e)=>{
+msj.addEventListener('keyup', (e)=>{
     if(!isEmpty(msj.value)){
         habilitarBoton(btnPublicar);
     }

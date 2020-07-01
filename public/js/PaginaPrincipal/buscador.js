@@ -231,6 +231,9 @@ contenedorResultadoBusqueda.addEventListener('click', async (e)=>{
             }else{
                 console.log('ALGUN TIPO DE ERROR AL SEGUIR')
             }
+        }
+        if(document.getElementById("myperfil")){
+            await actualizarUsuariosSeguidos(1);
         } 
     }
 })

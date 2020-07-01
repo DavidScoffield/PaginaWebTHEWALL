@@ -186,6 +186,5 @@
     <script src="js/PaginaPrincipal/buscador.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/publicacion.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/publicar.js?t=1592197586458"></script>
-    <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586458"></script>
 </body>
 </html>
