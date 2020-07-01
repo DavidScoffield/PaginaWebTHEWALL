@@ -36,116 +36,21 @@
             if(nombreUsuario==nombreUsuarioLogeado) window.location="MyPerfil.php"  
         </script>
 
-        <!-- Buscador lateral de perfiles -->
-        <div class="buscador" id="buscador">
-            <div class="contenedor-busqueda">
-                <form class="boton-busqueda">
-                    <!-- ICONO BUSQUEDA -->
-                    <i class="fas fa-search"></i>
-                    <!-- INPUT DE BUSQUEDA -->
-                    <input type="search" placeholder="Buscar..." />
-                </form>
+    <!-- Buscador lateral de perfiles -->
+    <div class="buscador" id="buscador">
+        <div class="contenedor-busqueda">
+            <form class="boton-busqueda" id="formBusqueda">
+                <!-- ICONO BUSQUEDA -->
+                <i class="fas fa-search"></i>
+                <!-- INPUT DE BUSQUEDA -->
+                <input type="search" placeholder="Buscar..." id="textoBusqueda" />
+            </form>
 
-                <div class="resultado-busqueda">
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Pepeto</div>
-                                <div class="apellido">Pepeto</div>
-                            </a>
-                        </div>
-                        <div class="username">@pepeto154</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Erwin</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@erwin455</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Destiney</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@destiner474a</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Milton</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@miltonsey87M</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Cassey</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@cassyMA24</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Matuidiwe</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@cassyMA24</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Pepeto</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@cassyMA24</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                    <div class="usuario">
-                        <div class="contenedor-nombre">
-                            <a href="#">
-                                <div class="nombre">Pepeto</div>
-                                <div class="apellido">Apellido</div>
-                            </a>
-                        </div>
-                        <div class="username">@cassyMA24</div>
-                        <div class="contenedor-botonFollow">
-                            <button class="follow">Seguir</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="resultado-busqueda" id="resultado-busqueda">
+                
             </div>
         </div>
+    </div>
 
         <!-- Barra lateral con menu -->
         <nav class="menu">
@@ -280,7 +185,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> 
         <script src="js/baseDatos/seguimiento.js"></script>
         <script src="js/baseDatos/mostrarDatosPersonales.js"></script>
         <script src="js\baseDatos\mostrarMjsPropios.js"></script>
@@ -288,6 +193,5 @@
         <script src="js/PaginaPrincipal/menu.js?t=1592197586509"></script>
         <script src="js/PaginaPrincipal/buscador.js?t=1592197586509"></script>
         <script src="js/PaginaPrincipal/publicacion.js?t=1592197586509"></script>
-        <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586509"></script> -->
     </body>
 </html>

@@ -1,3 +1,5 @@
+//import {consultarSeguimiento} from '../baseDatos/seguimiento'
+
 // const btnCerrarBusqueda= document.getElementById('closeSearch');
 const modalBuscador= document.getElementById('buscador');
 const btnAbrirBusqueda= document.getElementById('openSearch');
@@ -111,10 +113,12 @@ const actualizarBusqueda= async (textoBusqueda)=>{
    
     contenedorBusqueda.append(fragmento)
 
+    
+
 }
 
-const crearBusquedaUsuario=(u)=>{
-    divContenedorGral = crearElemento('div',['usuario'],'')
+const crearBusquedaUsuario= async (u)=>{
+    divContenedorGral = crearElemento('div',['usuario'],`${u.id}`)
 
     divContenedorUser = crearElemento('div',['contenedor-nombre'],'')
 
@@ -128,8 +132,20 @@ const crearBusquedaUsuario=(u)=>{
     divUsername = crearElemento('div', ['username'],'')
     divUsername.textContent = u.nombreusuario
 
-    divContenedorBoton = crearElemento('div', ['contenedor-botonFollow'],'')
-    botonSeguir = crearElemento('button', ['follow'],'') 
+    divContenedorBoton = crearElemento('div', ['contenedor-botonFollow'],'btnFollowPerfil')
+    botonSeguir = crearElemento('button', ['follow','follow-buscador'],'')
+    
+    //checkeo de seguir 
+    const idFollow= await consultarSeguimiento(nombreUsuario,u.nombreusuario);
+
+    if (idFollow != -1){          //quiere decir que sigue al usuario en pantalla
+        divContenedorBoton.classList.add("unFollow");
+        divContenedorBoton.setAttribute("idFollow", idFollow);
+        botonSeguir.textContent="No seguir";
+    }else{
+        botonSeguir.textContent="Seguir";
+    }
+
     //creacion individual hasta aca
 
     aContenedorUser.append(divNombreUsuario)
@@ -184,6 +200,42 @@ busqueda.addEventListener('keyup', async (e) => {
 
 busqueda.addEventListener('submit', (e)=>{
     e.preventDefault()
+})
+
+const contenedorResultadoBusqueda = document.getElementById('resultado-busqueda')
+
+contenedorResultadoBusqueda.addEventListener('click', async (e)=>{
+    const elementClikeado= e.target;
+    const arrayClases= Array.from(elementClikeado.classList)
+    if(arrayClases.includes("follow") && arrayClases.includes("follow-buscador")){
+        const nombreUsuarioBuscado = Array.from(elementClikeado.parentNode.parentNode.getElementsByClassName('username'))[0].textContent;
+        const btnFollow = elementClikeado.parentNode
+        //const divPublicacion=elementClikeado.parentElement.parentElement;
+        //const id= divPublicacion.id;
+        idFollow=btnFollow.getAttribute("idFollow");
+        if( idFollow!= null){                           //quiere decir que lo sigo
+            resultado =await dejarSeguir(idFollow);
+            if(resultado){
+                mostrarUnFollow=true
+                convertirBotonFollow(btnFollow,idFollow,mostrarUnFollow)
+            }else{
+                console.log('ALGUN TIPO DE ERROR AL DEJAR DE SEGUIR')
+            }
+        }else{
+            console.log(nombreUsuario)  
+            console.log(nombreUsuarioBuscado)                                          //quiere decir que no lo sigo
+            resultadoID=await seguir(nombreUsuario,nombreUsuarioBuscado);
+            if(resultadoID!=null){
+                mostrarUnFollow=false
+                convertirBotonFollow(btnFollow,resultadoID,mostrarUnFollow)   
+            }else{
+                console.log('ALGUN TIPO DE ERROR AL SEGUIR')
+            }
+        }
+        if(document.getElementById("myperfil")){
+            await actualizarUsuariosSeguidos(1);
+        } 
+    }
 })
 
 

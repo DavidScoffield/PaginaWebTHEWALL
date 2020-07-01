@@ -76,3 +76,33 @@ if(document.getElementById("userperfil")){
         }
     })
 }
+
+//parte en buscador
+
+if(document.getElementById("usuario")){
+    const btnFollow = document.getElementById('btnFollowPerfil')
+
+    btnFollow.addEventListener('click', async()=>{
+        idFollow=btnFollow.getAttribute("idFollow");
+        if( idFollow!= null){                           //quiere decir que lo sigo
+            resultado =await dejarSeguir(idFollow);
+            if(resultado){
+                mostrarUnFollow=true
+                convertirBotonFollow(btnFollow,idFollow,mostrarUnFollow)
+            }else{
+                console.log('ALGUN TIPO DE ERROR AL DEJAR DE SEGUIR')
+            }
+        }else{                                          //quiere decir que no lo sigo
+            resultadoID=await seguir(nombreUsuarioLogeado,nombreUsuario);
+            if(resultadoID!=null){
+                mostrarUnFollow=false
+                convertirBotonFollow(btnFollow,resultadoID,mostrarUnFollow)   
+            }else{
+                console.log('ALGUN TIPO DE ERROR AL SEGUIR')
+            }
+        }
+    })
+
+}
+
+//export {consultarSeguimiento}

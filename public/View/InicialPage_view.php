@@ -179,12 +179,12 @@
             </div>
         </div>
     </footer>
+    <script src="js/baseDatos/seguimiento.js"></script>
     <script src="js/baseDatos/mostrarMjsUsuariosSeguidos.js"></script>
     <script src="js/index/redesSocialesFooter.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/menu.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/buscador.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/publicacion.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/publicar.js?t=1592197586458"></script>
-    <!-- <script src="js/PaginaPrincipal/followUnfollow.js?t=1592197586458"></script> -->
 </body>
 </html>
