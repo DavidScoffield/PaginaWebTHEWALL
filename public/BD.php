@@ -20,5 +20,18 @@
             }
         }
 
+        
+        // public function close(){
+        //     try {
+                
+        //         $this->conexion_db=null;
+
+        //     }catch(Exception $e){
+
+        //         die("Error: " . $e->getMessage() . "</br>" . "En la linea: " . $e->getLine() . "</br>" . "En el directorio: " . $e->getFile());
+            
+        //     }
+        // }
+
     }
 ?>
