@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="contenedor-boton">
-                        <a href="editDate.php" class="link">Editar Datos</a>
+                        <a href="editDate.php" class="link">Editar Perfil</a>
                     </div>
                 </div>
             </div>

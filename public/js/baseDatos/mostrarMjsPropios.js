@@ -170,7 +170,12 @@ const crearMensaje = async (mensaje)=>{
         divContenedor.append(divContenendorImagenSubida)
     }
 
-    dioMeGusta= await consultarMeGusta(nombreUsuario,mensaje.id);             //devuelve en caso de haber dado megusta, el id del megusta. Caso contrario devuelve -1
+    if(document.getElementById("userperfil")){
+        dioMeGusta= await consultarMeGusta(nombreUsuarioLogeado,mensaje.id);             //devuelve en caso de haber dado megusta, el id del megusta. Caso contrario devuelve -1
+    }
+    else{
+        dioMeGusta= await consultarMeGusta(nombreUsuario,mensaje.id);             //devuelve en caso de haber dado megusta, el id del megusta. Caso contrario devuelve -1
+    }
     
     
     divContenedorInferior=crearElemento('div', ['contenedor-inferior'],'' )

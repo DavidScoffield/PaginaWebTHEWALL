@@ -10,7 +10,7 @@ const iniciarSesion = (formulario) =>{
             if(data){
                 window.location="InicialPage.php"
             }else{
-                enError(formulario)               
+                errorLogin(formulario)               
             }
         }})
 }

@@ -101,7 +101,7 @@ const crearBusquedaUsuario= async (u)=>{
     divApellidoUsuario.textContent = u.apellido
 
     divUsername = crearElemento('div', ['username'],'')
-    divUsername.textContent = u.nombreusuario
+    divUsername.textContent = '@'+ u.nombreusuario
 
     divContenedorBoton = crearElemento('div', ['contenedor-botonFollow'],'btnFollowPerfil')
     botonSeguir = crearElemento('button', ['follow','follow-buscador'],'')
@@ -179,7 +179,8 @@ contenedorResultadoBusqueda.addEventListener('click', async (e)=>{
     const elementClikeado= e.target;
     const arrayClases= Array.from(elementClikeado.classList)
     if(arrayClases.includes("follow") && arrayClases.includes("follow-buscador")){
-        const nombreUsuarioBuscado = Array.from(elementClikeado.parentNode.parentNode.getElementsByClassName('username'))[0].textContent;
+        let nombreUsuarioBuscado = Array.from(elementClikeado.parentNode.parentNode.getElementsByClassName('username'))[0].textContent;
+        nombreUsuarioBuscado= nombreUsuarioBuscado.slice(1);
         const btnFollow = elementClikeado.parentNode
         idFollow=btnFollow.getAttribute("idFollow");
         if( idFollow!= null){                           //quiere decir que lo sigo
@@ -190,9 +191,7 @@ contenedorResultadoBusqueda.addEventListener('click', async (e)=>{
             }else{
                 console.log('ALGUN TIPO DE ERROR AL DEJAR DE SEGUIR')
             }
-        }else{
-            console.log(nombreUsuario)  
-            console.log(nombreUsuarioBuscado)                                          //quiere decir que no lo sigo
+        }else{                                         //quiere decir que no lo sigo
             resultadoID=await seguir(nombreUsuario,nombreUsuarioBuscado);
             if(resultadoID!=null){
                 mostrarUnFollow=false
