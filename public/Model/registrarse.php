@@ -21,17 +21,13 @@ if(isset($_POST['email_register'])){
     $user= new Usuario($email,$nombre,$apellido,$nombre_usuario,$contrasenia,$img,$img_type);
 
     if(!$registro->nombreUsuarioExiste($user->getNombreUsuario())){     //el nombre de usuario que eligio esta disponible para ser usado
-        // if(isset($usuarioExistente)){
-        //     unset($usuarioExistente);
-        // }
+     
         $registro->registrarUsuario($user);
         session_start();
         $_SESSION['usuario']=$nombre_usuario;
-        // header('Location:InicialPage.php');
         echo json_encode(true);
     }else{                                                                 //no esta disponible el nombre de usuario elegido
         echo json_encode(false);
-        // $usuarioExistente=true;
     }
     
 }

@@ -16,7 +16,6 @@ const changeView=(array, elemento)=>{
 }
 
 btnPublicaciones.addEventListener('click', ()=> {
-    // console.log('okk')
     changeView(arrayOptions,publicaciones)
 });
 

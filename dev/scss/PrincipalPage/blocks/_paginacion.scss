@@ -1,5 +1,4 @@
 .contenedor-paginacion {
-    // background-color: red;
     width: 98%;
     display: flex;
     justify-content: center;
@@ -8,10 +7,7 @@
     margin: 10px auto 0;
 
     .contenedor-opciones {
-        // background-color: yellow;
         background-color: $fondo-submenu-perfil;
-        // width: 50%;
-        // min-width: 220px;
         display: flex;
         justify-content: center;
         margin: 5px 0;
@@ -26,7 +22,6 @@
             padding: 8px 15px 2px;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-            // border-bottom: $color-bordes 5px solid;
             border-bottom: rgb(170, 170, 170) 4px solid;
             cursor: pointer;
             font-weight: 500;
@@ -39,21 +34,5 @@
                 height: 100%;
             }
         }
-        // &::-webkit-scrollbar {
-        //     width: 0px; /* Tamaño del scroll en vertical */
-        //     height: 5px; /* Tamaño del scroll en horizontal */
-        //     // display: none; /* Ocultar scroll */
-        //     background-color: rgb(8, 12, 48);
-        //     transform: translate(-100px);
-        // }
-        // &::-webkit-scrollbar-thumb {
-        //     background-color: rgb(182, 182, 182);
-        //     border-radius: 20px;
-        // }
     }
-    // &::-webkit-scrollbar {
-    //     // width: 0px; /* Tamaño del scroll en vertical */
-    //     // height: 5px; /* Tamaño del scroll en horizontal */
-    //     display: none; /* Ocultar scroll */
-    // }
 }

@@ -1,6 +1,4 @@
-//import {consultarSeguimiento} from '../baseDatos/seguimiento'
 
-// const btnCerrarBusqueda= document.getElementById('closeSearch');
 const modalBuscador= document.getElementById('buscador');
 const btnAbrirBusqueda= document.getElementById('openSearch');
 const contenidoBusqueda= modalBuscador.firstElementChild;
@@ -32,18 +30,12 @@ const busqueda= document.getElementById('formBusqueda')
         padre.removeChild(node);
     }
 
-   /*  const isInPage=(node)=>{
-        return (node === document.body) ? false : document.body.contains(node);
-      }
- */
-
-//Eventos de escucha
+ //Eventos de escucha
 
 btnAbrirBusqueda.addEventListener('click', () => {
     if(!document.getElementById("closeSearch")){
         createItem(contenidoBusqueda,"div", "+" , "closeSearch", "close");   //la funcion crear un elemento en el DOM enviando como parametros los datos con los que lo quiere crear (padre que insertara al hijo,tipo, contenido, ID, class)
     }
-    // console.log(document.getElementById("closeSearch"))
     abrirModal(modalBuscador)
 });
 
@@ -55,12 +47,6 @@ contenidoBusqueda.addEventListener('click', (e)=>{
     }
   
 });
-
-// btnCerrarBusqueda.addEventListener('click', ()=>{
-//     alert("click")
-//     cerrarModal(modalBuscador);
-//     eliminarItem(btnCerrarBusqueda);
-// });
 
 
 
@@ -74,21 +60,6 @@ window.addEventListener('resize', ()=>{
         modalBuscador.style.display ="none"
     }
 })
-
-// const crearElemento=(tipo,clases,id )=>{    
-//     elemento= document.createElement(tipo);
-//     if(clases!=""){
-//         elemento.setAttribute("class","")
-//         clases.forEach(clase => {
-//             elemento.classList.add(clase)
-//         });
-//     }
-//     if(id !=""){
-//         elemento.setAttribute('id', id)
-//     }
-//     return elemento
-// }
-
 
 const eliminarBusqueda= (arreglo,contenedor) =>{
     arreglo.forEach(usuario => {
@@ -174,9 +145,9 @@ const getBusqueda = async (busca)=>{
         method: 'POST',
         body: formData
     })
-    //.then((res) => resBusqueda.json())
+ 
     let busqueda = resBusqueda.json()                
-    //console.log(res)
+    
     return busqueda
 
 }
@@ -210,8 +181,6 @@ contenedorResultadoBusqueda.addEventListener('click', async (e)=>{
     if(arrayClases.includes("follow") && arrayClases.includes("follow-buscador")){
         const nombreUsuarioBuscado = Array.from(elementClikeado.parentNode.parentNode.getElementsByClassName('username'))[0].textContent;
         const btnFollow = elementClikeado.parentNode
-        //const divPublicacion=elementClikeado.parentElement.parentElement;
-        //const id= divPublicacion.id;
         idFollow=btnFollow.getAttribute("idFollow");
         if( idFollow!= null){                           //quiere decir que lo sigo
             resultado =await dejarSeguir(idFollow);

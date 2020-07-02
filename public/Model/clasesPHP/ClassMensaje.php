@@ -48,7 +48,6 @@ require_once("../BD.php");
 
         public function getMensajesPropios($nombreusuario,$desde,$cantidad)
         {
-            // $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
             $sql= "SELECT mensaje.*, COUNT(me_gusta.mensaje_id) as cant_me_gusta 
                    FROM mensaje 
                    LEFT JOIN me_gusta ON mensaje.id=me_gusta.mensaje_id  
@@ -66,7 +65,6 @@ require_once("../BD.php");
         
         public function getMensajesUsuariosSeguidos($nombreusuario,$desde,$cantidad)
         {
-            // $sql="SELECT * FROM mensaje WHERE usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) ORDER BY fechayhora DESC LIMIT $desde,$cantidad";
             $sql= "SELECT mensaje.*, COUNT(me_gusta.mensaje_id) as cant_me_gusta 
                    FROM mensaje 
                    LEFT JOIN me_gusta ON mensaje.id=me_gusta.mensaje_id  
@@ -90,11 +88,8 @@ require_once("../BD.php");
                 $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
                 $limite_by = 16384;
                 if (in_array($tipoImg, $permitidos) && ($tamanioImg <= $limite_by * 1024)){
-                    // $fp = fopen($temporalImg, 'r');
-                    // $archivoBit = fread($fp, $tamanioImg);
-                    // fclose($fp);
+                   
                     $archivoBit = file_get_contents($temporalImg);
-                    // $archivoBit= addslashes($archivoBit);
                     return $archivoBit;
                 }else{
                     echo "NO ES UN TIPO PERMITIDO";

@@ -1,5 +1,4 @@
 .perfil {
-    // background-color: chartreuse;
     border-bottom: 4px solid $color-bordes;
     width: 100%;
     height: 250px;
@@ -56,8 +55,6 @@
 
         .contenedor-img {
             box-shadow: 0 0 30px 6px rgb(2, 8, 63);
-            // height: 190px;
-            // width: 190px;
             border-radius: 20px;
             overflow: hidden;
             width: auto;
@@ -65,7 +62,6 @@
 
             img {
                 width: auto;
-                // height: 100%;
                 display: block;
                 margin: 0 auto;
                 height: 190px;
@@ -76,7 +72,6 @@
             font-family: "Josefin Sans", sans-serif;
             font-weight: 600;
             text-decoration: none;
-            // background-color: orange;
             padding-left: 0.6rem;
             margin-top: 1rem;
             margin-left: 0.5em;

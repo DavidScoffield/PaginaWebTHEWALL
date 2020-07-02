@@ -105,4 +105,3 @@ if(document.getElementById("usuario")){
 
 }
 
-//export {consultarSeguimiento}

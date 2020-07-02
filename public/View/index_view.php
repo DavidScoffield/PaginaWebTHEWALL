@@ -50,7 +50,7 @@
 
     <!-- ventana modal de inicio de sesion  -->
 
-    <div class="bg-modal" id="bg-modal-LogIn" <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "style='display:flex;'" ?>>
+    <div class="bg-modal" id="bg-modal-LogIn" >
         <div class="window_modal LogIn" id="window-modal">
             <div class="close" id="closeLogIn">+</div>
 
@@ -60,7 +60,7 @@
             </div>
 
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="form" id="formulario_logIn">
-                <div class="containers contenedor-input <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
+                <div class="containers contenedor-input">
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
@@ -69,14 +69,10 @@
                         <label for="user">Nombre usuario</label>
                         <input type="text" class="input" name="user_login" id="login_user" />
                     </div>
-                    <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true): ?>
-                        <!-- <div class="contenedor-msj-error">
-                            <p class="msj-error">Nombre de usuario o contraseña incorrectos.</p>
-                        </div> -->
-                    <?php // endif; ?>
+                    
                          
                 </div>
-                <div class="containers contenedor-input <?php //if (isset($usuarioIncorrecto) && $usuarioIncorrecto = true) echo "error" ?>">
+                <div class="containers contenedor-input ">
                     <div class="i">
                         <i class="fas fa-lock"></i>
                     </div>

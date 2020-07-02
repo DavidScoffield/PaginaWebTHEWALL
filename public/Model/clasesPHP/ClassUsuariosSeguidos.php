@@ -72,13 +72,6 @@
 
         public function getUsuariosSeguidos($nombreusuario,$desde,$cantidad){
             try{
-                
-                //Este sql no seleciona el id del follow, en cambio el segundo si
-                // $sql= "SELECT usuarios.id, usuarios.nombreusuario, usuarios.foto_contenido, usuarios.foto_tipo
-                //     FROM usuarios
-                //     WHERE usuarios.id IN (SELECT siguiendo.usuarioseguido_id FROM siguiendo WHERE siguiendo.usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario))  
-                //     ORDER BY usuarios.nombreusuario ASC
-                //     LIMIT $desde,$cantidad";
                 $sql= "SELECT usuarios.id , usuarios.nombreusuario, usuarios.foto_contenido, usuarios.foto_tipo, siguiendo.id AS IDfollow 
                        FROM usuarios INNER JOIN siguiendo ON usuarios.id=siguiendo.usuarioseguido_id 
                        WHERE siguiendo.usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario) 

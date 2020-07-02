@@ -627,8 +627,6 @@ body::-webkit-scrollbar-thumb {
   background-image: -webkit-linear-gradient(left, #1f1f1f, #8f7e7e, #1f1f1f);
   background-image: linear-gradient(to right, #1f1f1f, #8f7e7e, #1f1f1f);
   color: #8f8f8f;
-  /*     background-image: none;
-            background-color: grey; */
 }
 
 .enviar-msj .contenedor-dos .disabled:hover {

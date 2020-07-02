@@ -12,12 +12,10 @@
     
     
     //PAGINACION
-    // require_once("paginacion.php");
     $cant_msj_por_pagina=10;
     $empezar_desde=($paginaInicio-1)*$cant_msj_por_pagina;
 
 
-    // $mensajes= $mensajesObj->getMensajesPropios($nombre_usuario,0,0);
     $mensajes= $mensajesObj->getMensajesPropios($nombre_usuario,$empezar_desde,$cant_msj_por_pagina);
     unset($mensajesObj);
 
