@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background: -webkit-radial-gradient(circle, #404040 0%, #020024 100%);
   background: radial-gradient(circle, #404040 0%, #020024 100%);
@@ -696,6 +697,27 @@ body {
   background-color: #00c711;
 }
 
+.bg-modal .window_modal .form .msjContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bg-modal .window_modal .form .msjContainer .validParams {
+  margin: 5px 0 13px 0;
+  width: 94%;
+  font-size: 1.2vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #414141;
+}
+
 .bg-modal .window_modal .form .container-dual {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -843,6 +865,18 @@ body {
 .bg-modal .window_modal .form .contenedor-img .container-imagen-prev .inputImg {
   opacity: 0;
   width: 5px;
+}
+
+.bg-modal .window_modal .form::-webkit-scrollbar {
+  width: 7px;
+  /* Tamaño del scroll en vertical */
+  height: 0px;
+  /* Tamaño del scroll en horizontal */
+}
+
+.bg-modal .window_modal .form::-webkit-scrollbar-thumb {
+  background-color: #2f303b;
+  border-radius: 20px;
 }
 
 .bg-modal .window_modal .cambiar_opcion {

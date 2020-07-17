@@ -145,6 +145,11 @@
                     </div>
                 </div>
 
+                <div class="msjContainer">
+                    <p class="validParams">Un mínimo de 6 carac. entre mayúsculas y minúsculas, y con al menos 1 número o símbolo</p>
+
+                </div>
+
                 <div class="containers contenedor-input">
                     <div class="i">
                         <i class="fas fa-lock"></i>

@@ -92,6 +92,7 @@ formCrearMsj.addEventListener('submit', (e) =>{
     }).then(res=> {
         if(res.ok){
             colocarEnviado(Array.from(formCrearMsj.getElementsByClassName('btnPublicar'))[0]);  //ahi se enceuntra el contenedor input del btn enviar 
+            mostrarMensajeExito("Mensaje publicado exitosamente");
             if(document.getElementById("myperfil")){
                 actualizarMsjPropios(1);
             }

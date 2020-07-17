@@ -102,7 +102,7 @@
     </nav>
 
     <!-- PARTE CENTRLA DE LA PAGINA -->
-    <div class="central">
+    <div class="central" id="inicialPage">
         <div class="contenido">
             <div class="titulo">
                 Inicio
@@ -180,6 +180,7 @@
         </div>
     </footer>
     <script src="js/baseDatos/seguimiento.js"></script>
+    <script src="js/PaginaPrincipal/mensajeExito.js"></script>
     <script src="js/baseDatos/mostrarMjsUsuariosSeguidos.js"></script>
     <script src="js/index/redesSocialesFooter.js?t=1592197586458"></script>
     <script src="js/PaginaPrincipal/menu.js?t=1592197586458"></script>

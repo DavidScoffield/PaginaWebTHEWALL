@@ -217,6 +217,23 @@
                 /* ---/ */
             }
 
+            .msjContainer {
+                // margin: 0.6rem 1rem;
+                // padding: 0.6rem 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .validParams {
+                    margin: 5px 0 13px 0;
+                    width: 94%;
+                    font-size: 1.2vw;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 500;
+                    color: rgb(65, 65, 65);
+                }
+            }
+
             .container-dual {
                 display: grid;
                 grid-template-columns: 50% 50%;
@@ -335,6 +352,16 @@
                         width: 5px;
                     }
                 }
+            }
+
+            &::-webkit-scrollbar {
+                width: 7px; /* Tamaño del scroll en vertical */
+                height: 0px; /* Tamaño del scroll en horizontal */
+                // display: none; /* Ocultar scroll */
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(47, 48, 59);
+                border-radius: 20px;
             }
         }
 

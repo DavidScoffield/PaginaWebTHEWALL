@@ -176,6 +176,7 @@
         </div>
     </footer>
     <script src="js/baseDatos/seguimiento.js"></script> 
+    <script src="js/PaginaPrincipal/mensajeExito.js"></script>
     <script src="js/baseDatos/mostrarDatosPersonales.js"></script>
     <script src="js/PaginaPrincipal/unfollowUser.js"></script>
     <script src="js/baseDatos/mostrarMjsPropios.js"></script>

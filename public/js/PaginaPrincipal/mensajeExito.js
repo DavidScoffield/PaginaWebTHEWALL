@@ -7,32 +7,32 @@ const mostrarMensajeExito=(msj)=>{
 
 
 //FUNCION QUE CREA UN ELEMENTO EN EL DOM DEL TIPO, LA CLASE Y EL ID QUE SE LE PASA
-const crearElemento=(tipo,clases,id )=>{    
+const crearElemento2=(tipo,clases,id )=>{    
     elemento= document.createElement(tipo);
     if(clases!=""){
         elemento.setAttribute("class","")
-        clases.forEach(clase => {
-            elemento.classList.add(clase)
-        });
+    clases.forEach(clase => {
+        elemento.classList.add(clase)
+    });
     }
     if(id !=""){
         elemento.setAttribute('id', id)
     }
     return elemento
-}
+}   
 
 
 // FUNCION QUE CREA EL MSJ DE EXITO
 const crearMsjExito=(msj)=>{
     fragmento=document.createDocumentFragment();
-    divContenedorMsj=crearElemento('div',['contenedor_msj_exito'],'')
-    divContenido=crearElemento('div',['contenido'],'')
+    divContenedorMsj=crearElemento2('div',['contenedor_msj_exito'],'')
+    divContenido=crearElemento2('div',['contenido'],'')
 
-    divIcono=crearElemento('div',['icono'],'')
-    Icono=crearElemento('i',['far', 'fa-check-circle'],'')
+    divIcono=crearElemento2('div',['icono'],'')
+    Icono=crearElemento2('i',['far', 'fa-check-circle'],'')
         divIcono.append(Icono);
     
-    pTexto=crearElemento('p',['msj_exito'],'')
+    pTexto=crearElemento2('p',['msj_exito'],'')
     pTexto.textContent= msj;
 
         divContenido.append(divIcono)

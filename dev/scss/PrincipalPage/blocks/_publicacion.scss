@@ -9,10 +9,11 @@
     width: 98%;
 
     .contenedor {
-        margin: 5px 10px;
+        padding: 5px 10px;
         display: flex;
         flex-direction: column;
         position: relative;
+        overflow: hidden;
 
         a {
             text-decoration: none;
@@ -59,7 +60,12 @@
         width: 95%;
         align-self: center;
 
+        word-break: break-all;
+        word-break: break-word;
+        hyphens: auto;
+
         .texto {
+            width: 99%;
             font-size: 13px;
             margin: 13px 0;
             padding: 0;

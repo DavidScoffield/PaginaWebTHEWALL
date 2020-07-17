@@ -86,7 +86,7 @@
     </nav>
 
     <!-- PARTE CENTRLA DE LA PAGINA -->
-    <div class="central">
+    <div class="central" id="editPage">
         <div class="contenido">
             <div class="titulo">
                 Editar datos personales

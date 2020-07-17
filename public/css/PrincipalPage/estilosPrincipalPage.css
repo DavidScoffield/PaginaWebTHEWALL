@@ -777,7 +777,7 @@ body::-webkit-scrollbar-thumb {
 
 .publicacion .contenedor,
 .usuarioPerfil .contenedor {
-  margin: 5px 10px;
+  padding: 5px 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -788,6 +788,7 @@ body::-webkit-scrollbar-thumb {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
 .publicacion .contenedor a,
@@ -852,9 +853,15 @@ body::-webkit-scrollbar-thumb {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 
 .publicacion .contenedor .contenedor-texto .texto {
+  width: 99%;
   font-size: 13px;
   margin: 13px 0;
   padding: 0;
