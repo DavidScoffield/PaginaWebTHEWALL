@@ -94,14 +94,17 @@ const crearUsuario = async (usuario)=>{
 }
 
 
-//EVENTO CUANDO SE DESEA ELIMINAR LA PUBLICACION
+//EVENTO CUANDO SE DESEA DEJAR DE SEGUIR A UNA PERSONA 
 contUsuarios.addEventListener('click', async(e)=>{
     const elementClikeado= e.target;
     const arrayClases= Array.from(elementClikeado.classList)
     if((elementClikeado.tagName="BUTTON") && (arrayClases.includes("follow"))){
-        resultado= await unFollow(elementClikeado.id);
-        if(resultado){
-            actualizarUsuariosSeguidos(1);
+        let result=window.confirm("¿Quiere dejarlo de seguir?")
+        if(result){
+            resultado= await unFollow(elementClikeado.id);
+            if(resultado){
+                actualizarUsuariosSeguidos(1);
+            }
         }
     }
 })
