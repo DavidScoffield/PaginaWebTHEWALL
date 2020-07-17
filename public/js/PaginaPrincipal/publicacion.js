@@ -19,8 +19,14 @@ contenedorPublicacionesParaLike.addEventListener('click', async(e)=>{
 const like = async(padre) =>{
     const divPublicacion=padre.parentElement.parentElement.parentElement;
     const idMensaje= divPublicacion.id;              //el id del msj esta almacenado en el div publicacion 
-    resultado= await enviarLike(idMensaje);
-    dioMeGusta= await consultarMeGusta(nombreUsuario,idMensaje);             //devuelve en caso de haber dado megusta, el id del megusta. Caso contrario devuelve -1
+    let userNameLogged
+    if(document.getElementById("userperfil")){
+       userNameLogged=nombreUsuarioLogeado
+    }else{
+       userNameLogged=nombreUsuario
+    }
+    resultado= await enviarLike(idMensaje,userNameLogged);
+    dioMeGusta= await consultarMeGusta(userNameLogged,idMensaje);             //devuelve en caso de haber dado megusta, el id del megusta. Caso contrario devuelve -1
     if(dioMeGusta != -1){
         padre.classList.add("active");
         padre.setAttribute("id", dioMeGusta);
@@ -57,9 +63,9 @@ const actualizarCantMeGusta= async(idMensaje,padre)=>{
 }
 
 //ENVIA A LA BD LOS DATOS A AGREGAR EN LA TABLA ME GUSTA 
-const enviarLike= async(idMensaje)=>{
+const enviarLike= async(idMensaje, userNameLogged)=>{
     formData= new FormData();
-    formData.append("username",nombreUsuario);
+    formData.append("username",userNameLogged);
     formData.append("idMensaje",idMensaje);
     res= await fetch("Model/darLike.php",{
         method: "POST",
