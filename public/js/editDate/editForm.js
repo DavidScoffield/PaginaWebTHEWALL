@@ -1,60 +1,48 @@
+const resetDatosGenerales = document.getElementById('resetDatosGenerales');
+const resetPassword = document.getElementById('resetPassword');
+const editar = document.getElementById('contenido-edicion');
 
-const resetDatosGenerales= document.getElementById('resetDatosGenerales');
-const resetPassword= document.getElementById('resetPassword');
-const editar= document.getElementById('contenido-edicion');
-
-
-const inputs= document.querySelectorAll('.input');
-
+const inputs = document.querySelectorAll('.input');
 
 // funciones para los eventos y animaciones del formulario
-    //eventos
+//eventos
 
-const focusFunct= (e) => {
+const focusFunct = (e) => {
     let parent = e.target.parentNode.parentNode;
     parent.classList.add('focus');
 };
 
-const blurFunct= (e) => {
+const blurFunct = (e) => {
     let parent = e.target.parentNode.parentNode;
-    if(e.target.value == ''){
+    if (e.target.value == '') {
         parent.classList.remove('focus');
     }
 };
 
-inputs.forEach(input => {
-    input.addEventListener('focus', (e)=>focusFunct(e));
-    input.addEventListener('blur', (e)=>blurFunct(e));
+inputs.forEach((input) => {
+    input.addEventListener('focus', (e) => focusFunct(e));
+    input.addEventListener('blur', (e) => blurFunct(e));
 });
 
 // si se apreta sobre reset la clase focus, error y valid de los campos se deben eliminar
-const resetarFocus= (modal)=>{
-    let containers= modal.querySelectorAll('.containers');
-    containers.forEach(element=>{
-        
-        if(element.classList.contains('focus')){
+const resetarFocus = (modal) => {
+    let containers = modal.querySelectorAll('.containers');
+    containers.forEach((element) => {
+        if (element.classList.contains('focus')) {
             element.classList.remove('focus');
         }
-        if(element.classList.contains('error')){
+        if (element.classList.contains('error')) {
             element.classList.remove('error');
         }
-        if(element.classList.contains('valid')){
+        if (element.classList.contains('valid')) {
             element.classList.remove('valid');
-        }       
-    }); 
-    let img= document.getElementById('inputImg').parentNode
-    if(img.classList.contains('valid')) img.classList.remove('valid');
-    if(img.classList.contains('error')) img.classList.remove('error');
-}
+        }
+    });
+    let img = document.getElementById('inputImg').parentNode;
+    if (img.classList.contains('valid')) img.classList.remove('valid');
+    if (img.classList.contains('error')) img.classList.remove('error');
+};
 
-
-document.getElementById('iconoSubirImagen').addEventListener('click', ()=>{
+document.getElementById('iconoSubirImagen').addEventListener('click', () => {
     document.getElementById('inputImg').click();
- })
-
-
-
-
-
-
-
+});

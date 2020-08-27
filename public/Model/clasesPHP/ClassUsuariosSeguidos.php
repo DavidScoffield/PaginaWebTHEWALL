@@ -94,8 +94,10 @@
             try{
 
                 $sql="SELECT id
-                FROM usuarios
-                WHERE usuarios.id IN (SELECT siguiendo.usuarioseguido_id FROM siguiendo WHERE siguiendo.usuarios_id IN (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario))";
+                      FROM usuarios
+                      WHERE usuarios.id IN 
+                      (SELECT siguiendo.usuarioseguido_id FROM siguiendo WHERE siguiendo.usuarios_id IN 
+                      (SELECT id FROM usuarios WHERE nombreusuario=:nombreusuario))";
                 $resultado=$this->conexion_db->prepare($sql);
                 $resultado->execute(array(":nombreusuario"=>$nombreusuario));
                 $cantRegistros= $resultado->rowCount();

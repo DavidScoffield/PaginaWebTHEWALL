@@ -9,7 +9,7 @@
     $nombre_usuario=$_POST['username'];
 
 
-    if(isset($_POST['msj'])){           //comprobar si se intruduo un msj en el textarea
+    if(isset($_POST['msj'])){           //comprobar si se introdujo un msj en el textarea
         $msj=$_POST['msj'];
     }else{
         $msj=null;

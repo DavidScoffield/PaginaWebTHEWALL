@@ -212,6 +212,9 @@
             </div>
         </div>
     </footer>
+
+
+    
     <script src="js/baseDatos/seguimiento.js"></script> 
     <script src="js/PaginaPrincipal/mensajeExito.js?t=1592197586444"></script>
     <script src="js/editDate/actualizarDatos.js"></script>

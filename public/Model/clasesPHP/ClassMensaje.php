@@ -117,7 +117,7 @@ require_once("../BD.php");
                         $resultado= $this->conexion_db->prepare($sql);
                         $resultado->execute(array(":msj"=>$msj, ":fyh"=>$fecha_hora, ":id"=>$user_id));
 
-                    }else{
+                    }elseif($img != null){
 
                         $sql="INSERT INTO mensaje (imagen_contenido, imagen_tipo, fechayhora, usuarios_id) VALUES ( :img_contenido, :img_tipo, :fyh, :id)";
                         $resultado= $this->conexion_db->prepare($sql);
